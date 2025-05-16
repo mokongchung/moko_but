@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>U_Walk0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{16,13}</string>
+				<key>spriteSize</key>
+				<string>{16,13}</string>
+				<key>textureRect</key>
+				<string>{{0,0},{16,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Walk1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,12}</string>
+				<key>spriteSize</key>
+				<string>{18,12}</string>
+				<key>textureRect</key>
+				<string>{{17,0},{18,12}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>U_Walk2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,15}</string>
+				<key>spriteSize</key>
+				<string>{14,15}</string>
+				<key>textureRect</key>
+				<string>{{36,0},{14,15}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+			<key>U_Walk3.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,16}</string>
+				<key>spriteSize</key>
+				<string>{14,16}</string>
+				<key>textureRect</key>
+				<string>{{51,0},{14,16}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+			<key>U_Walk4.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,16}</string>
+				<key>spriteSize</key>
+				<string>{14,16}</string>
+				<key>textureRect</key>
+				<string>{{66,0},{14,16}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+			<key>U_Walk5.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,14}</string>
+				<key>spriteSize</key>
+				<string>{14,14}</string>
+				<key>textureRect</key>
+				<string>{{81,0},{14,14}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+			<key>U_Special0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{16,13}</string>
+				<key>spriteSize</key>
+				<string>{16,13}</string>
+				<key>textureRect</key>
+				<string>{{96,0},{16,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Special1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,12}</string>
+				<key>spriteSize</key>
+				<string>{18,12}</string>
+				<key>textureRect</key>
+				<string>{{113,0},{18,12}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>U_Special2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{16,15}</string>
+				<key>spriteSize</key>
+				<string>{16,15}</string>
+				<key>textureRect</key>
+				<string>{{132,0},{16,15}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Special3.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{20,15}</string>
+				<key>spriteSize</key>
+				<string>{20,15}</string>
+				<key>textureRect</key>
+				<string>{{149,0},{20,15}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Special4.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{24,16}</string>
+				<key>spriteSize</key>
+				<string>{24,16}</string>
+				<key>textureRect</key>
+				<string>{{170,0},{24,16}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Special5.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{11,13}</string>
+				<key>spriteSize</key>
+				<string>{11,13}</string>
+				<key>textureRect</key>
+				<string>{{195,0},{11,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5454545454545454,0}</string>
+			</dict>
+			<key>U_Special6.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{11,13}</string>
+				<key>spriteSize</key>
+				<string>{11,13}</string>
+				<key>textureRect</key>
+				<string>{{207,0},{11,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5454545454545454,0}</string>
+			</dict>
+			<key>U_Death0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{16,13}</string>
+				<key>spriteSize</key>
+				<string>{16,13}</string>
+				<key>textureRect</key>
+				<string>{{219,0},{16,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Death1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{10,14}</string>
+				<key>spriteSize</key>
+				<string>{10,14}</string>
+				<key>textureRect</key>
+				<string>{{236,0},{10,14}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.6,0}</string>
+			</dict>
+			<key>U_Walk20.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{12,13}</string>
+				<key>spriteSize</key>
+				<string>{12,13}</string>
+				<key>textureRect</key>
+				<string>{{247,0},{12,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Walk21.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{12,13}</string>
+				<key>spriteSize</key>
+				<string>{12,13}</string>
+				<key>textureRect</key>
+				<string>{{260,0},{12,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Walk22.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,10}</string>
+				<key>spriteSize</key>
+				<string>{14,10}</string>
+				<key>textureRect</key>
+				<string>{{273,0},{14,10}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+			<key>U_Walk23.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{16,9}</string>
+				<key>spriteSize</key>
+				<string>{16,9}</string>
+				<key>textureRect</key>
+				<string>{{288,0},{16,9}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Walk24.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{12,13}</string>
+				<key>spriteSize</key>
+				<string>{12,13}</string>
+				<key>textureRect</key>
+				<string>{{305,0},{12,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Walk25.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{12,12}</string>
+				<key>spriteSize</key>
+				<string>{12,12}</string>
+				<key>textureRect</key>
+				<string>{{318,0},{12,12}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>U_Death2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,10}</string>
+				<key>spriteSize</key>
+				<string>{14,10}</string>
+				<key>textureRect</key>
+				<string>{{331,0},{14,10}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+		</dict>
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>3</integer>
+			<key>realTextureFileName</key>
+			<string>enemy_24.png</string>
+			<key>textureFileName</key>
+			<string>enemy_24.png</string>
+			<key>size</key>
+			<string>{346,16}</string>
+		</dict>
+	</dict>
+</plist>

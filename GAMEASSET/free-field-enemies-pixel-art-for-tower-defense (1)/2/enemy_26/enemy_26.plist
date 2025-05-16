@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>S_Attack0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{21,24}</string>
+				<key>spriteSize</key>
+				<string>{21,24}</string>
+				<key>textureRect</key>
+				<string>{{0,0},{21,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.47619047619047616,0}</string>
+			</dict>
+			<key>S_Attack1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,26}</string>
+				<key>spriteSize</key>
+				<string>{18,26}</string>
+				<key>textureRect</key>
+				<string>{{22,0},{18,26}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>S_Attack2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{15,26}</string>
+				<key>spriteSize</key>
+				<string>{15,26}</string>
+				<key>textureRect</key>
+				<string>{{41,0},{15,26}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5333333333333333,0}</string>
+			</dict>
+			<key>S_Attack3.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{15,25}</string>
+				<key>spriteSize</key>
+				<string>{15,25}</string>
+				<key>textureRect</key>
+				<string>{{57,0},{15,25}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5333333333333333,0}</string>
+			</dict>
+			<key>S_Attack4.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{24,23}</string>
+				<key>spriteSize</key>
+				<string>{24,23}</string>
+				<key>textureRect</key>
+				<string>{{73,0},{24,23}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>S_Attack5.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{21,24}</string>
+				<key>spriteSize</key>
+				<string>{21,24}</string>
+				<key>textureRect</key>
+				<string>{{98,0},{21,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.47619047619047616,0}</string>
+			</dict>
+			<key>S_Walk0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{21,22}</string>
+				<key>spriteSize</key>
+				<string>{21,22}</string>
+				<key>textureRect</key>
+				<string>{{120,0},{21,22}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.47619047619047616,0}</string>
+			</dict>
+			<key>S_Walk1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{23,24}</string>
+				<key>spriteSize</key>
+				<string>{23,24}</string>
+				<key>textureRect</key>
+				<string>{{142,0},{23,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5217391304347826,0}</string>
+			</dict>
+			<key>S_Walk2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{20,24}</string>
+				<key>spriteSize</key>
+				<string>{20,24}</string>
+				<key>textureRect</key>
+				<string>{{166,0},{20,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>S_Walk3.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{19,24}</string>
+				<key>spriteSize</key>
+				<string>{19,24}</string>
+				<key>textureRect</key>
+				<string>{{187,0},{19,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5263157894736842,0}</string>
+			</dict>
+			<key>S_Walk4.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,24}</string>
+				<key>spriteSize</key>
+				<string>{18,24}</string>
+				<key>textureRect</key>
+				<string>{{207,0},{18,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>S_Walk5.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{20,23}</string>
+				<key>spriteSize</key>
+				<string>{20,23}</string>
+				<key>textureRect</key>
+				<string>{{226,0},{20,23}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5,0}</string>
+			</dict>
+			<key>S_Death0.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{21,24}</string>
+				<key>spriteSize</key>
+				<string>{21,24}</string>
+				<key>textureRect</key>
+				<string>{{247,0},{21,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.47619047619047616,0}</string>
+			</dict>
+			<key>S_Death1.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{22,24}</string>
+				<key>spriteSize</key>
+				<string>{22,24}</string>
+				<key>textureRect</key>
+				<string>{{269,0},{22,24}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5454545454545454,0}</string>
+			</dict>
+			<key>S_Death2.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{6,9}</string>
+				<key>spriteSize</key>
+				<string>{6,9}</string>
+				<key>textureRect</key>
+				<string>{{292,0},{6,9}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.6666666666666666,0}</string>
+			</dict>
+			<key>S_Death3.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,21}</string>
+				<key>spriteSize</key>
+				<string>{18,21}</string>
+				<key>textureRect</key>
+				<string>{{299,0},{18,21}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>S_Death4.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{18,19}</string>
+				<key>spriteSize</key>
+				<string>{18,19}</string>
+				<key>textureRect</key>
+				<string>{{318,0},{18,19}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5555555555555556,0}</string>
+			</dict>
+			<key>S_Death5.png</key>
+			<dict>
+				<key>aliases</key>
+				<array />
+				<key>spriteOffset</key>
+				<string>{0,0}</string>
+				<key>spriteSourceSize</key>
+				<string>{14,13}</string>
+				<key>spriteSize</key>
+				<string>{14,13}</string>
+				<key>textureRect</key>
+				<string>{{337,0},{14,13}}</string>
+				<key>textureRotated</key>
+				<false />
+				<key>anchor</key>
+				<string>{0.5714285714285714,0}</string>
+			</dict>
+		</dict>
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>3</integer>
+			<key>realTextureFileName</key>
+			<string>enemy_26.png</string>
+			<key>textureFileName</key>
+			<string>enemy_26.png</string>
+			<key>size</key>
+			<string>{352,26}</string>
+		</dict>
+	</dict>
+</plist>
