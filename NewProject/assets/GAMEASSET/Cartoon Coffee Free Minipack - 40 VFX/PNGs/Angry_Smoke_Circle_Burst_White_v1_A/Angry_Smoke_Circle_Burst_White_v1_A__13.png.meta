@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "67d0808e-1b53-4b8a-8865-8e0e74383203",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Angry_Smoke_Circle_Burst_White_v1_A__13": {
+      "ver": "1.0.6",
+      "uuid": "a775a52a-76d3-4c5b-bafa-d8dce7886d7d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "67d0808e-1b53-4b8a-8865-8e0e74383203",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 23.5,
+      "offsetY": 11.5,
+      "trimX": 239,
+      "trimY": 219,
+      "width": 593,
+      "height": 563,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

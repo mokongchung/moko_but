@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b6527d44-47ac-42ac-9864-830b055f04b6",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Charge_Wind_Loop_White_v4_A__25": {
+      "ver": "1.0.6",
+      "uuid": "c3fd65db-c153-40d3-b6cf-ba638fd9be6d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b6527d44-47ac-42ac-9864-830b055f04b6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -31,
+      "offsetY": -12,
+      "trimX": 168,
+      "trimY": 391,
+      "width": 626,
+      "height": 266,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "9b534a5b-f07c-48e7-b14a-c304be4d87dd",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Water_Ground_Splash_Loop_v2_A__38": {
+      "ver": "1.0.6",
+      "uuid": "83d6fe7b-025c-4440-8536-cbf417f5fb3e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "9b534a5b-f07c-48e7-b14a-c304be4d87dd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -4,
+      "offsetY": -90.5,
+      "trimX": 294,
+      "trimY": 188,
+      "width": 428,
+      "height": 829,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

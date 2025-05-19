@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "664d9b65-3949-4433-a8fa-56a4d0803b72",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Smoke_Burst_White_v7_A__23": {
+      "ver": "1.0.6",
+      "uuid": "af17b6b1-66fb-496d-ad6b-f758f92ebeb8",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "664d9b65-3949-4433-a8fa-56a4d0803b72",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -38.5,
+      "offsetY": 31,
+      "trimX": 170,
+      "trimY": 125,
+      "width": 607,
+      "height": 712,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

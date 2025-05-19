@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "9dfcf78d-2a93-456e-94da-523f81e95ed2",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Impact_Cartoon Hit_V4_B__14": {
+      "ver": "1.0.6",
+      "uuid": "1268a8bf-0f9d-4c12-8fff-1b9a9995cc5d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "9dfcf78d-2a93-456e-94da-523f81e95ed2",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 135.5,
+      "offsetY": -33.5,
+      "trimX": 363,
+      "trimY": 388,
+      "width": 569,
+      "height": 315,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "28110bed-610d-44cb-9ad2-268264366caf",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Blood_Burst_v13_A_NoBubble__22": {
+      "ver": "1.0.6",
+      "uuid": "3a27d030-caa0-47d1-8fbe-1a54c3a36fb1",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "28110bed-610d-44cb-9ad2-268264366caf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -16,
+      "offsetY": -11.5,
+      "trimX": 184,
+      "trimY": 213,
+      "width": 624,
+      "height": 621,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

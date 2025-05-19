@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "ac137e8d-6d82-4fa9-be8c-89ecb0a57b48",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Projectile_Fire_Ball_Lv1__4": {
+      "ver": "1.0.6",
+      "uuid": "c9819b1e-79be-4de1-8faa-b96ff02181b6",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "ac137e8d-6d82-4fa9-be8c-89ecb0a57b48",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 16,
+      "trimX": 256,
+      "trimY": 272,
+      "width": 512,
+      "height": 448,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

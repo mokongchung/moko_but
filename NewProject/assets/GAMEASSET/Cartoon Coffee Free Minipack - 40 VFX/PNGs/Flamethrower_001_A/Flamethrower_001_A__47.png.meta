@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "11cc5805-f2f0-4193-b3f5-050a4b7e1b79",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Flamethrower_001_A__47": {
+      "ver": "1.0.6",
+      "uuid": "905f7ea2-83e9-4cf5-95e4-0d72570bd887",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "11cc5805-f2f0-4193-b3f5-050a4b7e1b79",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 17.5,
+      "offsetY": 137.5,
+      "trimX": 391,
+      "trimY": 89,
+      "width": 277,
+      "height": 571,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

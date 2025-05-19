@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "0e6084bb-6ae4-4720-a765-e81a49aa21eb",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Star_Bursts_V4__12": {
+      "ver": "1.0.6",
+      "uuid": "3d9d0f07-c4dd-4166-86b9-e83aa5842b2e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "0e6084bb-6ae4-4720-a765-e81a49aa21eb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 46,
+      "offsetY": 111,
+      "trimX": 309,
+      "trimY": 277,
+      "width": 498,
+      "height": 248,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "2879a232-d4b2-4c52-a650-07591b3533aa",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Blood_Ground_Splash_Loop_v4_A__11": {
+      "ver": "1.0.6",
+      "uuid": "fdaf6f07-9eb3-4c7c-a5aa-62316e7dcdfc",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "2879a232-d4b2-4c52-a650-07591b3533aa",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 2,
+      "offsetY": -266,
+      "trimX": 473,
+      "trimY": 620,
+      "width": 82,
+      "height": 316,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

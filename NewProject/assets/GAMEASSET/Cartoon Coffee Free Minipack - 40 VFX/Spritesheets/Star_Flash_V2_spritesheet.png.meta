@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b1e1b983-bf97-47d3-be63-752367f0c97a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 2048,
+  "platformSettings": {},
+  "subMetas": {
+    "Star_Flash_V2_spritesheet": {
+      "ver": "1.0.6",
+      "uuid": "7116a589-0986-43f9-b39e-0e70651f5417",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b1e1b983-bf97-47d3-be63-752367f0c97a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 84.5,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2048,
+      "height": 1879,
+      "rawWidth": 2048,
+      "rawHeight": 2048,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

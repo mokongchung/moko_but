@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "83b6f63f-7083-47ba-8eef-b1ce85d49fce",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Dash_Wind_White_v1__16": {
+      "ver": "1.0.6",
+      "uuid": "22e9ef7e-adf3-4792-9d20-5d613e1f52c4",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "83b6f63f-7083-47ba-8eef-b1ce85d49fce",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -6,
+      "offsetY": 0,
+      "trimX": 317,
+      "trimY": 315,
+      "width": 378,
+      "height": 394,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
