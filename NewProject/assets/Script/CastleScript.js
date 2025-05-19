@@ -4,6 +4,8 @@ cc.Class({
 
     properties: {
         Spawner: cc.Node,
+        Skill1Btn: cc.Button,
+        Skill2Btn: cc.Button,
         MoneySpeed: 1,
         ManaRegenSpeed: 1,
     },
@@ -35,6 +37,11 @@ cc.Class({
         GameController.getInstance().MoneyGain(Math.floor(this.Money));
         this.Spell += dt* this.ManaRegenSpeed;
         GameController.getInstance().SpellGain(this.Spell);
-     }
+     },
+
+     Skill1Btn()
+     {
+
+     },
 
 });
