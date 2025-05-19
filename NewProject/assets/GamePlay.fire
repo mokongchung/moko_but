@@ -2614,7 +2614,7 @@
     },
     "component": "",
     "_componentId": "926adZjgdFK5YtZoBg4JrMe",
-    "handler": "SpawnPlayer1",
+    "handler": "SpawnPlayer",
     "customEventData": "0"
   },
   {
@@ -3100,7 +3100,7 @@
     },
     "component": "",
     "_componentId": "926adZjgdFK5YtZoBg4JrMe",
-    "handler": "SpawnPlayer2",
+    "handler": "SpawnPlayer",
     "customEventData": "1"
   },
   {
@@ -3586,7 +3586,7 @@
     },
     "component": "",
     "_componentId": "926adZjgdFK5YtZoBg4JrMe",
-    "handler": "SpawnPlayer3",
+    "handler": "SpawnPlayer",
     "customEventData": "2"
   },
   {
@@ -4072,7 +4072,7 @@
     },
     "component": "",
     "_componentId": "926adZjgdFK5YtZoBg4JrMe",
-    "handler": "SpawnPlayer4",
+    "handler": "SpawnPlayer",
     "customEventData": "3"
   },
   {
