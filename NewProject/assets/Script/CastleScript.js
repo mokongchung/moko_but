@@ -6,8 +6,12 @@ cc.Class({
         Spawner: cc.Node,
         Skill1Btn: cc.Button,
         Skill2Btn: cc.Button,
-        MoneySpeed: 1,
-        ManaRegenSpeed: 1,
+        SummonBtn: [cc.Button],
+        SummonPrice: [cc.Integer],
+        Skill1Charge: 40,
+        Skill2Charge: 80,
+        MoneySpeed: 0,
+        ManaRegenSpeed: 0,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -17,10 +21,23 @@ cc.Class({
         this.Money =0;
         this.Hp = 100;
         this.Spell = 0;
+
+
     },
 
     start () {
         this.animation = this.node.getComponent(cc.Animation);
+        for (let i = 0; i < this.SummonBtn.length; i++) {
+        let btn = this.SummonBtn[i];
+
+        let labelNode = btn.node.getChildByName('PriceTxt');
+        if (labelNode) {
+            let label = labelNode.getComponent(cc.Label);
+            if (label) {
+                label.string = this.SummonPrice[i];
+            }
+        }
+    }
     },
     CastleIdle() 
     {
@@ -31,17 +48,43 @@ cc.Class({
         this.MoneynManaGain(dt);
      },
 
-     MoneynManaGain (dt) 
+     update(dt) {
+    this.MoneynManaGain(dt);
+    },
+
+   MoneynManaGain(dt) {
+    this.Money += dt * this.MoneySpeed;
+    const moneyInt = Math.floor(this.Money);
+    if (moneyInt !== this.lastMoneyInt) {
+        GameController.getInstance().MoneyGain(moneyInt);
+        this.lastMoneyInt = moneyInt;
+    }
+
+    this.Spell += dt * this.ManaRegenSpeed;
+    const spellInt = Math.floor(this.Spell);
+    if (spellInt !== this.lastSpellInt) {
+        GameController.getInstance().SpellGain(spellInt);
+        this.lastSpellInt = spellInt;
+    }
+
+    this.Skill1Btn.interactable = this.Spell >= this.Skill1Charge;
+    this.Skill2Btn.interactable = this.Spell >= this.Skill2Charge;
+
+    for (let i = 0; i < this.SummonBtn.length; i++) {
+        this.SummonBtn[i].interactable = this.Money >= this.SummonPrice[i];
+    }
+},
+
+
+
+
+     Skill1Activate()
      {
-        this.Money += dt* this.MoneySpeed;
-        GameController.getInstance().MoneyGain(Math.floor(this.Money));
-        this.Spell += dt* this.ManaRegenSpeed;
-        GameController.getInstance().SpellGain(this.Spell);
+        this.Spell -= this.Skill1Charge;
      },
-
-     Skill1Btn()
+     Skill2Activate()
      {
-
+         this.Spell -= this.Skill2Charge;
      },
 
 });

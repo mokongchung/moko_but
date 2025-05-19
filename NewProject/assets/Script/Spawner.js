@@ -1,0 +1,87 @@
+let PoolManager = require('PoolingManager');
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        Spawner: cc.Node,
+        MoneyScript: cc.Node,
+      
+    },
+
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {},
+
+    start () {
+       this.Money = this.MoneyScript.getComponent('CastleScript') 
+          || this.MoneyScript.getComponent('EnemyCastle');
+
+    },
+    RandomPosition() {
+        // Get Spawner's size (width & height)
+        const size = this.Spawner.getContentSize();
+
+        // Get Spawner's anchor point (usually 0.5,0.5 but confirm)
+        const anchor = this.Spawner.getAnchorPoint ? this.Spawner.getAnchorPoint() : cc.v2(0.5, 0.5);
+
+        // Calculate min and max coordinates inside Spawner's local space
+        const minX = -size.width * anchor.x;
+        const maxX = size.width * (1 - anchor.x);
+        const minY = -size.height * anchor.y;
+        const maxY = size.height * (1 - anchor.y);
+
+        // Random position inside rectangle in local space
+        const randX = Math.random() * (maxX - minX) + minX;
+        const randY = Math.random() * (maxY - minY) + minY;
+
+        // Return new position (Vec2 or Vec3)
+        return cc.v2(randX, randY);
+    },
+    
+    SpawnPlayer(Index) {
+        console.log("so la"+Index);
+        
+            this.Money.Money -= this.Money.SummonPrice[Index];
+             const player = PoolManager.getInstance().getPlayer(Index);
+            player.setPosition(this.RandomPosition());    
+            if(this.Money.Money < this.Money.SummonPrice[Index])
+            {
+                this.Money.SummonBtn[Index].interactable = false;
+            }
+        
+    },
+    // SpawnPlayer2() {
+    //         this.Money.Money -= this.Money.SummonPrice[1];
+    //         const player = PoolManager.getInstance().getPlayer2();
+    //         player.setPosition(this.RandomPosition());
+    //         if(this.Money.Money < this.Money.SummonPrice[1])
+    //         {
+    //             this.Money.SummonBtn[1].interactable = false;
+    //         }
+        
+    // },
+    // SpawnPlayer3() {
+    //         this.Money.Money -= this.Money.SummonPrice[2];
+    //         const player = PoolManager.getInstance().getPlayer3();
+    //         player.setPosition(this.RandomPosition());
+    //         if(this.Money.Money < this.Money.SummonPrice[2])
+    //         {
+    //             this.Money.SummonBtn[2].interactable = false;
+    //         }
+        
+    // },
+    // SpawnPlayer4() {
+    //         this.Money.Money -= this.Money.SummonPrice[3];
+    //         const player = PoolManager.getInstance().getPlayer4();
+    //         player.setPosition(this.RandomPosition());
+    //         if(this.Money.Money < this.Money.SummonPrice[3])
+    //         {
+    //             this.Money.SummonBtn[3].interactable = false;
+    //         }
+        
+    // },
+    
+
+
+    // update (dt) {},
+});
