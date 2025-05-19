@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "enemy01_run",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.11666666666666667,
+  "sample": 60,
+  "speed": 0.3,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "539da164-6ec4-4aa9-8c2d-fbf63011af18"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "36f5fca6-a7a0-4ae3-ab88-7fab682ab9b8"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "f8eb308b-dc32-4ae0-a2a9-329d9b532ab9"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "4defa0a7-191c-4c0d-9b19-625be181ef2d"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "2bb86c60-b089-4803-958e-9a0cda4c99b4"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "fd482cda-84fb-496a-a6f1-fab754492fd2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
