@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "enemy02_death",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.11666666666666667,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "5fddb8d1-85cc-4ca4-8cdc-d2cf43b2f046"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "213b9e99-4882-4156-a212-7d40336aeb93"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "d078ccea-5636-457f-80af-c8110ea14c27"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "e5cb2c10-c55e-42ce-a24a-2acd053eed4f"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "fc7e28ff-c914-409a-928f-c00ac38c854f"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "1aa22ee0-18a1-4f53-81ca-870527061583"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
