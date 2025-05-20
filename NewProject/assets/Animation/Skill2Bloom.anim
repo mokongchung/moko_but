@@ -1,0 +1,85 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Skill2Bloom",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.16666666666666666,
+  "sample": 60,
+  "speed": 0.5,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "5bca7020-8669-474e-8586-05da448a7fb4"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "9c5e5056-7377-4a5b-97e3-b28d45ead571"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "945f962f-2e16-438e-8f83-2b98cb44dc1d"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "f12fd877-153d-41e5-8357-e7a21a8d52a5"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "4430a3ea-4ffb-437f-a9a6-bc885875f8ac"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "ec5fe321-523c-4c03-b3c7-c27c792ec7e1"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "aabdee06-f7c4-41cd-89c7-053daa3fa297"
+            }
+          },
+          {
+            "frame": 0.11666666666666667,
+            "value": {
+              "__uuid__": "7b02d435-8b85-449b-9d6a-f3da43ec54c3"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "cef0dbca-e9c5-4fee-9e4d-bf48a32a1a2c"
+            }
+          },
+          {
+            "frame": 0.15,
+            "value": {
+              "__uuid__": "4ed0baf3-33b4-458a-987d-7ce48c5ea24a"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.16666666666666666,
+      "func": "EndAnimation",
+      "params": []
+    }
+  ]
+}

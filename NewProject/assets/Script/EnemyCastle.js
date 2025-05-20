@@ -49,7 +49,7 @@ cc.Class({
             return;
         }
         console.log(" nhận take dmg "+ event.detail.dmg);
-        
+        this.ShakeHpBar();
         let dmgTake = event.detail.dmg;
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
         console.log("hp castle"+ this.hp + " % " + (this.hp  / this.hpMax) );
@@ -63,6 +63,19 @@ cc.Class({
             
             this.node.active = false;
         }
+    },
+
+    ShakeHpBar() {
+        const originalPos = this.hpBar.node.getPosition();
+
+        cc.tween(this.hpBar.node)
+            .repeat(5, // lặp 5 lần lắc trái phải
+                cc.tween()
+                    .to(0.03, { x: originalPos.x + 5 })
+                    .to(0.03, { x: originalPos.x - 5 })
+            )
+            .to(0.03, { x: originalPos.x }) // trở lại vị trí ban đầu
+            .start();
     },
 
     AIWhoWillPlaythisGame()

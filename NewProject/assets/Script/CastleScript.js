@@ -3,12 +3,15 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        CastSpellsprite: cc.Node,
         HpBar: cc.ProgressBar,
         SkillBar: cc.ProgressBar,
         MoneyDisplay: cc.Label,
         Spawner: cc.Node,
         Skill1Btn: cc.Button,
         Skill2Btn: cc.Button,
+        Skill1Prefab: cc.Prefab,
+        Skill2Prefab: cc.Prefab,
         SummonBtn: [cc.Button],
         SummonPrice: [cc.Integer],
         Skill1Charge: 40,
@@ -19,14 +22,16 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () 
-    {
-        this.Money =0;
-        this.Hp = 100;
-        this.Spell = 0;
+    onLoad() {
+    this.Money = 0;
+    this.Hp = 100;
+    this.Spell = 0;
+
+    this.mousePosition = null;
 
 
-    },
+},
+
 
     start () {
         this.animation = this.node.getComponent(cc.Animation);
@@ -47,14 +52,15 @@ cc.Class({
     {
         this.animation.play('CastlesIdle');
     },
-     update (dt) 
-     {
-        this.MoneynManaGain(dt);
-     },
 
-     update(dt) {
+
+    update(dt) {
     this.MoneynManaGain(dt);
-    },
+
+    
+},
+
+
 
    MoneynManaGain(dt) {
     this.Money += dt * this.MoneySpeed;
@@ -83,15 +89,77 @@ cc.Class({
 },
 
 
+    onMouseMove(event) {
+    this.mousePosition = event.getLocation();
 
+   
+        // Lấy vị trí chuột từ màn hình về local node cha của sprite
+        let localPos = this.CastSpellsprite.parent.convertToNodeSpaceAR(this.mousePosition);
+
+        // Di chuyển sprite theo trục X
+        this.CastSpellsprite.x = localPos.x;
+        
+    },
+
+    onGlobalClick(event) {
+        // Nếu đang di chuyển và click bất cứ đâu → tắt di chuyển
+        cc.Canvas.instance.node.off(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
+        cc.Canvas.instance.node.off(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
+
+            this.CastSpellsprite.active = false;
+           
+                this.Skill2();
+            
+        
+    },
 
      Skill1Activate()
      {
         this.Spell -= this.Skill1Charge;
+        this.Skill1();
+        
      },
      Skill2Activate()
      {
          this.Spell -= this.Skill2Charge;
+         this.CastSpellsprite.active = true;
+
+                // Lắng nghe sự kiện chuột di chuyển
+        cc.Canvas.instance.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
+
+        // Bắt click toàn màn hình
+        cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
+
      },
+
+     Skill1()
+     {
+        this.spawnAtCenter(this.Skill1Prefab);
+        console.log("this.Skill1Prefab");
+     },
+     Skill2()
+     {
+         const newNode = cc.instantiate(this.Skill2Prefab);
+          newNode.setPosition(this.CastSpellsprite);
+          const canvas = cc.find('Canvas');
+            canvas.addChild(newNode);
+          console.log("this.Skill2Prefab");
+     },
+     spawnAtCenter(prefab) {
+        // Tạo instance từ prefab truyền vào
+        const newNode = cc.instantiate(prefab);
+
+        // Lấy node Canvas (nơi chứa UI)
+        const canvas = cc.find('Canvas');
+
+        // Thêm node mới vào Canvas
+        canvas.addChild(newNode);
+
+        // Đặt vị trí node mới tại trung tâm (0, 0)
+        newNode.setPosition(0, 0);
+
+       
+    }
+
 
 });
