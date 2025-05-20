@@ -29,6 +29,8 @@ cc.Class({
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
+
+        this.animation = this.node.getComponent(cc.Animation);
      },
 
     start () {
@@ -77,6 +79,7 @@ cc.Class({
             .by(1, { position: cc.v2(this.speed, 0) })
             .repeatForever()
             .start();
+            this.animation.play('run');
     },
 
     loopAtk(){
@@ -103,6 +106,9 @@ cc.Class({
             
         }, this.atkSpeed); 
 
+        //change animation atk
+        this.animation.play('attack');
+
         console.log("loopAtk ID"+ this.loopAtkID ); 
     },
     takeDmg(event){
@@ -110,6 +116,7 @@ cc.Class({
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
+        if(this.hp <= 0 ) return;
         console.log(" nhận take dmg "+ event.detail.dmg);
         
         let dmgTake = event.detail.dmg;
@@ -120,12 +127,16 @@ cc.Class({
 
         if(this.hp <= 0 ){
             console.log("unit dead");
+            this.animation.play('death');
             clearInterval(this.loopAtkID);
             
             
-            this.node.active = false;
+            
         }
-    }
+    },
+    dead(){
+        this.node.active = false;
+    },
 
 
     // update (dt) {},

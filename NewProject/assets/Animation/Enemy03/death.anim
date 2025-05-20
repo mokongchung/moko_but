@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "enemy03_death",
+  "_name": "death",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.1,
@@ -51,5 +51,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0.08333333333333333,
+      "func": "dead",
+      "params": []
+    }
+  ]
 }
