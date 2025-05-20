@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "cb5ae8eb-ab4a-4ba0-a22a-b4804308dc18",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 100,
+  "height": 100,
+  "platformSettings": {},
+  "subMetas": {
+    "03_Huntress_attack": {
+      "ver": "1.0.6",
+      "uuid": "7ae7232e-ebcc-4455-9377-3afdfcf1f278",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "cb5ae8eb-ab4a-4ba0-a22a-b4804308dc18",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 100,
+      "height": 100,
+      "rawWidth": 100,
+      "rawHeight": 100,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

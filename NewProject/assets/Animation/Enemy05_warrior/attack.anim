@@ -1,0 +1,167 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 3.35,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "b6c88f67-9758-460f-80ba-004c1c2bf579"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "e4157581-c227-438b-972c-1c4370242f66"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "50333ab9-f266-4224-8ea1-da27917fb77d"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "9cf7fd8f-efcf-41c8-9366-32bda72a7dd1"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "c5fd9beb-168b-41c0-bd3c-e9ef008cd6f6"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "c9fe4426-3aeb-40eb-9877-19f3d9232c0f"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "6ab2e6b9-fb56-4e05-bae8-a23920f09516"
+            }
+          },
+          {
+            "frame": 1.1666666666666667,
+            "value": {
+              "__uuid__": "1b8b340e-8ea6-4bcf-9028-dde45afd3f15"
+            }
+          },
+          {
+            "frame": 1.3333333333333333,
+            "value": {
+              "__uuid__": "d743ee10-561c-45ac-bcff-99f12221bd07"
+            }
+          },
+          {
+            "frame": 1.5,
+            "value": {
+              "__uuid__": "37b97a0e-fb43-43f6-a5c1-200248c71bff"
+            }
+          },
+          {
+            "frame": 1.6666666666666667,
+            "value": {
+              "__uuid__": "4865dc12-1cd7-45e5-aedb-0f4cd5a158be"
+            }
+          },
+          {
+            "frame": 1.8333333333333333,
+            "value": {
+              "__uuid__": "9492981a-1882-4ff6-9504-3fdd6edcac67"
+            }
+          },
+          {
+            "frame": 2,
+            "value": {
+              "__uuid__": "e140c6a1-bde2-4e9c-b544-22a64d2b23d8"
+            }
+          },
+          {
+            "frame": 2.1666666666666665,
+            "value": {
+              "__uuid__": "0acfd814-ac03-4ec9-bd8c-8b198c25b4f3"
+            }
+          },
+          {
+            "frame": 2.3333333333333335,
+            "value": {
+              "__uuid__": "2994dfbd-926d-4e92-8c58-a72a4de63219"
+            }
+          },
+          {
+            "frame": 2.5,
+            "value": {
+              "__uuid__": "fd357ce6-359c-40d2-bccb-a3e1a38ceffa"
+            }
+          },
+          {
+            "frame": 2.6666666666666665,
+            "value": {
+              "__uuid__": "7795f9cc-81b0-4230-86c5-491907c98a98"
+            }
+          },
+          {
+            "frame": 2.8333333333333335,
+            "value": {
+              "__uuid__": "59bf27bd-f767-4c76-a34c-02098ca2ff22"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "27df258a-179f-4dcd-9ef2-39584143df52"
+            }
+          },
+          {
+            "frame": 3.1666666666666665,
+            "value": {
+              "__uuid__": "db0fd6fd-ca99-44d7-85ec-12fb4545ba51"
+            }
+          },
+          {
+            "frame": 3.3333333333333335,
+            "value": {
+              "__uuid__": "4c7680ab-14e4-4089-a578-9acf61ea472f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 1,
+      "func": "dealDmg",
+      "params": [
+        1
+      ]
+    },
+    {
+      "frame": 1.8333333333333333,
+      "func": "dealDmg",
+      "params": [
+        2
+      ]
+    },
+    {
+      "frame": 3.1666666666666665,
+      "func": "atk",
+      "params": [
+        3
+      ]
+    }
+  ]
+}

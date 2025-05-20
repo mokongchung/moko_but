@@ -134,6 +134,12 @@ cc.Class({
             
         }
     },
+    dealDmg( comboHit = 0){
+
+    },
+    createBullet(){
+
+    },
     dead(){
         this.node.active = false;
     },

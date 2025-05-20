@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "c783723c-3a2d-4b4f-a9f3-9c4b411af8d5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 140,
+  "height": 140,
+  "platformSettings": {},
+  "subMetas": {
+    "06_wizard_Death": {
+      "ver": "1.0.6",
+      "uuid": "ccb9518b-dd8b-49e1-ae85-c27c47221160",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "c783723c-3a2d-4b4f-a9f3-9c4b411af8d5",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 140,
+      "height": 140,
+      "rawWidth": 140,
+      "rawHeight": 140,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b75246a9-7215-4deb-9024-6ba0467563ac",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 100,
+  "height": 100,
+  "platformSettings": {},
+  "subMetas": {
+    "06_Huntress_death": {
+      "ver": "1.0.6",
+      "uuid": "2b7a6d10-5b93-44a5-bf75-fe805ab9b15e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b75246a9-7215-4deb-9024-6ba0467563ac",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 100,
+      "height": 100,
+      "rawWidth": 100,
+      "rawHeight": 100,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

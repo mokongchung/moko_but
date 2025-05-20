@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "3f9dcd18-9741-47f8-977b-ff13a76c28cb",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 140,
+  "height": 140,
+  "platformSettings": {},
+  "subMetas": {
+    "06_knight_death": {
+      "ver": "1.0.6",
+      "uuid": "97494fb8-c98a-4404-bb0e-72e6ece94fee",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "3f9dcd18-9741-47f8-977b-ff13a76c28cb",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 140,
+      "height": 140,
+      "rawWidth": 140,
+      "rawHeight": 140,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
