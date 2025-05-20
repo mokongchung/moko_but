@@ -357,7 +357,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
+      "width": 80,
       "height": 100
     },
     "_anchorPoint": {
@@ -415,12 +415,12 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 75,
+      "x": 40,
       "y": 0
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 150,
+      "width": 80,
       "height": 100
     },
     "_id": ""
