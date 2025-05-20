@@ -27,7 +27,7 @@ let GameController = cc.Class({
     },
 
     properties: {
-   
+
     },
 
     

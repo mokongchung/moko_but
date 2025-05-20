@@ -29,8 +29,24 @@ cc.Class({
 
     this.mousePosition = null;
 
+    this.callback();
+    
+       
+    },
 
-},
+    callback() {
+    // Định nghĩa hàm callback để dễ off sau này
+        this._onRequestHP = (callback) => {
+            if (typeof callback === "function") {
+                callback(this.Hp); // gửi HP
+            }
+            // Off luôn listener sau lần phản hồi đầu tiên
+            cc.director.off("RequestHP", this._onRequestHP, this);
+        };
+
+        cc.director.on("RequestHP", this._onRequestHP, this);
+   
+    },
 
 
     start () {
@@ -159,7 +175,9 @@ cc.Class({
         newNode.setPosition(0, 0);
 
        
+    },
+    onDestroy() {
+        cc.director.off("RequestHP", this._onRequestHP, this);
     }
-
 
 });

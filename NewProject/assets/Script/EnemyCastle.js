@@ -15,6 +15,7 @@ cc.Class({
 
 
         hpBar : cc.ProgressBar,
+        GamePlay: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -58,7 +59,8 @@ cc.Class({
 
         if(this.hp <= 0 ){
             console.log("castle enemy dead");
-            
+            let GamePlayScript = this.GamePlay.getComponent('GamplayScript');
+            GamePlayScript.onGameOver();
             
             
             this.node.active = false;

@@ -3,31 +3,95 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        edgeScrollThreshold: 20, // Khoảng cách đến rìa màn hình để bắt đầu cuộn
+        edgeScrollSpeed: 200,    // Tốc độ cuộn rìa tính theo px/s
+        dragSpeed: 0.1, // Tốc độ kéo camera
+
+
         backgroundNode: cc.Node, // Node nền để kéo camera
         cameraNode: cc.Node, // Node camera để di chuyển
-        dragSpeed: 0.1, // Tốc độ kéo camera
+
+        GameOverUI: cc.Node, // Node GameOver UI
+        GameWinUI: cc.Node, // Node GameWin UI
+     
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this._isDragging = false;
-        this._lastTouchPos = null;
+    this._isDragging = false;
+    this._lastTouchPos = null;
+    this._mousePos = null; // 👈 thêm dòng này
 
-        // Gắn sự kiện kéo cho node hiện tại (thường là canvas hoặc một node overlay full màn hình)
-        this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
-    },
+    this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+    this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+    this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+    this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+
+    this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
+
+},
+
 
 
     start () {
         const audio = AudioController.getInstance();
         audio.PlayBgMusic(audio.bgMusicGamePlay);
+         //this.requestHPFromPlayer();
     },
 
-    
+    update(dt) {
+        if (!this.cameraNode || !this.backgroundNode || !this._mousePos) return;
+
+        const mousePos = this._mousePos;
+        const screenWidth = cc.view.getVisibleSize().width;
+        const halfViewWidth = screenWidth / 2;
+
+        const bgLeft = this.backgroundNode.x - this.backgroundNode.width / 2;
+        const bgRight = this.backgroundNode.x + this.backgroundNode.width / 2;
+
+        const minX = bgLeft + halfViewWidth;
+        const maxX = bgRight - halfViewWidth;
+
+        let newX = this.cameraNode.x;
+
+        if (mousePos.x <= this.edgeScrollThreshold) {
+            newX -= this.edgeScrollSpeed * dt;
+        } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold) {
+            newX += this.edgeScrollSpeed * dt;
+        }
+
+        newX = Math.max(minX, Math.min(newX, maxX));
+        this.cameraNode.setPosition(newX, this.cameraNode.y);
+    },
+    onMouseMove(event) {
+        this._mousePos = event.getLocation();
+    },
+
+
+
+    requestHPFromPlayer() {
+        cc.director.emit("RequestHP", (hp) => {
+            cc.log("HP của A là:", hp);
+            // Xử lý hp ở đây
+            return hp;
+        });
+    },
+
+    onGameOver() {
+        let HP = this.requestHPFromPlayer();
+       if(HP <= 0) {
+            this.GameOverUI.active = true;
+            
+            cc.director.pause();
+        }   
+        else {
+            this.GameWinUI.active = true;
+            let GameWinScript= this.GameWinUI.getComponent("GameWinScript");
+            GameWinScript.PlayerHP = HP;
+            cc.director.pause();
+        }
+    },
     onTouchStart(event) {
         this._isDragging = true;
         this._lastTouchPos = event.getLocation();
