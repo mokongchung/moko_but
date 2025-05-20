@@ -28,7 +28,7 @@ cc.Class({
     start () {
         this.SpawnerScript = this.node.getComponent('Spawner');
 
-        //this.AIWhoWillPlaythisGame();
+        this.AIWhoWillPlaythisGame();
         this.node.on('takeDmg', this.takeDmg, this);
     },
 
@@ -70,12 +70,12 @@ cc.Class({
         //auto spam
         this.loopSpam = setInterval(() => {
 
-            this.SpawnerScript.SpawnPlayer(null, 1); 
+            this.SpawnerScript.SpawnEnemy(null, 1); 
             
 
             
             
-        }, 3); 
+        }, 10000); 
     }
     
 });

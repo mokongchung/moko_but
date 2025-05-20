@@ -24,7 +24,7 @@ cc.Class({
     onLoad () {
         this.moveTween;
         this.enemy = [];
-        this.loopAtk;
+        this.loopAtkID;
         this.hp = this.hpMax;
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
@@ -42,6 +42,7 @@ cc.Class({
         cc.log('Cha nhận node:', enemyNode.node.group);
         // Thử thay đổi màu node
         this.enemy.push( enemyNode.node) ;
+
         this.loopAtk();
         
 
@@ -60,14 +61,15 @@ cc.Class({
     enemyDead(){
         console.log("enemy dead");
         this.enemy.shift();
-        
+        this.checkEnemyListEmpty();
         console.log("hp deddddd "+ this.hp + " % " + (this.hp  / this.hpMax) );
     },
     checkEnemyListEmpty(){
         if(this.enemy.length == 0){
             this.move();
-            clearInterval(this.loopAtk);
-            this.loopAtk = null;
+            clearInterval(this.loopAtkID);
+            console.log("da stop loop atk +" +this.loopAtkID)
+            this.loopAtkID = null;
         }
     },
     move(){
@@ -79,12 +81,13 @@ cc.Class({
 
     loopAtk(){
         if ( this.enemy.length == 0) return;
-        
+        if (this.loopAtkID != null) return;
         console.log("atk enemy ");
         
-        this.loopAtk = setInterval(() => {
+        this.loopAtkID = setInterval(() => {
+            
 
-            if(this.enemy[0].active == false){
+            if(  !this.enemy[0] || (this.enemy[0].active == false)){
                 this.enemyDead();
             }else{
                 let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
@@ -99,6 +102,8 @@ cc.Class({
             
             
         }, this.atkSpeed); 
+
+        console.log("loopAtk ID"+ this.loopAtkID ); 
     },
     takeDmg(event){
         if (!event || !event.detail) {
@@ -115,7 +120,7 @@ cc.Class({
 
         if(this.hp <= 0 ){
             console.log("unit dead");
-            clearInterval(this.loopAtk);
+            clearInterval(this.loopAtkID);
             
             
             this.node.active = false;
