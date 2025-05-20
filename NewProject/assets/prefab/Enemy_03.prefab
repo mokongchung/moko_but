@@ -516,17 +516,17 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "653bcfd9-83eb-4f14-a6ab-51932e440aec"
+      "__uuid__": "1febd8b0-1e3c-4f80-afcc-db620f8b38d2"
     },
     "_clips": [
       {
-        "__uuid__": "0a3ffb1d-f46d-4ca2-bdb8-73a1a5ca6285"
+        "__uuid__": "0ef21479-2d18-40ab-a8a7-cabe10c79dd4"
       },
       {
-        "__uuid__": "c83d40f2-56fa-411e-9a72-ee686eb1a26b"
+        "__uuid__": "7a48da9b-91d2-4036-93d8-c98ae6e916de"
       },
       {
-        "__uuid__": "653bcfd9-83eb-4f14-a6ab-51932e440aec"
+        "__uuid__": "1febd8b0-1e3c-4f80-afcc-db620f8b38d2"
       }
     ],
     "playOnLoad": true,
