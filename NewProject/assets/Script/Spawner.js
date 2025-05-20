@@ -38,7 +38,7 @@ cc.Class({
         return cc.v2(randX, randY);
     },
     
-    SpawnPlayer(Index) {
+    SpawnPlayer(event, Index) {
         console.log("so la"+Index);
         
             this.Money.Money -= this.Money.SummonPrice[Index];
