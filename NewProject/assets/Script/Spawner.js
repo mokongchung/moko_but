@@ -40,7 +40,8 @@ cc.Class({
     
     SpawnPlayer(event, Index) {
         console.log("so la"+Index);
-        
+        //if(this.Money.Money < this.Money.SummonPrice[Index]) return;
+
             this.Money.Money -= this.Money.SummonPrice[Index];
              const player = PoolManager.getInstance().getPlayer(Index);
             player.setPosition(this.RandomPosition());    
@@ -48,6 +49,13 @@ cc.Class({
             {
                 this.Money.SummonBtn[Index].interactable = false;
             }
+        
+    },
+    SpawnEnemy(event, Index){
+
+        // - monny enemy
+        const enemy = PoolManager.getInstance().getEnemy(Index);
+        enemy.setPosition(this.RandomPosition());
         
     },
     // SpawnPlayer2() {
