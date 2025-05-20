@@ -47,7 +47,7 @@ cc.Class({
             player.setPosition(this.RandomPosition());    
             if(this.Money.Money < this.Money.SummonPrice[Index])
             {
-                this.Money.SummonBtn[Index].interactable = false;
+                this.Money.SummonBtn[Index].interactable= false;
             }
         
     },

@@ -3,6 +3,9 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        HpBar: cc.ProgressBar,
+        SkillBar: cc.ProgressBar,
+        MoneyDisplay: cc.Label,
         Spawner: cc.Node,
         Skill1Btn: cc.Button,
         Skill2Btn: cc.Button,
@@ -38,6 +41,7 @@ cc.Class({
             }
         }
     }
+    
     },
     CastleIdle() 
     {
@@ -56,14 +60,17 @@ cc.Class({
     this.Money += dt * this.MoneySpeed;
     const moneyInt = Math.floor(this.Money);
     if (moneyInt !== this.lastMoneyInt) {
-        GameController.getInstance().MoneyGain(moneyInt);
+        this.MoneyDisplay.string = moneyInt;
+        //GameController.getInstance().MoneyGain(moneyInt);
         this.lastMoneyInt = moneyInt;
     }
 
     this.Spell += dt * this.ManaRegenSpeed;
     const spellInt = Math.floor(this.Spell);
     if (spellInt !== this.lastSpellInt) {
-        GameController.getInstance().SpellGain(spellInt);
+        this.SkillBar.progress = this.Spell / 100;
+        // Update the spell value in GameController
+       // GameController.getInstance().SpellGain(spellInt);
         this.lastSpellInt = spellInt;
     }
 

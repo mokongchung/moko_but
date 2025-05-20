@@ -20,58 +20,18 @@ let GameController = cc.Class({
 
         // Giữ node này tồn tại xuyên scene
         cc.game.addPersistRootNode(this.node);
-        this._timeAccum = 0;
-        // Khởi tạo các biến cần thiết DATAGAME
-            this.EnemyHp = 100;
-            this.PlayerHp = 100;
-            this.PlayerSpell = 0;
-            this.PlayerMoney = 0;
+        
+
+        this.Level = 0; // Mặc định là level 0
 
     },
 
     properties: {
-        MoneyGainSpeed: 1,
-
-       EnemyHPBar: cc.ProgressBar,
-       PlayerHpBar: cc.ProgressBar,
-       PlayerSpellBar: cc.ProgressBar,
-       PlayerMoneyLabel: cc.Label,
+   
     },
 
     
-    SpellGain(progress) 
-    {
-        this.PlayerSpell = progress;
-        this.PlayerSpellBar.progress = this.PlayerSpell / 100;
-        if (this.PlayerSpell >= 100) {
-            this.PlayerSpell = 100;
-            cc.log("Player Spell is full");
-        }
-    },
 
-    MoneyGain (money) 
-    {
-        this.PlayerMoney = money;
-        this.PlayerMoneyLabel.string = this.PlayerMoney;
-    },
-
-    DealDame (hp) {
-        this.EnemyHp = hp;
-        this.EnemyHPBar.progress = this.EnemyHp / 100;
-        if (this.EnemyHp <= 0) {
-            this.EnemyHp = 0;
-            this.EndGame();
-        }
-
-    },
-    receiveDame (hp) {
-        this.PlayerHp = hp;
-        this.PlayerHpBar.progress = this.PlayerHp / 100;
-        if (this.PlayerHp <= 0) {
-            this.PlayerHp = 0;
-            this.EndGame();
-        }
-    },
 
 
     EndGame() {

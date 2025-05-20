@@ -5,10 +5,16 @@ cc.Class({
 
     properties: {
         SettingUI: cc.Node,
+        FadePanel: cc.Node,
 
         MusicSlider: cc.Slider,
         SfxSlider: cc.Slider,   
         MasterSlider: cc.Slider,
+
+
+        BtnPlay: cc.Button,
+        BtnSetting: cc.Button,
+        BtnExit: cc.Button,
     },
 
     onLoad() {
@@ -20,6 +26,41 @@ cc.Class({
 
     },
     start () {
+        this.Setvolume();
+    },
+    onEnable() {
+        this.BtnTwening();
+        this.FadePanelTween();
+    },
+    BtnTwening() {
+        let btnGroup = [this.BtnPlay, this.BtnSetting, this.BtnExit];
+        for (let i = 0; i < btnGroup.length; i++) {
+            let btn = btnGroup[i].node;
+            btn.scale = 0.1;
+            console.log("btn" + btn);
+
+            //Tạo tween phóng to lên scale 1 (100%) trong 0.5 giây
+            cc.tween(btn)
+                .delay(i * 0.2)
+                .to(1.0, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
+                .start();
+        }
+        
+
+    },
+    FadePanelTween() {
+
+        // Tween để làm tối dần trong 0.5s
+        cc.tween(this.FadePanel)
+            .to(0.5, { opacity: 0 })
+            .call(() => {
+                 this.FadePanel.active = false;
+            })
+            .start();
+        },
+                // Khi tối xong thì chuyển scene
+
+    Setvolume() {
         if (cc.sys.localStorage.getItem("MusicVolume") !== null) {
             this._originalMusicVolume = cc.sys.localStorage.getItem("MusicVolume");
             this.MusicSlider.progress = this._originalMusicVolume;
@@ -43,12 +84,19 @@ cc.Class({
     // ===== BUTTON CALLBACKS =====
     PlayBtnClick() {
         this.playClickSound();
-        cc.director.loadScene("GamePlay");
+        cc.director.loadScene("LevelSelect");
     },
 
     PlayBtnSetting() {
         this.playClickSound();
         this.SettingUI.active = true;
+        this.SettingUI.scale = 0.1;
+        cc.tween(this.SettingUI)
+                
+                .to(0.5, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
+                .start();
+        
+        
     },
 
     PlayBtnExit() {
@@ -57,9 +105,16 @@ cc.Class({
     },
     // ===== SETTING UI =====
     PlayBtnCloseSetting() {
-        this.playClickSound();
-        this.SettingUI.active = false;
-    },
+    this.playClickSound();
+
+    cc.tween(this.SettingUI)
+        .to(0.5, { scale: 0.1 }, { easing: 'backIn' }) // dùng backIn thì đẹp hơn khi đóng
+        .call(() => {
+            this.SettingUI.active = false;
+        })
+        .start();
+},
+
 
     MusicSliderCtr(sliderVol) {
     const audio = AudioController.getInstance();

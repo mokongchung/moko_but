@@ -10,15 +10,15 @@ let PoolManager = cc.Class({
     },
 
     properties: {
+    Player0Prefab: cc.Prefab,
     Player1Prefab: cc.Prefab,
     Player2Prefab: cc.Prefab,
     Player3Prefab: cc.Prefab,
-    Player4Prefab: cc.Prefab,
 
+    Enemy0Prefab: cc.Prefab,
     Enemy1Prefab: cc.Prefab,
     Enemy2Prefab: cc.Prefab,
     Enemy3Prefab: cc.Prefab,
-    Enemy4Prefab: cc.Prefab,
 
     PlayerHolder: cc.Node,
     EnemyHolder: cc.Node,
@@ -37,7 +37,7 @@ let PoolManager = cc.Class({
     this.playerPools = {};
     this.enemyPools = {};
 
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 0; i < 4; i++) {
         this.playerPools[i] = new cc.NodePool();
         this.enemyPools[i] = new cc.NodePool();
     }
