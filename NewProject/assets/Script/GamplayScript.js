@@ -13,6 +13,12 @@ cc.Class({
 
         GameOverUI: cc.Node, // Node GameOver UI
         GameWinUI: cc.Node, // Node GameWin UI
+        GamePauseUI: cc.Node, // Node GamePause UI
+
+        SfxSlider: cc.Slider,
+        MusicSlider: cc.Slider,
+        MasterSlider: cc.Slider,
+        
      
     },
 
@@ -22,6 +28,11 @@ cc.Class({
     this._isDragging = false;
     this._lastTouchPos = null;
     this._mousePos = null; // 👈 thêm dòng này
+
+
+    this._originalMusicVolume = 1.0;
+    this._originalSfxVolume = 1.0;
+    this._originalMasterVolume = 1.0;
 
     this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
     this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -38,6 +49,7 @@ cc.Class({
         const audio = AudioController.getInstance();
         audio.PlayBgMusic(audio.bgMusicGamePlay);
          //this.requestHPFromPlayer();
+         this.Setvolume();
     },
 
     update(dt) {
@@ -133,12 +145,65 @@ cc.Class({
     },
     //=====Gameover Ui  
     BtnRestart() {
+        cc.director.resume();
         cc.director.loadScene("GamePlay");
         this.GameOverUI.active = false;
     },
     BtnExit() {
+        cc.director.resume();
         cc.director.loadScene("MainMenu");
         this.GameOverUI.active = false;
     },
+
+    //====GamePause UI
+    BtnResume() {
+        cc.director.resume();
+        this.GamePauseUI.active = false;
+    },
+   
+    BtnPause() {
+        cc.director.pause();
+        this.GamePauseUI.active = true;
+    },
+
+     Setvolume() {
+        if (cc.sys.localStorage.getItem("MusicVolume") !== null) {
+            this._originalMusicVolume = cc.sys.localStorage.getItem("MusicVolume");
+            this.MusicSlider.progress = this._originalMusicVolume;
+        }
+        if (cc.sys.localStorage.getItem("SfxVolume") !== null) {
+            this._originalSfxVolume = cc.sys.localStorage.getItem("SfxVolume");
+            this.SfxSlider.progress = this._originalSfxVolume;
+        }
+        if (cc.sys.localStorage.getItem("MasterVolume") !== null) {
+            this._originalMasterVolume = cc.sys.localStorage.getItem("MasterVolume");
+            this.MasterSlider.progress = this._originalMasterVolume;
+        }
+    },
+
+    MusicSliderCtr(sliderVol) {
+        const audio = AudioController.getInstance();
+        audio._originalMusicVolume = sliderVol.progress;
+        audio.MusicAudioSource.volume = sliderVol.progress;
+    
+        cc.sys.localStorage.setItem("MusicVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
+        },
+    
+        SfxSliderCtr(sliderVol) {
+            const audio = AudioController.getInstance();
+            audio._originalSfxVolume = sliderVol.progress;
+            audio.SoundEffectAudioSource.volume = sliderVol.progress;
+    
+            cc.sys.localStorage.setItem("SfxVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
+        },
+    
+        MasterSliderCtr(sliderVol) {
+        const audio = AudioController.getInstance();
+        const masterVolume = sliderVol.progress;
+    
+        audio.MusicAudioSource.volume = audio._originalMusicVolume * masterVolume;
+        audio.SoundEffectAudioSource.volume = audio._originalSfxVolume * masterVolume;
+        cc.sys.localStorage.setItem("MasterVolume", masterVolume);// Lưu giá trị âm lượng vào localStorage
+        },
     // update (dt) {},
 });
