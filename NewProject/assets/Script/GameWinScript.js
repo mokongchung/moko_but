@@ -1,5 +1,5 @@
 let GameController = require('GameCtrl');
-
+let PoolingManager = require('PoolingManager');
 
 cc.Class({
     
@@ -37,13 +37,13 @@ cc.Class({
     BtnMainMenu() 
     {
         cc.director.resume();
-
+        PoolingManager.getInstance().clearAll();
         cc.director.loadScene("MainMenu");
     },
     BtnNextLevel()
     {
         cc.director.resume();
-
+        PoolingManager.getInstance().clearAll();
         cc.director.loadScene("LevelSelect");
     },
 
@@ -77,6 +77,7 @@ cc.Class({
         .call(() => {
             if (isLastStar) {
                 cc.director.pause(); // ✅ chỉ pause sau khi tween cuối cùng xong
+                
             }
         })
         .start();

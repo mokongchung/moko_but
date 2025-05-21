@@ -9004,28 +9004,31 @@
     },
     "_enabled": true,
     "Player0Prefab": {
-      "__uuid__": "c99042f8-ba7b-4726-b63b-a522d91e8bb3"
+      "__uuid__": "f74248e9-0a9d-46a1-b6be-24e263c3cbf1"
     },
     "Player1Prefab": {
-      "__uuid__": "c99042f8-ba7b-4726-b63b-a522d91e8bb3"
+      "__uuid__": "f48bc240-4dc0-475f-8022-2170d4bca3bf"
     },
     "Player2Prefab": {
-      "__uuid__": "c99042f8-ba7b-4726-b63b-a522d91e8bb3"
+      "__uuid__": "cc1ddde6-ec43-41e3-95de-f2b77546cd03"
     },
     "Player3Prefab": {
-      "__uuid__": "c99042f8-ba7b-4726-b63b-a522d91e8bb3"
+      "__uuid__": "18e76a87-b8eb-4958-8827-41db517e4e3b"
     },
     "Enemy0Prefab": {
-      "__uuid__": "997003ac-dec8-4a7c-b17f-a2931053e28a"
-    },
-    "Enemy1Prefab": {
       "__uuid__": "9eafc4c8-8b19-4d97-975d-aaa28712c6b7"
     },
-    "Enemy2Prefab": {
+    "Enemy1Prefab": {
       "__uuid__": "13f70ae2-eeaf-41d6-8a1d-c873db48ccb6"
     },
-    "Enemy3Prefab": {
+    "Enemy2Prefab": {
       "__uuid__": "e41ff02e-2e35-43e2-bbad-07ab4c446efc"
+    },
+    "Enemy3Prefab": {
+      "__uuid__": "cc455354-57e8-426a-8a89-12438950e113"
+    },
+    "Enemy4Prefab": {
+      "__uuid__": "d7530e13-65c2-42c0-995c-73cc91d4e8ed"
     },
     "PlayerHolder": {
       "__id__": 190
