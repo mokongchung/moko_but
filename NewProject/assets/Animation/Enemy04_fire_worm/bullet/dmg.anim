@@ -60,7 +60,7 @@
   "events": [
     {
       "frame": 0.11666666666666667,
-      "func": "deletr",
+      "func": "detroyBullet",
       "params": []
     }
   ]

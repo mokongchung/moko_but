@@ -10,12 +10,17 @@ cc.Class({
 
     properties: {
         hpMax : 100,
-        speed: 50,
+        moveSpeed: 50,
         atk: 10,
+        dmgRateCombo : {
+            default: [],
+            type: [cc.Integer],  
+        },
         atkSpeed: 1000,
         lvUp: 1,
+        bulletSpeed: 100,
 
-
+        bulletPrefab : cc.Prefab,
         hpBar : cc.ProgressBar,
     },
 
@@ -76,7 +81,7 @@ cc.Class({
     },
     move(){
         this.moveTween = cc.tween(this.node)
-            .by(1, { position: cc.v2(this.speed, 0) })
+            .by(1, { position: cc.v2(this.moveSpeed, 0) })
             .repeatForever()
             .start();
             this.animation.play('run');
@@ -134,11 +139,41 @@ cc.Class({
             
         }
     },
-    dealDmg( comboHit = 0){
+    dealDmg( comboHit = 0 , aoe = false){
+        let dmgDeal = this.atk;
+        if((dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined) ){
+            dmgDeal = this.dmgRateCombo[comboHit - 1];
+        }
 
+        if(  !this.enemy[0] || (this.enemy[0].active == false)){
+            this.enemyDead();
+        }else{
+            let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
+            event.detail = { 
+                dmg: dmgDeal,
+                
+            };
+
+            if(aoe){
+                this.enemy.forEach((nodeIndex, index) => {
+                    nodeIndex.emit( 'takeDmg' , event);
+                });
+            }else{
+                this.enemy[0].emit( 'takeDmg' , event);
+            }
+            
+        }
+         
     },
     createBullet(){
-
+        if(! this.bulletPrefab) return;
+        let newBullet = cc.instantiate(this.bulletPrefab);
+        newBullet.setPosition(this.node.getPosition());
+        let Bullet_combat = newNode.getComponent("Bullet_combat"); // tên script gắn trên prefab
+            if (Bullet_combat) {
+                Bullet_combat.initBullet(this.atk, this.bulletSpeed);
+            }
+        this.node.parent.addChild(newBullet);
     },
     dead(){
         this.node.active = false;
