@@ -55,7 +55,7 @@ cc.Class({
         
     },
     dealDmgAOE( ){
-        //console.log("bullet dmg");
+        console.log("bullet dmg aoe");
         this.moveTween.stop();
         this.animation.play('dmg');
         this.enemy.forEach((nodeIndex, index) => {
@@ -69,13 +69,14 @@ cc.Class({
         });
     },
     dealDmgToTarget(other){
+        console.log("bullet dmg target");
         this.moveTween.stop();
         this.animation.play('dmg');
         let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
         event.detail = { 
             dmg: this.atk ,    
         };
-        other.emit('takeDmg' , event);
+        other.node.emit('takeDmg' , event);
     },
 
     move(){
@@ -94,7 +95,7 @@ cc.Class({
         if(this.aoe){
             this.dealDmgAOE();
         }else{
-            this.dealDmgToTarget();
+            this.dealDmgToTarget(other);
         }
         
     },

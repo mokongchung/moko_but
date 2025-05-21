@@ -357,20 +357,20 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
+      "width": 150,
       "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0.5,
       "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -18.955,
-        -0.662,
+        54.378,
+        3.505,
         0,
         0,
         0,
@@ -415,12 +415,12 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": -34.4,
-      "y": 0.2
+      "x": 0,
+      "y": 0
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 70,
+      "width": 150,
       "height": 100
     },
     "_id": ""
