@@ -4204,6 +4204,9 @@
     "bgMusicGameOver": {
       "__uuid__": "e494d746-1998-453f-a01f-4e1a8be1cc0d"
     },
+    "bgMusicMapSelect": {
+      "__uuid__": "f1003bf4-2697-4c21-aa28-bd114f390816"
+    },
     "soundEffectButton": {
       "__uuid__": "d61c3ebb-c869-4c0e-bcf6-84014b36b108"
     },

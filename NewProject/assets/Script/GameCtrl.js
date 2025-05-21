@@ -20,7 +20,7 @@ let GameController = cc.Class({
 
         // Giữ node này tồn tại xuyên scene
         cc.game.addPersistRootNode(this.node);
-        
+        this._init(); 
 
         this.Level = 0; // Mặc định là level 0
 
@@ -30,16 +30,46 @@ let GameController = cc.Class({
 
     },
 
-    
-
-
-
-    EndGame() {
-        cc.director.pause();
-        cc.log("End Game");
-        // Xóa instance để có thể tạo lại khi cần
-     
+    _init() {
+        this.data = this._loadData();
+        if (!this.data.levels[1]) {
+        this.data.levels[1] = { Unlocked: true, stars: 3 };
+        this._saveData();
     }
+    },
+
+    _loadData() {
+        let json = cc.sys.localStorage.getItem("levelData");
+        return json ? JSON.parse(json) : { levels: {} };
+    },
+
+    _saveData() {
+        cc.sys.localStorage.setItem("levelData", JSON.stringify(this.data));
+    },
+
+    saveLevel(level, stars) {
+        const current = this.data.levels[level] || { Unlocked: false, stars: 0 };
+
+        this.data.levels[level] = {
+            Unlocked: true,
+            stars: Math.max(stars, current.stars) // luôn giữ số sao cao nhất
+        };
+
+        this._saveData();
+    },
+
+    getLevel(level) {
+        return this.data.levels[level] || { Unlocked: false, stars: 0 };
+    },
+
+    resetAll() {
+        this.data = { levels: {} };
+        this._saveData();
+    }
+
+
+
+    
 
 });
 module.exports = GameController;

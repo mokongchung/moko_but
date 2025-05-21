@@ -29,13 +29,14 @@ cc.Class({
     start () {
         this.SpawnerScript = this.node.getComponent('Spawner');
 
-        this.AIWhoWillPlaythisGame();
+       // this.AIWhoWillPlaythisGame();
         this.node.on('takeDmg', this.takeDmg, this);
+        //this.AIWhoWillPlaythisGame();
     },
 
     update (dt) {
         this.MoneyGain(dt);
-        this.loopSpam;
+        //this.loopSpam;
     },
     MoneyGain(dt)
     {
@@ -82,15 +83,19 @@ cc.Class({
 
     AIWhoWillPlaythisGame()
     {
+         for (let i = 0; i < 10; i++) {
+                this.SpawnerScript.SpawnEnemy(null, 1); 
+            }
         //auto spam
-        this.loopSpam = setInterval(() => {
+        // this.loopSpam = setInterval(() => {
+           
 
-            this.SpawnerScript.SpawnEnemy(null, 1); 
+        //     this.SpawnerScript.SpawnEnemy(null, 1); 
             
 
             
             
-        }, 10000); 
+        // }, 10000); 
     }
     
 });

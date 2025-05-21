@@ -30,6 +30,7 @@ let AudioController = cc.Class({
         bgMusicMainMenu: cc.AudioClip,
         bgMusicGamePlay: cc.AudioClip,
         bgMusicGameOver: cc.AudioClip,
+        bgMusicMapSelect: cc.AudioClip,
 
         // ===== 🔊 SOUND EFFECT =====
         soundEffectButton: cc.AudioClip,

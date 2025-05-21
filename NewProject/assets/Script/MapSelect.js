@@ -11,7 +11,8 @@ cc.Class({
     
 
     onEnable () {
-        this.ButtonTween()
+        this.ButtonTween();
+         AudioController.getInstance().PlayBgMusic(AudioController.getInstance().bgMusicMapSelect);
     },
 
     ButtonTween()
@@ -26,11 +27,34 @@ cc.Class({
             .delay(i * 0.2) 
             .to(1.5, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
             .call(() => {
-            btn.getComponent(cc.Button).interactable = true; 
+                this.UnlockedCheck(this.BtnLv[i], i);
             })
             .start();
                     }
     },
+
+    UnlockedCheck(button, index) {
+        const levelIndex = index + 1;
+        const levelData = GameController.getInstance().getLevel(levelIndex); 
+        
+        if (levelData && levelData.Unlocked) {
+            console.log(`Level ${levelIndex} is Unlocked`);
+            button.interactable = true;
+        } else {
+            console.log(`Level ${levelIndex} is Locked`);
+            button.interactable = false;
+        }
+
+        const lvSelectBtn = button.node.getComponent("LvSelectBtn");
+        if (lvSelectBtn) {
+            lvSelectBtn.StartTween(levelIndex); // Lưu level vào button
+        } else {
+            console.warn("LvSelectBtn component not found on button.node");
+        }
+    },
+
+
+
 
     CheckBtnLv(node) {
         let btn = node.getComponent(cc.Button);

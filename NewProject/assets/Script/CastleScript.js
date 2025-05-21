@@ -16,19 +16,23 @@ cc.Class({
         SummonPrice: [cc.Integer],
         Skill1Charge: 40,
         Skill2Charge: 80,
+        hpMax: 100,
         MoneySpeed: 0,
         ManaRegenSpeed: 0,
+
+        GamePlay: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+    
     this.Money = 0;
-    this.Hp = 100;
+    this.Hp = this.hpMax;
     this.Spell = 0;
 
     this.mousePosition = null;
-
+    this.node.on('takeDmg', this.takeDmg, this);
     this.callback();
     
        
@@ -74,8 +78,41 @@ cc.Class({
     this.MoneynManaGain(dt);
 
     
-},
+    },
+    takeDmg(event){
+        if (!event || !event.detail) {
+            console.warn('Lỗi: không có event hoặc event.detail');
+            return;
+        }
+        console.log(" nhận take dmg "+ event.detail.dmg);
+        this.ShakeHpBar();
+        let dmgTake = event.detail.dmg;
+        (this.Hp -= dmgTake) < 0 ? this.Hp = 0 : this.Hp; 
+        console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
 
+        this.HpBar.progress = (this.Hp  / this.hpMax);
+
+        if(this.Hp <= 0 ){
+            console.log("castle enemy dead");
+            let GamePlayScript = this.GamePlay.getComponent('GamplayScript');
+            GamePlayScript.onGameOver();
+            
+            
+            this.node.active = false;
+        }
+    },
+     ShakeHpBar() {
+        const originalPos = this.HpBar.node.getPosition();
+
+        cc.tween(this.HpBar.node)
+            .repeat(5, // lặp 5 lần lắc trái phải
+                cc.tween()
+                    .to(0.03, { x: originalPos.x + 5 })
+                    .to(0.03, { x: originalPos.x - 5 })
+            )
+            .to(0.03, { x: originalPos.x }) // trở lại vị trí ban đầu
+            .start();
+    },
 
 
    MoneynManaGain(dt) {

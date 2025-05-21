@@ -1,4 +1,9 @@
+let GameController = require('GameCtrl');
+
+
 cc.Class({
+    
+    
     extends: cc.Component,
 
     properties: {
@@ -9,24 +14,38 @@ cc.Class({
 
     onLoad() {
         this.PlayerHP = 0;
-
+        console.log("onLoad" + this.PlayerHP);
         // Ẩn và reset scale ban đầu
-        this.resetStars();
-         this.ShowStars(this.PlayerHP);
+        
+        
+    },
+    StarCall() {
+      
+        console.log("StarCall" + this.PlayerHP);
+        this.ShowStars(this.PlayerHP);
+       
     },
 
     resetStars() {
-        this.Star1.scale = 0;
-        this.Star2.scale = 0;
-        this.Star3.scale = 0;
+
 
         this.Star1.active = false;
         this.Star2.active = false;
         this.Star3.active = false;
     },
 
-    ShowStars(hp) {
-        this.PlayerHP = hp;
+    BtnMainMenu() 
+    {
+        cc.director.loadScene("MainMenu");
+    },
+    BtnNextLevel()
+    {
+        cc.director.loadScene("MapSelect");
+    },
+
+    ShowStars() {
+        let hp =this.PlayerHP;
+       
         this.resetStars();
 
         let count = 1;
@@ -35,20 +54,28 @@ cc.Class({
         } else if (hp >= 50) {
             count = 2;
         }
-
+             console.log("ShowStars" + count);
+        let gameController = GameController.getInstance();
+        gameController.saveLevel(gameController.Level, count);
         // Hiển thị từng sao có Tween
         if (count >= 1) this.showStarWithTween(this.Star1, 0);
         if (count >= 2) this.showStarWithTween(this.Star2, 0.2);
-        if (count >= 3) this.showStarWithTween(this.Star3, 0.4);
+        if (count >= 3) this.showStarWithTween(this.Star3, 0.4,true);
     },
 
-    showStarWithTween(starNode, delay) {
-        starNode.active = true;
-        starNode.scale = 0;
+    showStarWithTween(starNode, delay, isLastStar) {
+    starNode.active = true;
+    starNode.scale = 0.1;
 
-        cc.tween(starNode)
-            .delay(delay)
-            .to(0.3, { scale: 1 }, { easing: 'backOut' }) // hiệu ứng bung ra đẹp
-            .start();
-    }
+    cc.tween(starNode)
+        .delay(delay)
+        .to(0.3, { scale: 1 }, { easing: 'backOut' })
+        .call(() => {
+            if (isLastStar) {
+                cc.director.pause(); // ✅ chỉ pause sau khi tween cuối cùng xong
+            }
+        })
+        .start();
+    },
+
 });

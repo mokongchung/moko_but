@@ -70,28 +70,30 @@ cc.Class({
 
 
 
-    requestHPFromPlayer() {
-        cc.director.emit("RequestHP", (hp) => {
-            cc.log("HP của A là:", hp);
-            // Xử lý hp ở đây
-            return hp;
-        });
+    requestHPFromPlayer(callback) {
+    cc.director.emit("RequestHP", (hp) => {
+        callback(hp); // Gửi HP về callback
+    });
     },
 
-    onGameOver() {
-        let HP = this.requestHPFromPlayer();
-       if(HP <= 0) {
+
+   onGameOver() {
+    this.requestHPFromPlayer((HP) => {
+        cc.log("GameWinScript HP:", HP);
+
+        if (HP <= 0) {
             this.GameOverUI.active = true;
-            
-            cc.director.pause();
-        }   
-        else {
+        } else {
             this.GameWinUI.active = true;
-            let GameWinScript= this.GameWinUI.getComponent("GameWinScript");
+            let GameWinScript = this.GameWinUI.getComponent("GameWinScript");
             GameWinScript.PlayerHP = HP;
-            cc.director.pause();
+            GameWinScript.StarCall();
         }
+
+       // cc.director.pause();
+    });
     },
+
     onTouchStart(event) {
         this._isDragging = true;
         this._lastTouchPos = event.getLocation();
