@@ -43,7 +43,7 @@ cc.Class({
         //if(this.Money.Money < this.Money.SummonPrice[Index]) return;
 
             this.Money.Money -= this.Money.SummonPrice[Index];
-             const player = PoolManager.getInstance().getPlayer(Index);
+             const player = PoolManager.getInstance().getPlayer(Index,this.Spawner);
             player.getComponent("unit_combat").Index = Index;
             player.setPosition(this.RandomPosition());
             //player.node.active = true;

@@ -131,6 +131,14 @@ cc.Class({
     onTouchEnd(event) {
         this._isDragging = false;
     },
-
+    //=====Gameover Ui  
+    BtnRestart() {
+        cc.director.loadScene("GamePlay");
+        this.GameOverUI.active = false;
+    },
+    BtnExit() {
+        cc.director.loadScene("MainMenu");
+        this.GameOverUI.active = false;
+    },
     // update (dt) {},
 });

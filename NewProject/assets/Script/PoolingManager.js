@@ -21,8 +21,6 @@ let PoolManager = cc.Class({
     Enemy3Prefab: cc.Prefab,
     Enemy4Prefab: cc.Prefab,
 
-    PlayerHolder: cc.Node,
-    EnemyHolder: cc.Node,
 },
 
     onLoad() {
@@ -50,10 +48,10 @@ let PoolManager = cc.Class({
 
 
 
-    getPlayer(index) {
+    getPlayer(index,holder) {
     const prefab = this[`Player${index}Prefab`];
     const pool = this.playerPools[index];
-    return this._getNode(prefab, pool, this.PlayerHolder);
+    return this._getNode(prefab, pool, holder);
     },
 
     putPlayer(index, node) {
@@ -61,10 +59,10 @@ let PoolManager = cc.Class({
         this._putNode(node, pool);
     },
 
-    getEnemy(index) {
+    getEnemy(index,holder) {
         const prefab = this[`Enemy${index}Prefab`];
         const pool = this.enemyPools[index];
-        return this._getNode(prefab, pool, this.EnemyHolder);
+        return this._getNode(prefab, pool, holder);
     },
 
     putEnemy(index, node) {
