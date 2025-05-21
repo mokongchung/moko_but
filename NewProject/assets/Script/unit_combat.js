@@ -40,21 +40,28 @@ cc.Class({
      },
 
     start () {
-        this.move();
+        
     },
     init(){
-        this.moveTween;
+        console.log("init");
+        this.stopMove()
         this.enemy = [];
         this.atking = false;
         this.hp = this.hpMax;
         this.hpBar.progress = 1;
+        this.animation.play('run');
+        
+        this.scheduleOnce(function() {
+            this.move();
+        }, 0.01);
+        
     },
 
     seeEnemy (event) {
         console.log("seee enemy");
         let enemyNode = event.detail.node;
-        this.moveTween.stop();
-        cc.log('Cha nhận node:', enemyNode.node.group);
+        this.stopMove();
+        //cc.log('Cha nhận node:', enemyNode.node.group);
         // Thử thay đổi màu node
         this.enemy.push( enemyNode.node) ;
 
@@ -86,12 +93,20 @@ cc.Class({
         }
     },
     move(){
+        if(this.moveTween) return;
         this.moveTween = cc.tween(this.node)
             .by(1, { position: cc.v2(this.moveSpeed, 0) })
             .repeatForever()
             .start();
             this.animation.play('run');
         this.atking = false;
+    },
+    stopMove(){
+        if(this.moveTween){
+            this.moveTween.stop();
+            this.moveTween=null;
+        }
+
     },
 
     loopAtk(){
@@ -119,6 +134,7 @@ cc.Class({
         }, this.atkSpeed); 
 */
         //change animation atk
+        this.stopMove();
         this.animation.play('attack');
         this.atking = true;
 
@@ -129,12 +145,15 @@ cc.Class({
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
-        if(this.hp <= 0 ) return;
-        console.log(" nhận take dmg "+ event.detail.dmg);
+        if(this.hp <= 0 ) {
+            this.dead();
+            return;
+        }
+        //console.log(" nhận take dmg "+ event.detail.dmg);
         
         let dmgTake = event.detail.dmg;
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
-        console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
+        //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
 
         this.hpBar.progress = (this.hp  / this.hpMax);
 
@@ -175,32 +194,33 @@ cc.Class({
          
     },
     createBullet(){
-        console.log("create bullet");
+        //console.log("create bullet");
         if(! this.bulletPrefab) return;
 
         if(  this.checkEnemy()){
             console.log("ko có enemy nào");
         }else{
-            console.log("tạo mới");
+            //console.log("tạo mới");
             let newBullet = cc.instantiate(this.bulletPrefab);
             newBullet.setPosition(this.node.getPosition());
             let Bullet_combat = newBullet.getComponent("Bullet_combat"); // tên script gắn trên prefab
                 if (Bullet_combat) {
                     Bullet_combat.initBullet(this.atk, this.bulletSpeed , this.bulletAOE);
                 }
-                console.log("add child");
+                //console.log("add child");
             this.node.parent.addChild(newBullet);
-            console.log("add child done");
+            //console.log("add child done");
         }
 
 
     },
     dead(){
         this.node.active = false;
+        this.stopMove();
         this.node.off('see_enemy', this.seeEnemy, this);
         this.node.off('takeDmg', this.takeDmg, this);
         this.node.off('enemy_exit', this.exitEnemy, this);
-        this.init();
+        
         if( this.isPlayer){
              PoolManager.getInstance().putPlayer(this.Index, this.node);
         }

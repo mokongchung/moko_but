@@ -13,6 +13,7 @@ cc.Class({
         speed: 50,
         atk: 10,
         aoe : true,
+        
 
     },
 
@@ -20,6 +21,7 @@ cc.Class({
 
      onLoad () {
         this.enemy = [];
+        this.dealDmg = true;
         this.node.on('see_enemy', this.seeEnemy, this);
         this.animation = this.node.getComponent(cc.Animation);
 
@@ -93,6 +95,9 @@ cc.Class({
         this.node.off('see_enemy', this.seeEnemy, this);
     },
     onCollisionEnter (other, self) {
+        if(!this.dealDmg)  return;
+        //this.node.getComponent(cc.BoxCollider).enabled = false;
+        this.dealDmg = false;
         if(this.aoe){
             this.dealDmgAOE();
         }else{
