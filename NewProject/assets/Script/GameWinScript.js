@@ -36,11 +36,15 @@ cc.Class({
 
     BtnMainMenu() 
     {
+        cc.director.resume();
+
         cc.director.loadScene("MainMenu");
     },
     BtnNextLevel()
     {
-        cc.director.loadScene("MapSelect");
+        cc.director.resume();
+
+        cc.director.loadScene("LevelSelect");
     },
 
     ShowStars() {

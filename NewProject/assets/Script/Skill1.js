@@ -8,7 +8,7 @@ cc.Class({
 
     EndAnimation () {
         cc.tween(this.Sprite&& this.node)
-        .to(0.75, { opacity: 0 })
+        .to(1.75, { opacity: 0 })
         .call(() => this.node.parent.destroy())
         .start();
 

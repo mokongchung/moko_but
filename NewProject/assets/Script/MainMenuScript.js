@@ -1,5 +1,5 @@
 let AudioController = require("AudioCtrl");
-
+let GameController = require('GameCtrl');
 cc.Class({
     extends: cc.Component,
 
@@ -31,6 +31,7 @@ cc.Class({
     onEnable() {
         this.BtnTwening();
         this.FadePanelTween();
+        AudioController.getInstance().PlayBgMusic(AudioController.getInstance().bgMusicMainMenu);
     },
     BtnTwening() {
         let btnGroup = [this.BtnPlay, this.BtnSetting, this.BtnExit];
@@ -49,7 +50,7 @@ cc.Class({
 
     },
     FadePanelTween() {
-
+        this.FadePanel.active = true;
         // Tween để làm tối dần trong 0.5s
         cc.tween(this.FadePanel)
             .to(0.5, { opacity: 0 })
@@ -139,6 +140,14 @@ cc.Class({
     audio.MusicAudioSource.volume = audio._originalMusicVolume * masterVolume;
     audio.SoundEffectAudioSource.volume = audio._originalSfxVolume * masterVolume;
     cc.sys.localStorage.setItem("MasterVolume", masterVolume);// Lưu giá trị âm lượng vào localStorage
+    },
+
+
+    ClearDataBtn() {
+        GameController.getInstance().resetAll();
+        cc.sys.localStorage.clear();
+
+
     },
 
 });

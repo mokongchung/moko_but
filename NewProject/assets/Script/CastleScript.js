@@ -12,6 +12,8 @@ cc.Class({
         Skill2Btn: cc.Button,
         Skill1Prefab: cc.Prefab,
         Skill2Prefab: cc.Prefab,
+        SkillHolder: cc.Node,
+
         SummonBtn: [cc.Button],
         SummonPrice: [cc.Integer],
         Skill1Charge: 40,
@@ -145,13 +147,17 @@ cc.Class({
     onMouseMove(event) {
     this.mousePosition = event.getLocation();
 
-   
-        // Lấy vị trí chuột từ màn hình về local node cha của sprite
-        let localPos = this.CastSpellsprite.parent.convertToNodeSpaceAR(this.mousePosition);
+        let canvas = cc.find("Canvas");
+        let localPos = canvas.convertToNodeSpaceAR(this.mousePosition);
 
-        // Di chuyển sprite theo trục X
-        this.CastSpellsprite.x = localPos.x;
-        
+        // Lấy Y hiện tại của sprite
+        let currentY = this.CastSpellsprite.y;
+
+        // Chỉ cập nhật X, giữ nguyên Y
+        this.CastSpellsprite.setPosition(localPos.x, currentY);
+
+
+
     },
 
     onGlobalClick(event) {
@@ -194,24 +200,21 @@ cc.Class({
      {
          const newNode = cc.instantiate(this.Skill2Prefab);
           newNode.setPosition(this.CastSpellsprite);
-          const canvas = cc.find('Canvas');
-            canvas.addChild(newNode);
+            this.SkillHolder.addChild(newNode);
           console.log("this.Skill2Prefab");
      },
      spawnAtCenter(prefab) {
         // Tạo instance từ prefab truyền vào
         const newNode = cc.instantiate(prefab);
 
-        // Lấy node Canvas (nơi chứa UI)
-        const canvas = cc.find('Canvas');
+        // Lấy node SkillHolder
+        // hoặc cc.find('Canvas/SkillHolder') nếu cần tìm thủ công
 
-        // Thêm node mới vào Canvas
-        canvas.addChild(newNode);
+        // Thêm node mới vào SkillHolder
+        this.SkillHolder.addChild(newNode);
 
-        // Đặt vị trí node mới tại trung tâm (0, 0)
+        // Đặt vị trí node mới tại trung tâm của SkillHolder
         newNode.setPosition(0, 0);
-
-       
     },
     onDestroy() {
         cc.director.off("RequestHP", this._onRequestHP, this);

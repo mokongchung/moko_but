@@ -37,7 +37,7 @@ cc.Class({
         const levelIndex = index + 1;
         const levelData = GameController.getInstance().getLevel(levelIndex); 
         
-        if (levelData && levelData.Unlocked) {
+        if (levelData.Unlocked) {
             console.log(`Level ${levelIndex} is Unlocked`);
             button.interactable = true;
         } else {
