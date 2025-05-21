@@ -95,6 +95,11 @@
   },
   "events": [
     {
+      "frame": 0,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
       "frame": 0.16666666666666666,
       "func": "createBullet",
       "params": []

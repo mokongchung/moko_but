@@ -143,25 +143,48 @@
   },
   "events": [
     {
+      "frame": 0,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
       "frame": 1,
       "func": "dealDmg",
       "params": [
-        1
+        1,
+        false
       ]
+    },
+    {
+      "frame": 1.0833333333333333,
+      "func": "checkEnemy",
+      "params": []
     },
     {
       "frame": 1.8333333333333333,
       "func": "dealDmg",
       "params": [
-        2
+        2,
+        true
       ]
     },
     {
+      "frame": 2,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
       "frame": 3.1666666666666665,
-      "func": "atk",
+      "func": "dealDmg",
       "params": [
-        3
+        3,
+        true
       ]
+    },
+    {
+      "frame": 3.3333333333333335,
+      "func": "checkEnemy",
+      "params": []
     }
   ]
 }

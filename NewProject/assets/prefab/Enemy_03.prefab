@@ -452,7 +452,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "c4f6bd76-ed76-4f6c-bf61-c9c07a084884"
+      "__uuid__": "ea0df457-8ee8-4ac6-9fc2-93920505956f"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -498,10 +498,14 @@
     },
     "_enabled": true,
     "hpMax": 100,
-    "speed": 50,
+    "moveSpeed": 50,
     "atk": 10,
+    "dmgRateCombo": [],
     "atkSpeed": 1000,
     "lvUp": 1,
+    "bulletSpeed": 100,
+    "bulletAOE": false,
+    "bulletPrefab": null,
     "hpBar": {
       "__id__": 7
     },

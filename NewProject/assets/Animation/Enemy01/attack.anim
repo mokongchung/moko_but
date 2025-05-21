@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "enemy01_attack",
+  "_name": "attack",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.1,
@@ -51,5 +51,16 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
+      "frame": 0.08333333333333333,
+      "func": "dealDmg",
+      "params": []
+    }
+  ]
 }

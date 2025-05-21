@@ -19,6 +19,7 @@ cc.Class({
         atkSpeed: 1000,
         lvUp: 1,
         bulletSpeed: 100,
+        bulletAOE: false,
 
         bulletPrefab : cc.Prefab,
         hpBar : cc.ProgressBar,
@@ -30,6 +31,7 @@ cc.Class({
         this.moveTween;
         this.enemy = [];
         this.loopAtkID;
+        this.atking = false;
         this.hp = this.hpMax;
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
@@ -62,7 +64,7 @@ cc.Class({
         if (index !== -1) {
             this.enemy.splice(index, 1);
         }
-        this.checkEnemyListEmpty();
+        this.checkEnemy();
     },
 
     enemyDead(){
@@ -85,13 +87,14 @@ cc.Class({
             .repeatForever()
             .start();
             this.animation.play('run');
+        this.atking = false;
     },
 
     loopAtk(){
         if ( this.enemy.length == 0) return;
-        if (this.loopAtkID != null) return;
+        if (this.atking) return;
         console.log("atk enemy ");
-        
+        /*
         this.loopAtkID = setInterval(() => {
             
 
@@ -110,9 +113,10 @@ cc.Class({
             
             
         }, this.atkSpeed); 
-
+*/
         //change animation atk
         this.animation.play('attack');
+        this.atking = true;
 
         console.log("loopAtk ID"+ this.loopAtkID ); 
     },
@@ -141,13 +145,11 @@ cc.Class({
     },
     dealDmg( comboHit = 0 , aoe = false){
         let dmgDeal = this.atk;
-        if((dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined) ){
-            dmgDeal = this.dmgRateCombo[comboHit - 1];
+        if( (comboHit > 0) && ((this.dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined) )){
+            dmgDeal *= this.dmgRateCombo[comboHit - 1];
         }
 
-        if(  !this.enemy[0] || (this.enemy[0].active == false)){
-            this.enemyDead();
-        }else{
+
             let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
             event.detail = { 
                 dmg: dmgDeal,
@@ -156,28 +158,47 @@ cc.Class({
 
             if(aoe){
                 this.enemy.forEach((nodeIndex, index) => {
-                    nodeIndex.emit( 'takeDmg' , event);
+                    if(nodeIndex && nodeIndex.active){
+                        nodeIndex.emit( 'takeDmg' , event);
+                    }
                 });
             }else{
+                if( (this.enemy.length >= 0 ) && (this.enemy[0]) &&  this.enemy[0].active)
                 this.enemy[0].emit( 'takeDmg' , event);
             }
             
-        }
+        
          
     },
     createBullet(){
+        console.log("create bullet")
         if(! this.bulletPrefab) return;
-        let newBullet = cc.instantiate(this.bulletPrefab);
-        newBullet.setPosition(this.node.getPosition());
-        let Bullet_combat = newNode.getComponent("Bullet_combat"); // tên script gắn trên prefab
-            if (Bullet_combat) {
-                Bullet_combat.initBullet(this.atk, this.bulletSpeed);
-            }
-        this.node.parent.addChild(newBullet);
+
+        if(  this.checkEnemy()){
+            
+        }else{
+            let newBullet = cc.instantiate(this.bulletPrefab);
+            newBullet.setPosition(this.node.getPosition());
+            let Bullet_combat = newBullet.getComponent("Bullet_combat"); // tên script gắn trên prefab
+                if (Bullet_combat) {
+                    Bullet_combat.initBullet(this.atk, this.bulletSpeed , this.bulletAOE);
+                }
+            this.node.parent.addChild(newBullet);
+        }
+
+
     },
     dead(){
         this.node.active = false;
     },
+    checkEnemy(){
+        this.enemy = this.enemy.filter(node => node && node.active);
+
+        if(this.enemy.length == 0 ){
+            this.move();
+            return true;
+        }
+    }
 
 
     // update (dt) {},

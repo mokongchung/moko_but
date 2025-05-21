@@ -82,8 +82,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 5,
-    "groupIndex": 5,
+    "_groupIndex": 6,
+    "groupIndex": 6,
     "_id": ""
   },
   {
@@ -149,8 +149,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 1,
-    "groupIndex": 1,
+    "_groupIndex": 3,
+    "groupIndex": 3,
     "_id": ""
   },
   {
@@ -257,14 +257,14 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "b6ee0faa-37dc-4f44-81ca-df7e3a772e51"
+      "__uuid__": "fe19b236-2dd8-4168-bf7f-8f9c6b22b822"
     },
     "_clips": [
       {
-        "__uuid__": "b6ee0faa-37dc-4f44-81ca-df7e3a772e51"
+        "__uuid__": "fe19b236-2dd8-4168-bf7f-8f9c6b22b822"
       },
       {
-        "__uuid__": "187a8598-62af-415c-b4c8-847f84bdea7f"
+        "__uuid__": "503845e0-ddfc-4d12-9cda-8f69e8f36209"
       }
     ],
     "playOnLoad": true,
@@ -280,6 +280,7 @@
     "_enabled": true,
     "speed": 50,
     "atk": 10,
+    "aoe": true,
     "_id": ""
   },
   {

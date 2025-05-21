@@ -1,50 +1,56 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "attack",
+  "_name": "dmg",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.1,
+  "_duration": 0.13333333333333333,
   "sample": 60,
   "speed": 0.1,
-  "wrapMode": 2,
+  "wrapMode": 1,
   "curveData": {
     "comps": {
       "cc.Sprite": {
         "spriteFrame": [
           {
+            "frame": -0.016666666666666666,
+            "value": {
+              "__uuid__": "29e1fc79-0007-41fd-87a8-7eb666862fd0"
+            }
+          },
+          {
             "frame": 0,
             "value": {
-              "__uuid__": "c4f6bd76-ed76-4f6c-bf61-c9c07a084884"
+              "__uuid__": "76239eae-bb96-4d5f-8c16-33a4ac1265ac"
             }
           },
           {
             "frame": 0.016666666666666666,
             "value": {
-              "__uuid__": "54e1abd6-5c85-44dc-8025-2f46ae5234ba"
+              "__uuid__": "f08a6ea4-7a7e-4aa2-afe1-a157d3301124"
             }
           },
           {
             "frame": 0.03333333333333333,
             "value": {
-              "__uuid__": "8813500b-8011-4782-a04a-52a4df5079ec"
+              "__uuid__": "cdfa4a3c-8185-4f1a-bda9-c2d8b09a876b"
             }
           },
           {
             "frame": 0.05,
             "value": {
-              "__uuid__": "15b224f7-cab9-4806-9b69-d394dceedb6a"
+              "__uuid__": "649c672c-dde3-40ec-a96d-dcceec9dfc66"
             }
           },
           {
             "frame": 0.06666666666666667,
             "value": {
-              "__uuid__": "a829d560-ad75-429e-b2fc-cea912fd65d2"
+              "__uuid__": "c462d3f4-6006-4173-b020-5d5fce3b978a"
             }
           },
           {
             "frame": 0.08333333333333333,
             "value": {
-              "__uuid__": "ea0df457-8ee8-4ac6-9fc2-93920505956f"
+              "__uuid__": "aa91bc91-924c-4913-90c3-c6b605307a5b"
             }
           }
         ]
@@ -53,13 +59,8 @@
   },
   "events": [
     {
-      "frame": 0,
-      "func": "checkEnemy",
-      "params": []
-    },
-    {
-      "frame": 0.1,
-      "func": "dealDmg",
+      "frame": 0.13333333333333333,
+      "func": "detroyBullet",
       "params": []
     }
   ]
