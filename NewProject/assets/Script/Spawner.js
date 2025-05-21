@@ -44,6 +44,7 @@ cc.Class({
 
             this.Money.Money -= this.Money.SummonPrice[Index];
              const player = PoolManager.getInstance().getPlayer(Index);
+            player.getComponent("unit_combat").Index = Index;
             player.setPosition(this.RandomPosition());    
             if(this.Money.Money < this.Money.SummonPrice[Index])
             {
@@ -55,9 +56,15 @@ cc.Class({
 
         // - monny enemy
         const enemy = PoolManager.getInstance().getEnemy(Index);
+        enemy.getComponent("unit_combat").Index = Index;
+        enemy.getComponent("unit_combat").isPlayer = false;
         enemy.setPosition(this.RandomPosition());
         
     },
+    pushBackPlayer(event){
+
+        PoolManager.getInstance().putPlayer( Index, )
+    }
     // SpawnPlayer2() {
     //         this.Money.Money -= this.Money.SummonPrice[1];
     //         const player = PoolManager.getInstance().getPlayer2();

@@ -90,6 +90,7 @@ cc.Class({
     detroyBullet(){
         //console.log("bullet detroy");
         this.node.active = false;
+        this.node.off('see_enemy', this.seeEnemy, this);
     },
     onCollisionEnter (other, self) {
         if(this.aoe){

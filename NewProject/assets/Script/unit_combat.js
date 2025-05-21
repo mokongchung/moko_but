@@ -4,7 +4,7 @@
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
-
+let PoolManager = require('PoolingManager');
 cc.Class({
     extends: cc.Component,
 
@@ -20,6 +20,8 @@ cc.Class({
         lvUp: 1,
         bulletSpeed: 100,
         bulletAOE: false,
+        Index : 0 ,
+        isPlayer : true,
 
         bulletPrefab : cc.Prefab,
         hpBar : cc.ProgressBar,
@@ -27,21 +29,25 @@ cc.Class({
 
 
 
-    onLoad () {
-        this.moveTween;
-        this.enemy = [];
-        this.loopAtkID;
-        this.atking = false;
-        this.hp = this.hpMax;
+    onEnable () {
+
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
 
         this.animation = this.node.getComponent(cc.Animation);
+        this.init();
      },
 
     start () {
         this.move();
+    },
+    init(){
+        this.moveTween;
+        this.enemy = [];
+        this.atking = false;
+        this.hp = this.hpMax;
+        this.hpBar.progress = 1;
     },
 
     seeEnemy (event) {
@@ -76,9 +82,7 @@ cc.Class({
     checkEnemyListEmpty(){
         if(this.enemy.length == 0){
             this.move();
-            clearInterval(this.loopAtkID);
-            console.log("da stop loop atk +" +this.loopAtkID)
-            this.loopAtkID = null;
+            
         }
     },
     move(){
@@ -118,7 +122,7 @@ cc.Class({
         this.animation.play('attack');
         this.atking = true;
 
-        console.log("loopAtk ID"+ this.loopAtkID ); 
+        
     },
     takeDmg(event){
         if (!event || !event.detail) {
@@ -137,7 +141,7 @@ cc.Class({
         if(this.hp <= 0 ){
             console.log("unit dead");
             this.animation.play('death');
-            clearInterval(this.loopAtkID);
+           
             
             
             
@@ -193,6 +197,18 @@ cc.Class({
     },
     dead(){
         this.node.active = false;
+        this.node.off('see_enemy', this.seeEnemy, this);
+        this.node.off('takeDmg', this.takeDmg, this);
+        this.node.off('enemy_exit', this.exitEnemy, this);
+        this.init();
+        if( this.isPlayer){
+             PoolManager.getInstance().putPlayer(this.Index, this.node);
+        }
+        else{
+            PoolManager.getInstance().putEnemy(this.Index, this.node);
+        }
+       
+        
     },
     checkEnemy(){
         this.enemy = this.enemy.filter(node => node && node.active);
