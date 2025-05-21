@@ -53,10 +53,11 @@ cc.Class({
             }
         
     },
-    SpawnEnemy(event, Index){
+    SpawnEnemy(event, Index, holder){
+
 
         // - monny enemy
-        const enemy = PoolManager.getInstance().getEnemy(Index);
+        const enemy = PoolManager.getInstance().getEnemy(Index,holder);
 
         enemy.getComponent("unit_combat").Index = Index;
         enemy.getComponent("unit_combat").isPlayer = false;

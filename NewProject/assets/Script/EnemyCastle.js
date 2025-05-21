@@ -12,6 +12,7 @@ cc.Class({
         
         MoneySpeed: 0,
         hpMax : 100,
+        spawHolder : cc.Node,
 
 
         hpBar : cc.ProgressBar,
@@ -83,19 +84,30 @@ cc.Class({
 
     AIWhoWillPlaythisGame()
     {
-         for (let i = 0; i < 10; i++) {
-                this.SpawnerScript.SpawnEnemy(null, 1); 
-            }
+         //for (let i = 0; i < 10; i++) {
+         //       this.SpawnerScript.SpawnEnemy(null, 1); 
+         //  }
         //auto spam
-        // this.loopSpam = setInterval(() => {
-           
+        this.SpawnerScript.SpawnEnemy(null, 1,this.spawHolder); 
+        this.SpawnerScript.SpawnEnemy(null, 0,this.spawHolder); 
+        
+        this.SpawnerScript.SpawnEnemy(null, 2,this.spawHolder); 
+        this.SpawnerScript.SpawnEnemy(null, 3,this.spawHolder); 
+        this.SpawnerScript.SpawnEnemy(null, 4,this.spawHolder); 
 
-        //     this.SpawnerScript.SpawnEnemy(null, 1); 
-            
-
-            
-            
-        // }, 10000); 
+            return;
+         this.loopSpam = setInterval(() => {
+             this.SpawnerScript.SpawnEnemy(null, 0); 
+         }, 10000); 
+         this.loopSpam = setInterval(() => {
+            this.SpawnerScript.SpawnEnemy(null, 2); 
+        }, 10050); 
+        this.loopSpam = setInterval(() => {
+            this.SpawnerScript.SpawnEnemy(null, 3); 
+        }, 10100); 
+        this.loopSpam = setInterval(() => {
+            this.SpawnerScript.SpawnEnemy(null, 3); 
+        }, 100000); 
     }
     
 });
