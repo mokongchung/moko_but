@@ -45,7 +45,8 @@ cc.Class({
             this.Money.Money -= this.Money.SummonPrice[Index];
              const player = PoolManager.getInstance().getPlayer(Index);
             player.getComponent("unit_combat").Index = Index;
-            player.setPosition(this.RandomPosition());    
+            player.setPosition(this.RandomPosition());
+            //player.node.active = true;
             if(this.Money.Money < this.Money.SummonPrice[Index])
             {
                 this.Money.SummonBtn[Index].interactable= false;
@@ -56,9 +57,11 @@ cc.Class({
 
         // - monny enemy
         const enemy = PoolManager.getInstance().getEnemy(Index);
+
         enemy.getComponent("unit_combat").Index = Index;
         enemy.getComponent("unit_combat").isPlayer = false;
         enemy.setPosition(this.RandomPosition());
+        //enemy.node.active = true;
         
     },
     pushBackPlayer(event){

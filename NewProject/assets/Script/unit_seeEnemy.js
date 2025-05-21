@@ -29,7 +29,7 @@ cc.Class({
         let event = new cc.Event.EventCustom('see_enemy', true); // bubbling = true
         event.detail = { node: other  };
         this.node.dispatchEvent(event);
-        console.log('Chạm node2 loại ' + other.node.group);
+        //console.log('Chạm node2 loại ' + other.node.group);
             //cc.log('Chạm node2 loại ' + other.node.group);
             // xử lý gì đó
         //}
@@ -39,8 +39,8 @@ cc.Class({
         let event = new cc.Event.EventCustom('enemy_exit', true); // bubbling = true
         event.detail = { node: other  };
         this.node.dispatchEvent(event);
-        console.log('Chạm node2 loại ' + other.node.group);
-        console.log('exit node2 loại ' + other.node.group);
+        
+        //console.log('exit node2 loại ' + other.node.group);
     },
 
 

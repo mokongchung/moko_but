@@ -31,7 +31,7 @@ cc.Class({
 
        // this.AIWhoWillPlaythisGame();
         this.node.on('takeDmg', this.takeDmg, this);
-        //this.AIWhoWillPlaythisGame();
+        this.AIWhoWillPlaythisGame();
     },
 
     update (dt) {
