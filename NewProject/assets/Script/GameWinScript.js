@@ -37,13 +37,13 @@ cc.Class({
     BtnMainMenu() 
     {
         cc.director.resume();
-        PoolingManager.getInstance().clearAll();
+        PoolingManager.getInstance().clearAllPools();
         cc.director.loadScene("MainMenu");
     },
     BtnNextLevel()
     {
         cc.director.resume();
-        PoolingManager.getInstance().clearAll();
+        PoolingManager.getInstance().clearAllPools();
         cc.director.loadScene("LevelSelect");
     },
 
