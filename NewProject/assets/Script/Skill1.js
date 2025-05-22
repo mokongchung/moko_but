@@ -37,7 +37,7 @@ cc.Class({
             if (child.group === "e_hitbox") {
                 let enemy = child.getComponent("unit_combat");
                 if (enemy && enemy.slowUnit) {
-                    enemy.slowUnit(this.slowRateByLevel[level], this.slowTimeByLevel[level]); 
+                    enemy.slowUnit(this.slowRateByLevel[this.level], this.slowTimeByLevel[this.level]); 
                 }
             }
         });
