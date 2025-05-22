@@ -13,6 +13,7 @@ cc.Class({
         Skill1Prefab: cc.Prefab,
         Skill2Prefab: cc.Prefab,
         SkillHolder: cc.Node,
+        Skill2Holder: cc.Node,
 
         SummonBtn: [cc.Button],
         SummonPrice: [cc.Integer],
@@ -199,9 +200,13 @@ cc.Class({
      Skill2()
      {
          const newNode = cc.instantiate(this.Skill2Prefab);
-          newNode.setPosition(this.CastSpellsprite);
-            this.SkillHolder.addChild(newNode);
+         const worldPos = this.CastSpellsprite.convertToWorldSpaceAR(cc.v3(0, 0, 0));
+            const localPos = this.Skill2Holder.convertToNodeSpaceAR(worldPos);
+            newNode.setPosition(localPos);
+            this.Skill2Holder.addChild(newNode);
           console.log("this.Skill2Prefab");
+          
+
      },
      spawnAtCenter(prefab) {
         // Tạo instance từ prefab truyền vào
