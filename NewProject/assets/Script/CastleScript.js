@@ -24,6 +24,9 @@ cc.Class({
         MoneySpeed: 0,
         ManaRegenSpeed: 0,
 
+        Skill1Level : 1,
+        Skill2Level : 1,
+
         GamePlay: cc.Node,
         ManaBoostLabel: cc.Label,
         MoneyBoostLabel: cc.Label,
@@ -205,6 +208,8 @@ cc.Class({
      Skill2()
      {
          const newNode = cc.instantiate(this.Skill2Prefab);
+         let newNodeScript = newNode.getComponentInChildren("Skill2");
+         newNodeScript.init(this.Skill2Level);
          const worldPos = this.CastSpellsprite.convertToWorldSpaceAR(cc.v3(0, 0, 0));
             const localPos = this.Skill2Holder.convertToNodeSpaceAR(worldPos);
             newNode.setPosition(localPos);
@@ -217,7 +222,7 @@ cc.Class({
         // Tạo instance từ prefab truyền vào
         const newNode = cc.instantiate(prefab);
         let newNodeScript = newNode.getComponentInChildren("Skill1");
-        newNodeScript.init(this.EnemySpawner);
+        newNodeScript.init(this.EnemySpawner , this.Skill1Level);
         // Lấy node SkillHolder
         // hoặc cc.find('Canvas/SkillHolder') nếu cần tìm thủ công
 

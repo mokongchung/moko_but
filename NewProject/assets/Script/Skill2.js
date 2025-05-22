@@ -6,10 +6,20 @@ cc.Class({
         firstAnimation: cc.Animation,
         secondAnimation: cc.Animation,
         dmg : 50,
+        level : 1,
+        dmgRateLevel : {
+            default: [],
+            type: [cc.Integer],  
+        },
     },
     onLoad(){
         cc.director.getCollisionManager().enabled = true;
         this.arrayEnemy = [];
+    },
+    init(level = 1){
+        this.level = level;
+        if(level > (this.dmgRateLevel.length -1) )
+            this.level  = this.dmgRateLevel.length -1;
     },
 
     PlayTheBoom()
@@ -25,11 +35,12 @@ cc.Class({
     },
     
     dealDmg(){
+        
         this.arrayEnemy.forEach((nodeIndex, index) => {
            
             let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
             event.detail = { 
-                dmg: this.dmg, 
+                dmg: this.dmg * this.dmgRateLevel[level], 
             };
             try{
                 nodeIndex.emit( 'takeDmg' , event);

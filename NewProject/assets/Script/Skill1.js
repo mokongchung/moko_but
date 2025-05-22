@@ -8,12 +8,26 @@ cc.Class({
 
         slowRate : 0.5,
         slowTime : 10,
+
+        level : 1,
+        slowTimeByLevel : {
+            default: [],
+            type: [cc.Integer],  
+        },
+        slowRateByLevel : {
+            default: [],
+            type: [cc.Float],  
+        },
     },
 
-    init(spawner){
+    init(spawner, level = 1){
         if(spawner){
             this.spawnerNode = spawner;
         }
+        this.level = level;
+        if(level > (this.slowTimeByLevel.length -1) )
+            this.level  = this.slowTimeByLevel.length -1;
+
     },
     EndAnimation () {
 
@@ -23,7 +37,7 @@ cc.Class({
             if (child.group === "e_hitbox") {
                 let enemy = child.getComponent("unit_combat");
                 if (enemy && enemy.slowUnit) {
-                    enemy.slowUnit(this.slowRate, this.slowTime); 
+                    enemy.slowUnit(this.slowRateByLevel[level], this.slowTimeByLevel[level]); 
                 }
             }
         });
