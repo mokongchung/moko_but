@@ -57,6 +57,9 @@ cc.Class({
            if (this.Spawner.children.length > 3 && audioCtrl.MusicAudioSource.clip != audioCtrl.bgMinionMusic &&
                 audioCtrl.MusicAudioSource.isPlaying) {
                 audioCtrl.PlayBgMusic(audioCtrl.bgMinionMusic);
+            } 
+            else if (this.Spawner.children.length <= 3 && audioCtrl.MusicAudioSource.clip == audioCtrl.bgMinionMusic) {
+                audioCtrl.PlayBgMusic(audioCtrl.bgMusicGamePlay);
             }
             
 
