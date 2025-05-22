@@ -503,8 +503,17 @@
     "dmgRateCombo": [],
     "atkSpeed": 1000,
     "lvUp": 1,
+    "lvUpStatus": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
     "bulletSpeed": 100,
     "bulletAOE": true,
+    "Index": 0,
+    "isPlayer": true,
     "bulletPrefab": {
       "__uuid__": "c615af6e-10c5-456f-ad30-ab02c968d9a9"
     },

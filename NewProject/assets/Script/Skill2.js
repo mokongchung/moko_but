@@ -40,7 +40,7 @@ cc.Class({
            
             let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
             event.detail = { 
-                dmg: this.dmg * this.dmgRateLevel[level], 
+                dmg:  this.dmgRateLevel[level], 
             };
             try{
                 nodeIndex.emit( 'takeDmg' , event);

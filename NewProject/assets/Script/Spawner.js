@@ -62,7 +62,7 @@ cc.Class({
 
         
     },
-    SpawnEnemy(Index, holder){
+    SpawnEnemy(Index, holder, level){
 
 
         // - monny enemy
@@ -70,6 +70,7 @@ cc.Class({
 
         enemy.getComponent("unit_combat").Index = Index;
         enemy.getComponent("unit_combat").isPlayer = false;
+        enemy.getComponent("unit_combat").level = level;
         enemy.setPosition(this.RandomPosition());
         //enemy.node.active = true;
         

@@ -14,10 +14,14 @@ cc.Class({
         atk: 10,
         dmgRateCombo : {
             default: [],
-            type: [cc.Integer],  
+            type: [cc.Float],  
         },
+        level : 1,
         atkSpeed: 1000,
-        lvUp: 1,
+        lvUpStatus : {
+            default: [],
+            type: [cc.Float],  
+        },
         bulletSpeed: 100,
         bulletAOE: false,
         Index : 0 ,
@@ -42,7 +46,7 @@ cc.Class({
     start () {
         
     },
-    init(){
+    init( ){
         console.log("init");
         this.stopMove()
         this.enemy = [];
@@ -50,7 +54,11 @@ cc.Class({
         this.hp = this.hpMax;
         this.hpBar.progress = 1;
         this.animation.play('run');
-        
+
+        if(this.level < this.lvUpStatus.length ){
+            this.hp *= this.lvUpStatus[this.level];
+            this.atk *= this.lvUpStatus[this.level];
+        }
         this.scheduleOnce(function() {
             if ( this.enemy.length == 0) {
                 this.move();

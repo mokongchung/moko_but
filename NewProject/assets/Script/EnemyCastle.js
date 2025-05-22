@@ -26,7 +26,6 @@ cc.Class({
     {
         this.LV = GameController.getInstance().Level;
         this.hpMax = this.hpMax + this.LV * 700;
-        this.LV=0;
         this.Money =0;
         this.hp = this.hpMax;
     },
@@ -105,7 +104,7 @@ cc.Class({
     // Hàm spawn liên tục với delay ngẫu nhiên
     let spawnEnemyLoop = () => {
         let index = getRandomIndex();
-        this.SpawnerScript.SpawnEnemy(index, this.spawHolder);
+        this.SpawnerScript.SpawnEnemy(index, this.spawHolder, this.LV);
 
         let delay = 4000 + Math.random() * 2000; // từ 4000ms (4s) đến 6000ms (6s)
 

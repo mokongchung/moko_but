@@ -503,6 +503,13 @@
     "dmgRateCombo": [],
     "atkSpeed": 1000,
     "lvUp": 1,
+    "lvUpStatus": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
     "bulletSpeed": 100,
     "bulletAOE": false,
     "Index": 0,
