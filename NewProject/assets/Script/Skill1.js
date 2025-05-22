@@ -1,3 +1,5 @@
+let AudioController = require("AudioCtrl");
+
 cc.Class({
     extends: cc.Component,
     
@@ -51,6 +53,7 @@ cc.Class({
     },
 
     AnimationStart () {
+        AudioController.getInstance().PlaySoundEffect(AudioController.getInstance().Skill1);
         cc.tween(this.Sprite)
         .to(0.5, { opacity: 255/3 })
         //.call(() => this.Sprite.destroy())

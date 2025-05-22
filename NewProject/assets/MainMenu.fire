@@ -4971,6 +4971,12 @@
     "soundEffectButton": {
       "__uuid__": "d61c3ebb-c869-4c0e-bcf6-84014b36b108"
     },
+    "Skill1": {
+      "__uuid__": "43b4e02f-c451-4677-8d85-c1155dd4720b"
+    },
+    "Skill2": {
+      "__uuid__": "4dff6cff-e16e-44b4-81d1-2cb3efdcd934"
+    },
     "MinionSound": [
       {
         "__uuid__": "2a91194a-b8da-4367-8f0c-a71acb7d7753"

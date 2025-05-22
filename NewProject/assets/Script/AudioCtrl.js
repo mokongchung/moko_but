@@ -37,7 +37,8 @@ let AudioController = cc.Class({
 
         // ===== 🔊 SOUND EFFECT =====
         soundEffectButton: cc.AudioClip,
-
+        Skill1: cc.AudioClip,
+        Skill2: cc.AudioClip,
         // ===== 🐭 MINION SOUND EFFECT ====
         MinionSound: [cc.AudioClip],
     },

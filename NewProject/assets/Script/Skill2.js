@@ -1,3 +1,4 @@
+let AudioController = require("AudioCtrl");
 
 cc.Class({
     extends: cc.Component,
@@ -15,6 +16,11 @@ cc.Class({
     onLoad(){
         cc.director.getCollisionManager().enabled = true;
         this.arrayEnemy = [];
+    },
+
+    start () {
+                AudioController.getInstance().PlaySoundEffect(AudioController.getInstance().Skill2);
+        
     },
     init(level = 1){
         this.level = level;
