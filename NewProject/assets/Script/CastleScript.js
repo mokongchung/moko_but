@@ -117,13 +117,17 @@ cc.Class({
             .start();
     },
 
+    MoneySpeedGainLV(level) {
+    let SpeedUp= 1 + 0.375 * level;
+    this.MoneySpeed = SpeedUp;
+    },
 
    MoneynManaGain(dt) {
     this.Money += dt * this.MoneySpeed;
     const moneyInt = Math.floor(this.Money);
     if (moneyInt !== this.lastMoneyInt) {
         this.MoneyDisplay.string = moneyInt;
-        //GameController.getInstance().MoneyGain(moneyInt);
+
         this.lastMoneyInt = moneyInt;
     }
 
