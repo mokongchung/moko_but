@@ -497,12 +497,12 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 100,
+    "hpMax": 200,
     "moveSpeed": 50,
-    "atk": 10,
+    "atk": 20,
     "dmgRateCombo": [],
+    "level": 1,
     "atkSpeed": 1000,
-    "lvUp": 1,
     "lvUpStatus": [
       1,
       1.2,

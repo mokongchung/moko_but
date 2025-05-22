@@ -501,8 +501,8 @@
     "moveSpeed": 50,
     "atk": 10,
     "dmgRateCombo": [],
+    "level": 1,
     "atkSpeed": 1000,
-    "lvUp": 1,
     "lvUpStatus": [
       1,
       1,

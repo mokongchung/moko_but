@@ -497,7 +497,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 100,
+    "hpMax": 90,
     "moveSpeed": 50,
     "atk": 10,
     "dmgRateCombo": [],
