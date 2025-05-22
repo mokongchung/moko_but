@@ -19,7 +19,7 @@ cc.Class({
         MusicSlider: cc.Slider,
         MasterSlider: cc.Slider,
         
-     
+        BlackPanel: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -50,9 +50,13 @@ cc.Class({
         audio.PlayBgMusic(audio.bgMusicGamePlay);
          //this.requestHPFromPlayer();
          this.Setvolume();
+             console.log('BlackPanel node:', this.BlackPanel);
+
+       //  this.BlackPanelTween();
     },
 
-    update(dt) {
+
+ update(dt) {
         if (!this.cameraNode || !this.backgroundNode || !this._mousePos) return;
 
         const mousePos = this._mousePos;
@@ -181,7 +185,7 @@ cc.Class({
         }
     },
 
-    MusicSliderCtr(sliderVol) {
+        MusicSliderCtr(sliderVol) {
         const audio = AudioController.getInstance();
         audio._originalMusicVolume = sliderVol.progress;
         audio.MusicAudioSource.volume = sliderVol.progress;
@@ -193,7 +197,9 @@ cc.Class({
             const audio = AudioController.getInstance();
             audio._originalSfxVolume = sliderVol.progress;
             audio.SoundEffectAudioSource.volume = sliderVol.progress;
-    
+            for (let i = 0; i < audio.MinionAudioSource.length; i++) {
+                audio.MinionAudioSource[i].volume = sliderVol.progress;
+            }
             cc.sys.localStorage.setItem("SfxVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
         },
     

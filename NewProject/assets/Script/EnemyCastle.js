@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
+let GameController = require('GameCtrl');
 
 cc.Class({
     extends: cc.Component,
@@ -23,13 +24,17 @@ cc.Class({
 
     onLoad () 
     {
+        this.LV = GameController.getInstance().Level;
+        this.hpMax = this.hpMax + this.LV * 700;
+        this.LV=0;
         this.Money =0;
         this.hp = this.hpMax;
     },
 
     start () {
+        
         this.SpawnerScript = this.node.getComponent('Spawner');
-
+        
        // this.AIWhoWillPlaythisGame();
         this.node.on('takeDmg', this.takeDmg, this);
         this.AIWhoWillPlaythisGame();
@@ -82,32 +87,37 @@ cc.Class({
             .start();
     },
 
-    AIWhoWillPlaythisGame()
-    {
-         //for (let i = 0; i < 10; i++) {
-         //       this.SpawnerScript.SpawnEnemy(null, 1); 
-         //  }
-        //auto spam
-        this.SpawnerScript.SpawnEnemy(null, 1,this.spawHolder); 
-        this.SpawnerScript.SpawnEnemy(null, 0,this.spawHolder); 
-        
-        this.SpawnerScript.SpawnEnemy(null, 2,this.spawHolder); 
-        this.SpawnerScript.SpawnEnemy(null, 3,this.spawHolder); 
-        this.SpawnerScript.SpawnEnemy(null, 4,this.spawHolder); 
+    AIWhoWillPlaythisGame() {
+    let spawnRates = [50, 25, 15, 7, 3]; // tỷ lệ spawn cho các Index 0-4
+    let totalRate = spawnRates.reduce((a, b) => a + b, 0);
 
-            return;
-         this.loopSpam = setInterval(() => {
-             this.SpawnerScript.SpawnEnemy(null, 0); 
-         }, 10000); 
-         this.loopSpam = setInterval(() => {
-            this.SpawnerScript.SpawnEnemy(null, 2); 
-        }, 10050); 
-        this.loopSpam = setInterval(() => {
-            this.SpawnerScript.SpawnEnemy(null, 3); 
-        }, 10100); 
-        this.loopSpam = setInterval(() => {
-            this.SpawnerScript.SpawnEnemy(null, 3); 
-        }, 100000); 
+    // Hàm chọn index theo tỉ lệ
+    function getRandomIndex() {
+        let rand = Math.random() * totalRate;
+        let sum = 0;
+        for(let i = 0; i < spawnRates.length; i++) {
+            sum += spawnRates[i];
+            if(rand < sum) return i;
+        }
+        return spawnRates.length - 1;
     }
+
+    // Hàm spawn liên tục với delay ngẫu nhiên
+    let spawnEnemyLoop = () => {
+        let index = getRandomIndex();
+        this.SpawnerScript.SpawnEnemy(index, this.spawHolder);
+
+        let delay = 4000 + Math.random() * 2000; // từ 4000ms (4s) đến 6000ms (6s)
+
+
+        this.scheduleOnce(() => {
+            spawnEnemyLoop();
+        }, delay / 1000);
+    }
+
+    // Bắt đầu spawn
+    spawnEnemyLoop();
+    },
+
     
 });

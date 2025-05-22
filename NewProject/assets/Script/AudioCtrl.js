@@ -70,7 +70,12 @@ let AudioController = cc.Class({
         this.MinionAudioSource[this.SelectedMinionAudio].clip = sfxClip;
          this.MinionAudioSource[this.SelectedMinionAudio].play();
          this.SelectedMinionAudio=(this.SelectedMinionAudio + 1 )% 3;
+
+         
     },
+
+
+
 });
 
 module.exports = AudioController;

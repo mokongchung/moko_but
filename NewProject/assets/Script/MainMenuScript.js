@@ -129,7 +129,9 @@ cc.Class({
         const audio = AudioController.getInstance();
         audio._originalSfxVolume = sliderVol.progress;
         audio.SoundEffectAudioSource.volume = sliderVol.progress;
-
+        for (let i = 0; i < audio.MinionAudioSource.length; i++) {
+            audio.MinionAudioSource[i].volume = sliderVol.progress;
+        }
         cc.sys.localStorage.setItem("SfxVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
     },
 

@@ -14,6 +14,9 @@ cc.Class({
         this.ButtonTween();
          AudioController.getInstance().PlayBgMusic(AudioController.getInstance().bgMusicMapSelect);
     },
+    start () {
+        this.FadePanelTween();
+    },
 
     ButtonTween()
     {
@@ -63,7 +66,7 @@ cc.Class({
     LvSelectBtn(event, index) {
         console.log("so la"+index);
         GameController.getInstance().Level = index;
-        cc.director.loadScene("GamePlay");
+        this.ReverseFadePanelTween("GamePlay");
     },
 
      BackToMainMenu() {
@@ -74,13 +77,46 @@ cc.Class({
         this.FadePanel.active = true;
         this.FadePanel.opacity = 0;
 
+        // // Tween để làm tối dần trong 0.5s
+        // cc.tween(this.FadePanel)
+        //     .to(0.5, { opacity: 255 })
+        //     .call(() => {
+        //         // Khi tối xong thì chuyển scene
+        //         cc.director.loadScene("MainMenu");
+        //     })
+        //     .start();
+        this.ReverseFadePanelTween("MainMenu");
+    },
+
+    ReverseFadePanelTween(Name) {
+       this.FadePanel.active = true;
+        this.FadePanel.opacity = 0;
+
         // Tween để làm tối dần trong 0.5s
         cc.tween(this.FadePanel)
             .to(0.5, { opacity: 255 })
             .call(() => {
                 // Khi tối xong thì chuyển scene
-                cc.director.loadScene("MainMenu");
+                cc.director.loadScene(Name);
             })
             .start();
-    }
+        // // Tween để làm sáng dần trong 0.5s
+        // cc.tween(this.FadePanel)
+        //     .to(0.5, { opacity: 255 })
+        //     .call(() => {
+        //         cc.director.loadScene(Name);
+        //     })
+        //     .start();
+    },
+
+    FadePanelTween() {
+        this.FadePanel.active = true;
+        // Tween để làm tối dần trong 0.5s
+        cc.tween(this.FadePanel)
+            .to(0.5, { opacity: 0 })
+            .call(() => {
+                this.FadePanel.active = false;
+            })
+            .start();
+    },
 });

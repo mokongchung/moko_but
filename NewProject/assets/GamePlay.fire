@@ -17,10 +17,10 @@
         "__id__": 2
       },
       {
-        "__id__": 392
+        "__id__": 394
       },
       {
-        "__id__": 393
+        "__id__": 395
       }
     ],
     "_active": false,
@@ -81,7 +81,7 @@
         "__id__": 11
       },
       {
-        "__id__": 381
+        "__id__": 383
       },
       {
         "__id__": 17
@@ -90,10 +90,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 390
+        "__id__": 392
       },
       {
-        "__id__": 391
+        "__id__": 393
       }
     ],
     "_prefab": null,
@@ -426,6 +426,7 @@
     "SfxSlider": null,
     "MusicSlider": null,
     "MasterSlider": null,
+    "BlackPanel": null,
     "_id": "bewEwQmwNKV6jJg3lJmt6q"
   },
   {
@@ -501,7 +502,7 @@
         "__id__": 12
       },
       {
-        "__id__": 379
+        "__id__": 381
       }
     ],
     "_active": true,
@@ -574,10 +575,10 @@
         "__id__": 15
       },
       {
-        "__id__": 388
+        "__id__": 390
       },
       {
-        "__id__": 389
+        "__id__": 391
       }
     ],
     "_prefab": null,
@@ -703,10 +704,10 @@
       "__id__": 34
     },
     "Spawner": {
-      "__id__": 379
+      "__id__": 381
     },
     "EnemySpawner": {
-      "__id__": 380
+      "__id__": 382
     },
     "Skill1Btn": {
       "__id__": 94
@@ -773,7 +774,7 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 378
+        "__id__": 380
       }
     ],
     "_prefab": null,
@@ -836,6 +837,9 @@
         "__id__": 18
       },
       {
+        "__id__": 16
+      },
+      {
         "__id__": 275
       },
       {
@@ -845,16 +849,16 @@
         "__id__": 324
       },
       {
-        "__id__": 16
+        "__id__": 124
       },
       {
-        "__id__": 124
+        "__id__": 377
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 377
+        "__id__": 379
       }
     ],
     "_prefab": null,
@@ -11544,6 +11548,7 @@
     "MasterSlider": {
       "__id__": 336
     },
+    "BlackPanel": null,
     "_id": "d6jNfsBcNNApeJTwI7KjLW"
   },
   {
@@ -17283,6 +17288,100 @@
     "_id": "518G6y9d9Nda9Ay5nXPPqN"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "BlackPanel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 17
+    },
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 378
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 960,
+      "height": 700
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "78D7Gr69hDCZzh5Uxa1Qfy"
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 377
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "8cdb44ac-a3f6-449f-b354-7cd48cf84061"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": "f6JHQD4opGSazs8MutNuj6"
+  },
+  {
     "__type__": "cc.Camera",
     "_name": "",
     "_objFlags": 0,
@@ -17413,7 +17512,7 @@
     "_name": "Spawner",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 381
+      "__id__": 383
     },
     "_children": [],
     "_active": true,
@@ -17475,10 +17574,10 @@
     },
     "_children": [
       {
-        "__id__": 382
+        "__id__": 384
       },
       {
-        "__id__": 380
+        "__id__": 382
       }
     ],
     "_active": true,
@@ -17536,17 +17635,11 @@
     "_name": "Castle",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 381
+      "__id__": 383
     },
     "_children": [],
     "_active": true,
     "_components": [
-      {
-        "__id__": 383
-      },
-      {
-        "__id__": 384
-      },
       {
         "__id__": 385
       },
@@ -17555,6 +17648,12 @@
       },
       {
         "__id__": 387
+      },
+      {
+        "__id__": 388
+      },
+      {
+        "__id__": 389
       }
     ],
     "_prefab": null,
@@ -17610,7 +17709,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 382
+      "__id__": 384
     },
     "_enabled": true,
     "_materials": [
@@ -17642,7 +17741,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 382
+      "__id__": 384
     },
     "_enabled": true,
     "_defaultClip": {
@@ -17664,14 +17763,14 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 382
+      "__id__": 384
     },
     "_enabled": true,
     "Spawner": {
-      "__id__": 380
+      "__id__": 382
     },
     "CastleScript": {
-      "__id__": 382
+      "__id__": 384
     },
     "_id": "0fIB7b/NpPQaMQwPMovkI8"
   },
@@ -17680,13 +17779,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 382
+      "__id__": 384
     },
     "_enabled": true,
     "MoneySpeed": 0,
     "hpMax": 100,
     "spawHolder": {
-      "__id__": 380
+      "__id__": 382
     },
     "hpBar": {
       "__id__": 28
@@ -17701,7 +17800,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 382
+      "__id__": 384
     },
     "_enabled": true,
     "tag": 0,
@@ -17726,7 +17825,7 @@
     },
     "_enabled": true,
     "Spawner": {
-      "__id__": 379
+      "__id__": 381
     },
     "CastleScript": {
       "__id__": 12
@@ -17867,7 +17966,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 394
+        "__id__": 396
       }
     ],
     "_prefab": null,
@@ -17923,7 +18022,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 393
+      "__id__": 395
     },
     "_enabled": true,
     "Player0Prefab": {

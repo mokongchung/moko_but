@@ -15,7 +15,7 @@ cc.Class({
     start () {
        this.Money = this.CastleScript.getComponent('CastleScript') 
           || this.CastleScript.getComponent('EnemyCastle');
-
+        
     },
     RandomPosition() {
         // Get Spawner's size (width & height)
@@ -53,9 +53,16 @@ cc.Class({
             {
                 this.Money.SummonBtn[Index].interactable= false;
             }
+             let audioCtrl = AudioController.getInstance();
+           if (this.Spawner.children.length > 3 && audioCtrl.MusicAudioSource.clip != audioCtrl.bgMinionMusic &&
+                audioCtrl.MusicAudioSource.isPlaying) {
+                audioCtrl.PlayBgMusic(audioCtrl.bgMinionMusic);
+            }
+            
+
         
     },
-    SpawnEnemy(event, Index, holder){
+    SpawnEnemy(Index, holder){
 
 
         // - monny enemy
