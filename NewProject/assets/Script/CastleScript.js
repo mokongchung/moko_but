@@ -92,11 +92,11 @@ cc.Class({
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
-        console.log(" nhận take dmg "+ event.detail.dmg);
+        //console.log(" nhận take dmg "+ event.detail.dmg);
         this.ShakeHpBar();
         let dmgTake = event.detail.dmg;
         (this.Hp -= dmgTake) < 0 ? this.Hp = 0 : this.Hp; 
-        console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
+        //console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
 
         this.HpBar.progress = (this.Hp  / this.hpMax);
 

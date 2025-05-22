@@ -1,4 +1,5 @@
 let PoolManager = require('PoolingManager');
+let AudioController = require("AudioCtrl");
 cc.Class({
     extends: cc.Component,
 
@@ -39,6 +40,8 @@ cc.Class({
     
     SpawnPlayer(event, Index) {
         console.log("so la"+Index);
+        //spaw musie eff
+            AudioController.getInstance().PlayMinionSoundEffect(AudioController.getInstance().MinionSound[Index]);
         //if(this.Money.Money < this.Money.SummonPrice[Index]) return;
 
             this.Money.Money -= this.Money.SummonPrice[Index];
