@@ -136,6 +136,9 @@ cc.Class({
     }
 
     this.Spell += dt * this.ManaRegenSpeed;
+    if (this.Spell > 100) {
+        this.Spell = 100;
+    }
     const spellInt = Math.floor(this.Spell);
     if (spellInt !== this.lastSpellInt) {
         this.SkillBar.progress = this.Spell / 100;
