@@ -52,7 +52,12 @@ cc.Class({
         this.animation.play('run');
         
         this.scheduleOnce(function() {
-            this.move();
+            if ( this.enemy.length == 0) {
+                this.move();
+            }else{
+                this.loopAtk();
+            }
+            
         }, 0.01);
         
     },
@@ -61,7 +66,7 @@ cc.Class({
         console.log("seee enemy");
         let enemyNode = event.detail.node;
         this.stopMove();
-        //cc.log('Cha nhận node:', enemyNode.node.group);
+        cc.log('see enemy node:', enemyNode.node.group);
         // Thử thay đổi màu node
         this.enemy.push( enemyNode.node) ;
 
@@ -110,8 +115,15 @@ cc.Class({
     },
 
     loopAtk(){
-        if ( this.enemy.length == 0) return;
-        if (this.atking) return;
+        if ( this.enemy.length == 0) {
+            console.log("his.enemy.lengt = = 0");
+            return;
+        }
+        if (this.atking) {
+            console.log("atking");
+            return;
+        }
+
         console.log("atk enemy ");
         /*
         this.loopAtkID = setInterval(() => {
@@ -134,6 +146,7 @@ cc.Class({
         }, this.atkSpeed); 
 */
         //change animation atk
+        console.log("stop and atk");
         this.stopMove();
         this.animation.play('attack');
         this.atking = true;

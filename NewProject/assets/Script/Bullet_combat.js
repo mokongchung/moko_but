@@ -22,6 +22,7 @@ cc.Class({
      onLoad () {
         this.enemy = [];
         this.dealDmg = true;
+        this.moveTween;
         this.node.on('see_enemy', this.seeEnemy, this);
         this.animation = this.node.getComponent(cc.Animation);
 
@@ -30,7 +31,9 @@ cc.Class({
 
     start () {
         //console.log("bullet start");
-        this.move();
+        if ( this.enemy.length == 0) {
+            this.move();
+        }
         
         
     },
@@ -58,7 +61,7 @@ cc.Class({
     },
     dealDmgAOE( ){
         console.log("bullet dmg aoe");
-        this.moveTween.stop();
+        this.stopMove();
         this.animation.play('dmg');
         this.enemy.forEach((nodeIndex, index) => {
            
@@ -76,7 +79,7 @@ cc.Class({
     },
     dealDmgToTarget(other){
         console.log("bullet dmg target");
-        this.moveTween.stop();
+        this.stopMove();
         this.animation.play('dmg');
         let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
         event.detail = { 
@@ -92,6 +95,12 @@ cc.Class({
             .repeatForever()
             .start();
         this.animation.play('run');
+    },
+    stopMove(){
+        if(this.moveTween){
+            this.moveTween.stop();
+            this.moveTween=null;
+        }
     },
     detroyBullet(){
         //console.log("bullet detroy");

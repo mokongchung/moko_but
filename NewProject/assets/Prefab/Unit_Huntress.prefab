@@ -498,13 +498,15 @@
     },
     "_enabled": true,
     "hpMax": 100,
-    "moveSpeed": 500,
+    "moveSpeed": 100,
     "atk": 10,
     "dmgRateCombo": [],
     "atkSpeed": 1000,
     "lvUp": 1,
     "bulletSpeed": 100,
     "bulletAOE": false,
+    "Index": 0,
+    "isPlayer": true,
     "bulletPrefab": {
       "__uuid__": "bd976a88-a00c-4e60-b78b-2a11608a24c9"
     },

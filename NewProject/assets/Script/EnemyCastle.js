@@ -51,11 +51,11 @@ cc.Class({
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
-        console.log(" nhận take dmg "+ event.detail.dmg);
+        //console.log(" nhận take dmg "+ event.detail.dmg);
         this.ShakeHpBar();
         let dmgTake = event.detail.dmg;
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
-        console.log("hp castle"+ this.hp + " % " + (this.hp  / this.hpMax) );
+        //console.log("hp castle"+ this.hp + " % " + (this.hp  / this.hpMax) );
 
         this.hpBar.progress = (this.hp  / this.hpMax);
 
