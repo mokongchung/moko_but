@@ -23,7 +23,7 @@
         "__id__": 94
       },
       {
-        "__id__": 100
+        "__id__": 106
       }
     ],
     "_active": true,
@@ -4468,12 +4468,21 @@
       },
       {
         "__id__": 97
+      },
+      {
+        "__id__": 99
+      },
+      {
+        "__id__": 101
+      },
+      {
+        "__id__": 103
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 99
+        "__id__": 105
       }
     ],
     "_prefab": null,
@@ -4526,7 +4535,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "BgMusic",
+    "_name": "MinionSFX",
     "_objFlags": 0,
     "_parent": {
       "__id__": 94
@@ -4584,7 +4593,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "952T8VilRFqp5DlFbXQzMW"
+    "_id": "1bQXvm3FtGQqzG9jWfIKPr"
   },
   {
     "__type__": "cc.AudioSource",
@@ -4597,15 +4606,15 @@
     "_clip": null,
     "_volume": 1,
     "_mute": false,
-    "_loop": true,
+    "_loop": false,
     "_firstlyEnabled": true,
-    "playOnLoad": true,
+    "playOnLoad": false,
     "preload": false,
-    "_id": "c4S2VRFodPYZ9LhmpGtbuT"
+    "_id": "6de8jkY91CroCkG8yj8ED9"
   },
   {
     "__type__": "cc.Node",
-    "_name": "Sfx",
+    "_name": "MinionSFX copy",
     "_objFlags": 0,
     "_parent": {
       "__id__": 94
@@ -4663,7 +4672,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "526tF8k7tM6rNzCgQBmj6Y"
+    "_id": "e7JvACqXJH1oqmOebWRHp8"
   },
   {
     "__type__": "cc.AudioSource",
@@ -4671,6 +4680,243 @@
     "_objFlags": 0,
     "node": {
       "__id__": 97
+    },
+    "_enabled": true,
+    "_clip": null,
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "_firstlyEnabled": true,
+    "playOnLoad": false,
+    "preload": false,
+    "_id": "3f/LEoVtdIMryBykB0quUV"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "MinionSFX copy",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 94
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 100
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "84I7qNB7tDH6x4Cyjzp0BN"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 99
+    },
+    "_enabled": true,
+    "_clip": null,
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "_firstlyEnabled": true,
+    "playOnLoad": false,
+    "preload": false,
+    "_id": "d6amL1ZZlJDrbuqSPer96x"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "BgMusic",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 94
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 102
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "952T8VilRFqp5DlFbXQzMW"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 101
+    },
+    "_enabled": true,
+    "_clip": null,
+    "_volume": 1,
+    "_mute": false,
+    "_loop": true,
+    "_firstlyEnabled": true,
+    "playOnLoad": true,
+    "preload": false,
+    "_id": "c4S2VRFodPYZ9LhmpGtbuT"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Sfx",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 94
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 104
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "526tF8k7tM6rNzCgQBmj6Y"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 103
     },
     "_enabled": true,
     "_clip": null,
@@ -4691,11 +4937,22 @@
     },
     "_enabled": true,
     "MusicAudioSource": {
-      "__id__": 96
+      "__id__": 102
     },
     "SoundEffectAudioSource": {
-      "__id__": 98
+      "__id__": 104
     },
+    "MinionAudioSource": [
+      {
+        "__id__": 96
+      },
+      {
+        "__id__": 98
+      },
+      {
+        "__id__": 100
+      }
+    ],
     "bgMusicMainMenu": {
       "__uuid__": "46aa4b82-30f7-447f-830e-c81e95a83a85"
     },
@@ -4708,9 +4965,26 @@
     "bgMusicMapSelect": {
       "__uuid__": "f1003bf4-2697-4c21-aa28-bd114f390816"
     },
+    "bgMinionMusic": {
+      "__uuid__": "8f2106c2-5a1f-44a8-8e1e-b39318f56a2a"
+    },
     "soundEffectButton": {
       "__uuid__": "d61c3ebb-c869-4c0e-bcf6-84014b36b108"
     },
+    "MinionSound": [
+      {
+        "__uuid__": "2a91194a-b8da-4367-8f0c-a71acb7d7753"
+      },
+      {
+        "__uuid__": "347b30cc-167a-47ac-b189-5f9a7ba758c9"
+      },
+      {
+        "__uuid__": "730b0efe-3a72-4734-b07c-49c2c82dfc4a"
+      },
+      {
+        "__uuid__": "c2cf9c1d-0d4f-4b62-a5c9-b010b498cb9f"
+      }
+    ],
     "_id": "8cuB+Z7TtEkJrXu7df5rhb"
   },
   {
@@ -4724,7 +4998,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 101
+        "__id__": 107
       }
     ],
     "_prefab": null,
@@ -4780,7 +5054,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 100
+      "__id__": 106
     },
     "_enabled": true,
     "_id": "ccJy0CAUlCt6soPBWpY3/F"
