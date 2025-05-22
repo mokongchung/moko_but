@@ -67,7 +67,11 @@ cc.Class({
                 dmg: this.atk ,
                 
             };
-            nodeIndex.emit( 'takeDmg' , event);
+            try{
+                nodeIndex.emit( 'takeDmg' , event);
+            }catch (err){
+                console.log("error when call emit take Dmg"+ err);
+            }
         });
     },
     dealDmgToTarget(other){

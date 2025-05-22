@@ -220,7 +220,7 @@ cc.Class({
         this.node.off('see_enemy', this.seeEnemy, this);
         this.node.off('takeDmg', this.takeDmg, this);
         this.node.off('enemy_exit', this.exitEnemy, this);
-        
+        this.resetSlow();
         if( this.isPlayer){
              PoolManager.getInstance().putPlayer(this.Index, this.node);
         }
@@ -237,6 +237,33 @@ cc.Class({
             this.move();
             return true;
         }
+    },
+    slowUnit(showRate , timeSlow){
+        if(this.moveTween){
+            this.moveTween.stop();
+            this.moveTween = cc.tween(this.node)
+            .by( (1/showRate), { position: cc.v2(this.moveSpeed, 0) })
+            .repeatForever()
+            .start();
+        }
+        this.animation.getAnimationState("attack").speed = showRate;
+
+        this.scheduleOnce(function() {
+            this.resetSlow();
+        }, timeSlow);
+
+    },
+    resetSlow(){
+        if(this.moveTween){
+            this.moveTween.stop();
+            this.moveTween = cc.tween(this.node)
+            .by(1, { position: cc.v2(this.moveSpeed, 0) })
+            .repeatForever()
+            .start();
+            
+        }
+        this.animation.getAnimationState("attack").speed = 1;
+
     }
 
 
