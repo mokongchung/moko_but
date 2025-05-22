@@ -752,6 +752,8 @@
     "hpMax": 100,
     "MoneySpeed": 8,
     "ManaRegenSpeed": 5,
+    "Skill1Level": 1,
+    "Skill2Level": 1,
     "GamePlay": {
       "__id__": 18
     },
