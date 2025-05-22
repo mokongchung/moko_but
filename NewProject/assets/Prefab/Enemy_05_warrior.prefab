@@ -142,7 +142,7 @@
         0,
         0,
         1,
-        1,
+        -1,
         1,
         1
       ]
@@ -508,6 +508,9 @@
     "atkSpeed": 1000,
     "lvUp": 1,
     "bulletSpeed": 100,
+    "bulletAOE": false,
+    "Index": 0,
+    "isPlayer": true,
     "bulletPrefab": null,
     "hpBar": {
       "__id__": 7

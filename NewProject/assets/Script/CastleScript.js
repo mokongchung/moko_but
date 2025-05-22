@@ -8,6 +8,7 @@ cc.Class({
         SkillBar: cc.ProgressBar,
         MoneyDisplay: cc.Label,
         Spawner: cc.Node,
+        EnemySpawner : cc.Node,
         Skill1Btn: cc.Button,
         Skill2Btn: cc.Button,
         Skill1Prefab: cc.Prefab,
@@ -215,7 +216,8 @@ cc.Class({
      spawnAtCenter(prefab) {
         // Tạo instance từ prefab truyền vào
         const newNode = cc.instantiate(prefab);
-
+        let newNodeScript = newNode.getComponentInChildren("Skill1");
+        newNodeScript.init(this.EnemySpawner);
         // Lấy node SkillHolder
         // hoặc cc.find('Canvas/SkillHolder') nếu cần tìm thủ công
 
