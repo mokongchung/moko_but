@@ -39,8 +39,8 @@ cc.Class({
         this.skill2Level = 0;
 
         this.castlePrice= 10;
-        this.moneyPrice= 100;
-        this.manaPrice= 100;
+        this.moneyPrice= 10;
+        this.manaPrice= 10;
         this.skill1Price= 100;
         this.skill2Price= 100;
 
@@ -83,6 +83,7 @@ cc.Class({
             this.moneyScript.Money -= this.castlePrice;
             this.castleLevel++;
             this.castlePrice += 10;
+            this.moneyScript.CastleLevel( this.castleLevel);
             this.updatePrice();
             this.SetSpriteLevel();
         } else {
@@ -97,7 +98,9 @@ cc.Class({
         if (this.moneyScript.Money >= this.moneyPrice) {
             this.moneyScript.Money -= this.moneyPrice;
             this.moneyLevel++;
-            this.moneyPrice += 100;
+            this.moneyPrice += 10;
+            this.moneyScript.MoneySpeedGainLV( this.moneyLevel);
+
             this.updatePrice();
             this.SetSpriteLevel();
         } else {
@@ -112,7 +115,8 @@ cc.Class({
         if (this.moneyScript.Money >= this.manaPrice) {
             this.moneyScript.Money -= this.manaPrice;
             this.manaLevel++;
-            this.manaPrice += 100;
+            this.manaPrice += 10;
+            this.moneyScript.ManaRegenSpeedGainLV( this.manaLevel);
             this.updatePrice();
             this.SetSpriteLevel();
         } else {

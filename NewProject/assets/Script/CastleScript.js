@@ -24,6 +24,8 @@ cc.Class({
         ManaRegenSpeed: 0,
 
         GamePlay: cc.Node,
+        ManaBoostLabel: cc.Label,
+        MoneyBoostLabel: cc.Label,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -33,6 +35,8 @@ cc.Class({
     this.Money = 0;
     this.Hp = this.hpMax;
     this.Spell = 0;
+    this.CastleLv=0;
+
 
     this.mousePosition = null;
     this.node.on('takeDmg', this.takeDmg, this);
@@ -117,11 +121,7 @@ cc.Class({
             .start();
     },
 
-    MoneySpeedGainLV(level) {
-    let SpeedUp= 1 + 0.375 * level;
-    this.MoneySpeed = SpeedUp;
-    },
-
+   
    MoneynManaGain(dt) {
     this.Money += dt * this.MoneySpeed;
     const moneyInt = Math.floor(this.Money);
@@ -144,7 +144,7 @@ cc.Class({
     this.Skill2Btn.interactable = this.Spell >= this.Skill2Charge;
 
     for (let i = 0; i < this.SummonBtn.length; i++) {
-        this.SummonBtn[i].interactable = this.Money >= this.SummonPrice[i];
+        this.SummonBtn[i].interactable = this.Money >= this.SummonPrice[i] && this.CastleLv >= i;
     }
 },
 
@@ -227,6 +227,33 @@ cc.Class({
     },
     onDestroy() {
         cc.director.off("RequestHP", this._onRequestHP, this);
-    }
+    },
+
+
+    //========Shop=========
+     MoneySpeedGainLV(level) {
+        if(level>0)
+        {
+            this.MoneyBoostLabel.node.active = true;
+            this.MoneyBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
+        }
+    let SpeedUp= 1 + 0.375 * level;
+    this.MoneySpeed = SpeedUp;
+    },
+    ManaRegenSpeedGainLV(level) {
+        if(level>0)
+        {
+            this.ManaBoostLabel.node.active = true;
+            this.ManaBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
+        }
+        let SpeedUp= 1 + 0.375 * level;// Max là 2.5 Min là 1 => (2.5-1)/4 = 0.375
+        this.ManaRegenSpeed = SpeedUp;
+    },
+    CastleLevel(level) {
+        this.CastleLv = level;
+        this.Hp+= 50 * this.CastleLv;
+        this.hpMax+= 50 * this.CastleLv;
+    },
+
 
 });

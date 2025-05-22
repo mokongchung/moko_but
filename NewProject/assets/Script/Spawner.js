@@ -4,8 +4,7 @@ cc.Class({
 
     properties: {
         Spawner: cc.Node,
-        MoneyScript: cc.Node,
-      
+        CastleScript: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -13,8 +12,8 @@ cc.Class({
     // onLoad () {},
 
     start () {
-       this.Money = this.MoneyScript.getComponent('CastleScript') 
-          || this.MoneyScript.getComponent('EnemyCastle');
+       this.Money = this.CastleScript.getComponent('CastleScript') 
+          || this.CastleScript.getComponent('EnemyCastle');
 
     },
     RandomPosition() {
