@@ -216,10 +216,8 @@ cc.Class({
      spawnAtCenter(prefab) {
         // Tạo instance từ prefab truyền vào
         const newNode = cc.instantiate(prefab);
-        let enemy = newNode.getComponent("Skill");
-        if (enemy && enemy.spawnerNode) {
-            enemy.spawnerNode = this.EnemySpawner;
-        }
+        let newNodeScript = newNode.getComponentInChildren("Skill1");
+        newNodeScript.init(this.EnemySpawner);
         // Lấy node SkillHolder
         // hoặc cc.find('Canvas/SkillHolder') nếu cần tìm thủ công
 

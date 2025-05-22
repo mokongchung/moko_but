@@ -1,24 +1,29 @@
 cc.Class({
     extends: cc.Component,
-    name: "Skill",
+    
     properties: {
         Animation: cc.Animation,
         Sprite: cc.Node, 
-        spawner : cc.Node,
+        spawnerNode : cc.Node,
 
         slowRate : 0.5,
         slowTime : 10,
     },
 
+    init(spawner){
+        if(spawner){
+            this.spawnerNode = spawner;
+        }
+    },
     EndAnimation () {
 
-        let children = this.spawner.node.children;
+        let children = this.spawnerNode.children;
 
         children.forEach(child => {
             if (child.group === "e_hitbox") {
                 let enemy = child.getComponent("unit_combat");
-                if (enemy && enemy.showUnit) {
-                    enemy.showUnit(this.slowRate, this.slowTime); 
+                if (enemy && enemy.slowUnit) {
+                    enemy.slowUnit(this.slowRate, this.slowTime); 
                 }
             }
         });

@@ -320,6 +320,9 @@
     "Sprite": {
       "__id__": 2
     },
+    "spawnerNode": null,
+    "slowRate": 0.1,
+    "slowTime": 10,
     "_id": ""
   },
   {

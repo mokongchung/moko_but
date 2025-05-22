@@ -1,7 +1,7 @@
 
 cc.Class({
     extends: cc.Component,
-    name: "Skill",
+    
     properties: {
         firstAnimation: cc.Animation,
         secondAnimation: cc.Animation,
