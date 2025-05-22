@@ -134,6 +134,7 @@ cc.Class({
             this.skill1Price += 100;
             this.updatePrice();
             this.SetSpriteLevel();
+            this.moneyScript.Skill1Level = this.skill1Level;
         } else {
             // Nếu tiền không đủ, label Skill1Price chớp đỏ rồi trở lại trắng
             this.NotEnoughMoney(this.Skill1Price);
@@ -149,6 +150,7 @@ cc.Class({
             this.skill2Price += 100;
             this.updatePrice();
             this.SetSpriteLevel();
+            this.moneyScript.Skill2Level = this.skill2Level;
         } else {
             // Nếu tiền không đủ, label Skill2Price chớp đỏ rồi trở lại trắng
             this.NotEnoughMoney(this.Skill2Price);
