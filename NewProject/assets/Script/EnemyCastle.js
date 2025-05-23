@@ -100,6 +100,27 @@ cc.Class({
         }
         return spawnRates.length - 1;
     }
+    setInterval(() => {
+
+        this.SpawnerScript.SpawnEnemy(4, this.spawHolder, this.LV);
+
+    }, 20000); 
+    setInterval(() => {
+
+        this.SpawnerScript.SpawnEnemy(3, this.spawHolder, this.LV);
+
+    }, 10000); 
+    setInterval(() => {
+
+        this.SpawnerScript.SpawnEnemy(0, this.spawHolder, this.LV);
+        this.SpawnerScript.SpawnEnemy(1, this.spawHolder, this.LV);
+        this.SpawnerScript.SpawnEnemy(2, this.spawHolder, this.LV);
+        this.SpawnerScript.SpawnEnemy(3, this.spawHolder, this.LV);
+        this.SpawnerScript.SpawnEnemy(4, this.spawHolder, this.LV);
+
+    }, 30000); 
+
+
 
     // Hàm spawn liên tục với delay ngẫu nhiên
     let spawnEnemyLoop = () => {
