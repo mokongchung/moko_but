@@ -27,6 +27,7 @@ let AudioController = cc.Class({
         MusicAudioSource: cc.AudioSource,
         SoundEffectAudioSource: cc.AudioSource,
         MinionAudioSource: [cc.AudioSource],
+        MinonSingleAudioSource: cc.AudioSource,
 
         // ===== 🎵 BG MUSIC =====
         bgMusicMainMenu: cc.AudioClip,
@@ -73,6 +74,18 @@ let AudioController = cc.Class({
          this.SelectedMinionAudio=(this.SelectedMinionAudio + 1 )% 3;
 
          
+    },
+
+    MinionSing()
+    {
+        this.MusicAudioSource.volume = 0.4;
+        this.MinonSingleAudioSource.stop();
+        this.MinonSingleAudioSource.play();
+    },
+    MinionStop()
+    {
+        this.MusicAudioSource.volume = 1;
+        this.MinonSingleAudioSource.stop();
     },
 
 

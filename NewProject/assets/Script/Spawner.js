@@ -54,12 +54,13 @@ cc.Class({
                 this.Money.SummonBtn[Index].interactable= false;
             }
              let audioCtrl = AudioController.getInstance();
-           if (this.Spawner.children.length > 3 && audioCtrl.MusicAudioSource.clip != audioCtrl.bgMinionMusic &&
-                audioCtrl.MusicAudioSource.isPlaying) {
-                audioCtrl.PlayBgMusic(audioCtrl.bgMinionMusic);
+           if (this.Spawner.children.length > 3 &&  !audioCtrl.MinonSingleAudioSource.isPlaying // đúng với 2.x
+) {
+                audioCtrl.MinionSing();
             } 
-            else if (this.Spawner.children.length <= 3 && audioCtrl.MusicAudioSource.clip == audioCtrl.bgMinionMusic) {
-                audioCtrl.PlayBgMusic(audioCtrl.bgMusicGamePlay);
+            else if (this.Spawner.children.length <= 3 && audioCtrl.MinonSingleAudioSource.isPlaying // đúng với 2.x
+) {
+                audioCtrl.MinionStop();
             }
             
 

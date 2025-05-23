@@ -23,7 +23,7 @@
         "__id__": 94
       },
       {
-        "__id__": 106
+        "__id__": 108
       }
     ],
     "_active": true,
@@ -4477,12 +4477,15 @@
       },
       {
         "__id__": 103
+      },
+      {
+        "__id__": 105
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 105
+        "__id__": 107
       }
     ],
     "_prefab": null,
@@ -4929,6 +4932,87 @@
     "_id": "8a/SnNRPNNMI3SuTFZEb6r"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "MinionSing",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 94
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 106
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "4fmQu/xJ9ATK7oJpyfGJIj"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 105
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "8f2106c2-5a1f-44a8-8e1e-b39318f56a2a"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": true,
+    "_firstlyEnabled": true,
+    "playOnLoad": false,
+    "preload": false,
+    "_id": "9f+vouwRZFRoGmH6+Wivlm"
+  },
+  {
     "__type__": "1ca53IPlTtJWJ6YlsA2Dp7N",
     "_name": "",
     "_objFlags": 0,
@@ -4953,6 +5037,7 @@
         "__id__": 100
       }
     ],
+    "MinonSingleAudioSource": null,
     "bgMusicMainMenu": {
       "__uuid__": "46aa4b82-30f7-447f-830e-c81e95a83a85"
     },
@@ -5004,7 +5089,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 107
+        "__id__": 109
       }
     ],
     "_prefab": null,
@@ -5060,7 +5145,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 106
+      "__id__": 108
     },
     "_enabled": true,
     "_id": "ccJy0CAUlCt6soPBWpY3/F"
