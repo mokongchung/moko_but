@@ -20,66 +20,73 @@ let GameController = cc.Class({
 
         // Giữ node này tồn tại xuyên scene
         cc.game.addPersistRootNode(this.node);
-        this._timeAccum = 0;
-        // Khởi tạo các biến cần thiết DATAGAME
-            this.EnemyHp = 100;
-            this.PlayerHp = 100;
-            this.PlayerSpell = 0;
-            this.PlayerMoney = 0;
+        this._init(); 
+
+        this.Level = 0; // Mặc định là level 0
 
     },
 
     properties: {
-        MoneyGainSpeed: 1,
 
-       EnemyHPBar: cc.ProgressBar,
-       PlayerHpBar: cc.ProgressBar,
-       PlayerSpellBar: cc.ProgressBar,
-       PlayerMoneyLabel: cc.Label,
     },
+
+    _init() {
+        this.data = this._loadData();
+        if (!this.data.levels[1]) {
+            console.log("Khởi tạo dữ liệu level 1");
+        this.data.levels[1] = { Unlocked: true, stars: 0 };
+        this._saveData();
+    }
+    },
+
+    _loadData() {
+        let json = cc.sys.localStorage.getItem("levelData");
+        return json ? JSON.parse(json) : { levels: {} };
+    },
+
+    _saveData() {
+        cc.sys.localStorage.setItem("levelData", JSON.stringify(this.data));
+    },
+
+    saveLevel(level, stars) {
+        const current = this.data.levels[level] || { Unlocked: false, stars: 0 };
+
+        // Lưu lại thông tin level hiện tại
+        this.data.levels[level] = {
+            Unlocked: true,
+            stars: Math.max(stars, current.stars) // luôn giữ số sao cao nhất
+        };
+
+        // ✅ Nếu level hiện tại có ít nhất 1 sao, unlock level tiếp theo
+        if (stars > 0) {
+            const nextLevel = parseInt(level) + 1;
+            const next = this.data.levels[nextLevel] || { Unlocked: false, stars: 0 };
+
+            if (!next.Unlocked) {
+
+                this.data.levels[nextLevel] = {
+                    Unlocked: true,
+                    stars: next.stars || 0
+                };
+            }
+        }
+
+        this._saveData();
+    },
+
+    getLevel(level) {
+        return this.data.levels[level] || { Unlocked: false, stars: 0 };
+    },
+
+    resetAll() {
+        this.data = { levels: {} };
+         this.data.levels[1] = { Unlocked: true, stars: 0 };
+        this._saveData();
+    }
+
+
 
     
-    SpellGain(progress) 
-    {
-        this.PlayerSpell = progress;
-        this.PlayerSpellBar.progress = this.PlayerSpell / 100;
-        if (this.PlayerSpell >= 100) {
-            this.PlayerSpell = 100;
-            cc.log("Player Spell is full");
-        }
-    },
-
-    MoneyGain (money) 
-    {
-        this.PlayerMoney = money;
-        this.PlayerMoneyLabel.string = this.PlayerMoney;
-    },
-
-    DealDame (hp) {
-        this.EnemyHp = hp;
-        this.EnemyHPBar.progress = this.EnemyHp / 100;
-        if (this.EnemyHp <= 0) {
-            this.EnemyHp = 0;
-            this.EndGame();
-        }
-
-    },
-    receiveDame (hp) {
-        this.PlayerHp = hp;
-        this.PlayerHpBar.progress = this.PlayerHp / 100;
-        if (this.PlayerHp <= 0) {
-            this.PlayerHp = 0;
-            this.EndGame();
-        }
-    },
-
-
-    EndGame() {
-        cc.director.pause();
-        cc.log("End Game");
-        // Xóa instance để có thể tạo lại khi cần
-     
-    }
 
 });
 module.exports = GameController;

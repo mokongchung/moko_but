@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Update2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.1,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "717dc198-52fb-460a-b8c6-bff8ef9a0d6c"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "e4850521-e0ba-45d7-a490-986df5f49273"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "5c5b72f4-f51a-4b13-904d-6bcd9d06562a"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "79facf8a-2083-46f1-a26d-d2c1db14940d"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "7fd9b73b-14d2-4be2-bf36-d5f01dfc8aa0"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "16a70138-b0e8-4ca4-b2f2-6876467cbab5"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.08333333333333333,
+      "func": "CastleIdle",
+      "params": [
+        2
+      ]
+    }
+  ]
+}

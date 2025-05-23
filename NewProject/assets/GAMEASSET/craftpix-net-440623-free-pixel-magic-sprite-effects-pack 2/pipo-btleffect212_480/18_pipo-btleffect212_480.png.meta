@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "62aae60d-6375-402c-9526-e8dd28148053",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 480,
+  "height": 480,
+  "platformSettings": {},
+  "subMetas": {
+    "18_pipo-btleffect212_480": {
+      "ver": "1.0.6",
+      "uuid": "b4d738e8-1566-444d-aaca-665e7f204930",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "62aae60d-6375-402c-9526-e8dd28148053",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 480,
+      "height": 480,
+      "rawWidth": 480,
+      "rawHeight": 480,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

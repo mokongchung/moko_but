@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Skill2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.15,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "d2116e80-b0dc-4913-a10e-10628443687c"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "a8fc7458-c397-4db9-a451-c843da80950b"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "5d6ad6cc-7e33-4ccb-a8f2-5b11453d0f2e"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "15440048-cadd-4936-8606-3106b2dfb973"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "0c861aac-a8e8-40a5-86d1-b63b669bc5c7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.13333333333333333,
+      "func": "PlayTheBoom",
+      "params": []
+    }
+  ]
+}

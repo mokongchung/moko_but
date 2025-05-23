@@ -1,0 +1,66 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.0166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "7b22d40a-5cad-4cf4-82e1-dd552734e155"
+            }
+          },
+          {
+            "frame": 0.21666666666666667,
+            "value": {
+              "__uuid__": "a9ef56e6-71ce-4a88-a2a2-7d332696ac67"
+            }
+          },
+          {
+            "frame": 0.4166666666666667,
+            "value": {
+              "__uuid__": "17e99325-8692-4164-b092-8adc147c8aa0"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "7ae7232e-ebcc-4455-9377-3afdfcf1f278"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "16f12bad-3afa-460c-8721-0d569585e696"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "7a6946a3-e396-48d9-aaaa-628180e90294"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
+      "frame": 0.8166666666666667,
+      "func": "createBullet",
+      "params": []
+    }
+  ]
+}

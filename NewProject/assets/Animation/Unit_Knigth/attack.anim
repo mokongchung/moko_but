@@ -1,0 +1,66 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.0166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0a443b5a-af9c-4843-915f-b41349853bae"
+            }
+          },
+          {
+            "frame": 0.21666666666666667,
+            "value": {
+              "__uuid__": "dd092871-fc7a-440a-bfb2-656866f68735"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "907509e9-2f20-4f01-b2f0-85e9aa00bd6b"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "79bc77f4-3cd9-4c76-ab21-a18b1127b59e"
+            }
+          },
+          {
+            "frame": 0.7833333333333333,
+            "value": {
+              "__uuid__": "f800ffec-6ca3-4d0c-890f-533df745c8c3"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "cdfe74a1-0423-4554-91a3-161b6ed3c4b7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0,
+      "func": "checkEnemy",
+      "params": []
+    },
+    {
+      "frame": 0.8333333333333334,
+      "func": "dealDmg",
+      "params": []
+    }
+  ]
+}
