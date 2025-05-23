@@ -77,14 +77,7 @@ cc.Class({
         this.FadePanel.active = true;
         this.FadePanel.opacity = 0;
 
-        // // Tween để làm tối dần trong 0.5s
-        // cc.tween(this.FadePanel)
-        //     .to(0.5, { opacity: 255 })
-        //     .call(() => {
-        //         // Khi tối xong thì chuyển scene
-        //         cc.director.loadScene("MainMenu");
-        //     })
-        //     .start();
+
         this.ReverseFadePanelTween("MainMenu");
     },
 
@@ -96,17 +89,10 @@ cc.Class({
         cc.tween(this.FadePanel)
             .to(0.5, { opacity: 255 })
             .call(() => {
-                // Khi tối xong thì chuyển scene
                 cc.director.loadScene(Name);
             })
             .start();
-        // // Tween để làm sáng dần trong 0.5s
-        // cc.tween(this.FadePanel)
-        //     .to(0.5, { opacity: 255 })
-        //     .call(() => {
-        //         cc.director.loadScene(Name);
-        //     })
-        //     .start();
+
     },
 
     FadePanelTween() {

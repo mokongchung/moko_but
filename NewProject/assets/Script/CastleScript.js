@@ -79,9 +79,12 @@ cc.Class({
     }
     
     },
-    CastleIdle() 
+    CastleIdle(Number) 
     {
+        if(Number == 0)
         this.animation.play('CastlesIdle');
+        else
+        this.animation.play('Idle'+Number);
     },
 
 
@@ -263,7 +266,11 @@ cc.Class({
         this.CastleLv = level;
         this.Hp+= 50 * this.CastleLv;
         this.hpMax+= 50 * this.CastleLv;
+        this.UpgadeCastleAnimation(level);
     },
+    UpgadeCastleAnimation(level) {
+        this.animation.play('Update'+level);
+    }
 
 
 });

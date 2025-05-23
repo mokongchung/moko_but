@@ -26,7 +26,7 @@
         "__id__": 108
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -2097,7 +2097,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        150,
         0,
         0,
         0,
@@ -2255,7 +2255,7 @@
     "_N$handle": {
       "__id__": 43
     },
-    "_N$progress": 0.5,
+    "_N$progress": 1,
     "_id": "ca+eaVVnpAQKy4p+eoIv0j"
   },
   {
@@ -2568,7 +2568,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        150,
         0,
         0,
         0,
@@ -2726,7 +2726,7 @@
     "_N$handle": {
       "__id__": 53
     },
-    "_N$progress": 0.5,
+    "_N$progress": 1,
     "_id": "bckJd4sXRI841nmPPlCX9L"
   },
   {
@@ -3039,7 +3039,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        150,
         0,
         0,
         0,
@@ -3197,7 +3197,7 @@
     "_N$handle": {
       "__id__": 63
     },
-    "_N$progress": 0.5,
+    "_N$progress": 1,
     "_id": "c2yrzYzxJJOZYBRTIgXRVC"
   },
   {
@@ -5037,7 +5037,9 @@
         "__id__": 100
       }
     ],
-    "MinonSingleAudioSource": null,
+    "MinonSingleAudioSource": {
+      "__id__": 106
+    },
     "bgMusicMainMenu": {
       "__uuid__": "46aa4b82-30f7-447f-830e-c81e95a83a85"
     },

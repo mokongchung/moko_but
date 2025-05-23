@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "CastlesIdle",
+  "_name": "Idle1",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.06666666666666667,
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "96d8a344-f5e2-4c06-8785-3499f544217b"
+              "__uuid__": "56435cd7-388f-43ed-9417-1b5a478d7e68"
             }
           },
           {
             "frame": 0.016666666666666666,
             "value": {
-              "__uuid__": "6ab48b45-0d8e-4b7a-8475-1394661cfb62"
+              "__uuid__": "4da6182d-1a09-4b47-9c65-aec2437020ab"
             }
           },
           {
             "frame": 0.03333333333333333,
             "value": {
-              "__uuid__": "3e48c16b-1d55-4249-99a0-c5369495daba"
+              "__uuid__": "99e1c8c5-2f89-4bc1-9a24-73a2a3e8a8ab"
             }
           },
           {
             "frame": 0.05,
             "value": {
-              "__uuid__": "fe9026e3-ee6b-47f0-85f6-25afdec91e82"
+              "__uuid__": "fff47940-d064-449c-9268-a2a7b7e3c847"
             }
           }
         ]
