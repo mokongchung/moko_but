@@ -100,16 +100,18 @@ cc.Class({
         }
         return spawnRates.length - 1;
     }
+    /*
     setInterval(() => {
 
         this.SpawnerScript.SpawnEnemy(4, this.spawHolder, this.LV);
 
-    }, 20000); 
+    }, 40000); 
     setInterval(() => {
 
         this.SpawnerScript.SpawnEnemy(3, this.spawHolder, this.LV);
 
     }, 10000); 
+    */
     setInterval(() => {
 
         this.SpawnerScript.SpawnEnemy(0, this.spawHolder, this.LV);
@@ -118,7 +120,7 @@ cc.Class({
         this.SpawnerScript.SpawnEnemy(3, this.spawHolder, this.LV);
         this.SpawnerScript.SpawnEnemy(4, this.spawHolder, this.LV);
 
-    }, 30000); 
+    }, 60000); 
 
 
 
