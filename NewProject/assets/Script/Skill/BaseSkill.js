@@ -41,6 +41,7 @@ cc.Class({
 
     },
     onCollisionEnter(other, self) {
+        console.log("add enemy to skill 1")
         this.arrayEnemy.push(other.node);
     }
     ,

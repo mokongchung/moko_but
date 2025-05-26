@@ -56,28 +56,20 @@ cc.Class({
     dealSKillEff(){
         this.arrayEnemy.forEach((nodeIndex, index) => {
            
-            let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
+            let event = new cc.Event.EventCustom('slowUnit', true); // bubbling = true
             event.detail = { 
                 slowRate:  this.slowRateByLevel[this.level], 
                 slowTime: this.slowTimeByLevel[this.level],
+                dmg : 100,
             };
             try{
-                nodeIndex.emit( 'slow' , event);
+                nodeIndex.emit( 'slowUnit' , event);
             }catch (err){
                 console.log("error when call emit take Dmg"+ err);
             }
             
         });
-        let children = this.spawnerNode.children;
 
-        children.forEach(child => {
-            if (child.group === "e_hitbox") {
-                let enemy = child.getComponent("unit_combat");
-                if (enemy && enemy.slowUnit) {
-                    enemy.slowUnit(this.slowRateByLevel[this.level], this.slowTimeByLevel[this.level]); 
-                }
-            }
-        });
     },
 
     start () {},

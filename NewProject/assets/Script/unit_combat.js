@@ -37,6 +37,8 @@ cc.Class({
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
+        this.node.on('slowUnit', this.slowUnit , this);
+
 
         this.animation = this.node.getComponent(cc.Animation);
         this.initData();
@@ -247,6 +249,7 @@ cc.Class({
         this.node.off('see_enemy', this.seeEnemy, this);
         this.node.off('takeDmg', this.takeDmg, this);
         this.node.off('enemy_exit', this.exitEnemy, this);
+        this.node.off('slowUnit', this.slowUnit , this);
         this.resetSlow();
         if( this.isPlayer){
              PoolManager.getInstance().putPlayer(this.Index, this.node);
@@ -266,19 +269,24 @@ cc.Class({
         }
         
     },
-    slowUnit(showRate , timeSlow){
+    slowUnit( event ){
+        if (!event || !event.detail) {
+            console.warn('Lỗi: không có event hoặc event.detail');
+            return;
+        }
+        console.log("start slowUnit "+ event.detail.slowRate)
         if(this.moveTween){
             this.moveTween.stop();
             this.moveTween = cc.tween(this.node)
-            .by( (1/showRate), { position: cc.v2(this.moveSpeed, 0) })
+            .by( (1/ event.detail.slowRate), { position: cc.v2(this.moveSpeed, 0) })
             .repeatForever()
             .start();
         }
-        this.animation.getAnimationState("attack").speed = showRate;
+        this.animation.getAnimationState("attack").speed = event.detail.slowRate;
 
         this.scheduleOnce(function() {
             this.resetSlow();
-        }, timeSlow);
+        }, event.detail.slowTime);
 
     },
     resetSlow(){

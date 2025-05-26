@@ -133,7 +133,7 @@ cc.Class({
     this.Money += dt * this.MoneySpeed;
     const moneyInt = Math.floor(this.Money);
     if (moneyInt !== this.lastMoneyInt) {
-        console.log("Money "+ this.Money + " " + this.MoneySpeed * dt );
+        //console.log("Money "+ this.Money + " " + this.MoneySpeed * dt );
         this.MoneyDisplay.string = moneyInt; 
 
         this.lastMoneyInt = moneyInt;
