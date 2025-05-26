@@ -17808,17 +17808,36 @@
       "__id__": 384
     },
     "_enabled": true,
-    "MoneySpeed": 0,
-    "hpMax": 100,
-    "spawHolder": {
-      "__id__": 382
-    },
-    "hpBar": {
+    "CastSpellsprite": null,
+    "HpBar": {
       "__id__": 28
     },
+    "SkillBar": null,
+    "MoneyDisplay": null,
+    "Spawner": {
+      "__id__": 382
+    },
+    "EnemySpawner": null,
+    "Skill1Btn": null,
+    "Skill2Btn": null,
+    "Skill1Prefab": null,
+    "Skill2Prefab": null,
+    "SkillHolder": null,
+    "Skill2Holder": null,
+    "SummonBtn": [],
+    "SummonPrice": [],
+    "Skill1Charge": 40,
+    "Skill2Charge": 80,
+    "hpMax": 100,
+    "MoneySpeed": 0,
+    "ManaRegenSpeed": 0,
+    "Skill1Level": 1,
+    "Skill2Level": 1,
     "GamePlay": {
       "__id__": 18
     },
+    "ManaBoostLabel": null,
+    "MoneyBoostLabel": null,
     "_id": "99uK1MBU9D+pLR/M+W/Qm5"
   },
   {
