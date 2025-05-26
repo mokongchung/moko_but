@@ -15,16 +15,17 @@ cc.Class({
 
     onLoad () 
     {
-        this._super();
+        //this._super();
         this.LV = GameController.getInstance().Level;
         this.hpMax = this.hpMax + this.LV * 700;
         this.hp = this.hpMax;
     },
 
     start () {
-        this._super();
+       //this._super();
+       this.animation = this.node.getComponent(cc.Animation);
         this.SpawnerScript = this.node.getComponent('Spawner');
-        
+        this.node.on('takeDmg', this.takeDmg, this);
         this.AIWhoWillPlaythisGame();
     },
 
@@ -81,6 +82,12 @@ cc.Class({
 
     // Bắt đầu spawn
     spawnEnemyLoop();
+    },
+
+    update(dt) {
+        
+    
+        
     },
 
     
