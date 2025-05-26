@@ -1,10 +1,10 @@
 let AudioController = require("AudioCtrl");
-
+let BaseSkill = require("BaseSkill");
 cc.Class({
-    extends: cc.Component,
+    extends: BaseSkill,
     
     properties: {
-        Animation: cc.Animation,
+
         Sprite: cc.Node, 
         spawnerNode : cc.Node,
 
@@ -33,16 +33,7 @@ cc.Class({
     },
     EndAnimation () {
 
-        let children = this.spawnerNode.children;
-
-        children.forEach(child => {
-            if (child.group === "e_hitbox") {
-                let enemy = child.getComponent("unit_combat");
-                if (enemy && enemy.slowUnit) {
-                    enemy.slowUnit(this.slowRateByLevel[this.level], this.slowTimeByLevel[this.level]); 
-                }
-            }
-        });
+        this.dealSKillEff();
 
 
         cc.tween(this.Sprite&& this.node)
@@ -59,6 +50,32 @@ cc.Class({
         //.call(() => this.Sprite.destroy())
         .start();
 
+    },
+    dealSKillEff(){
+        this.arrayEnemy.forEach((nodeIndex, index) => {
+           
+            let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
+            event.detail = { 
+                slowRate:  this.slowRateByLevel[this.level], 
+                slowTime: this.slowTimeByLevel[this.level],
+            };
+            try{
+                nodeIndex.emit( 'slow' , event);
+            }catch (err){
+                console.log("error when call emit take Dmg"+ err);
+            }
+            
+        });
+        let children = this.spawnerNode.children;
+
+        children.forEach(child => {
+            if (child.group === "e_hitbox") {
+                let enemy = child.getComponent("unit_combat");
+                if (enemy && enemy.slowUnit) {
+                    enemy.slowUnit(this.slowRateByLevel[this.level], this.slowTimeByLevel[this.level]); 
+                }
+            }
+        });
     },
 
     start () {},
