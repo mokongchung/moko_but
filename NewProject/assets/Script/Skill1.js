@@ -36,7 +36,7 @@ cc.Class({
         let children = this.spawnerNode.children;
 
         children.forEach(child => {
-            if (child.group === "e_hitbox") {
+            if (child.group === "e_hitbox" || child.group === "e_Skyhitbox") {
                 let enemy = child.getComponent("unit_combat");
                 if (enemy && enemy.slowUnit) {
                     enemy.slowUnit(this.slowRateByLevel[this.level], this.slowTimeByLevel[this.level]); 
