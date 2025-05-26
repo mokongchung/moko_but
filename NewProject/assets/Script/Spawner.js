@@ -53,15 +53,7 @@ cc.Class({
             {
                 this.Money.SummonBtn[Index].interactable= false;
             }
-             let audioCtrl = AudioController.getInstance();
-           if (this.Spawner.children.length > 3 &&  !audioCtrl.MinonSingleAudioSource.isPlaying // đúng với 2.x
-) {
-                audioCtrl.MinionSing();
-            } 
-            else if (this.Spawner.children.length <= 3 && audioCtrl.MinonSingleAudioSource.isPlaying // đúng với 2.x
-) {
-                audioCtrl.MinionStop();
-            }
+            
             
 
         

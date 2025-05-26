@@ -61,7 +61,7 @@
       "name": "Archer",
       "hp": 120,
       "atk": 15,
-      "speed": 28,
+      "speed": 58,
       "attackSpeed": 0.9
     },
     {

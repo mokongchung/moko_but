@@ -231,7 +231,8 @@ cc.Class({
             newBullet.setPosition(this.node.getPosition());
             let Bullet_combat = newBullet.getComponent("Bullet_combat"); // tên script gắn trên prefab
                 if (Bullet_combat) {
-                    Bullet_combat.initBullet(this.atk, this.bulletSpeed , this.bulletAOE);
+                    //Bullet_combat.initBullet(this.atk, this.bulletSpeed , this.bulletAOE);
+                    //Test
                 }
                 //console.log("add child");
             this.node.parent.addChild(newBullet);
@@ -263,6 +264,7 @@ cc.Class({
             this.move();
             return true;
         }
+        
     },
     slowUnit(showRate , timeSlow){
         if(this.moveTween){
