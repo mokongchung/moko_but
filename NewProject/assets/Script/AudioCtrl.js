@@ -20,6 +20,9 @@ let AudioController = cc.Class({
         // Giữ node này tồn tại xuyên scene
         cc.game.addPersistRootNode(this.node);
         this.SelectedMinionAudio=0;
+        this._originalMusicVolume = parseFloat(cc.sys.localStorage.getItem("MusicVolume")) || 1;
+        this._originalSfxVolume = parseFloat(cc.sys.localStorage.getItem("SfxVolume")) || 1;
+        this._masterVolume = parseFloat(cc.sys.localStorage.getItem("MasterVolume")) || 1;
     },
 
     properties: {
@@ -76,18 +79,37 @@ let AudioController = cc.Class({
          
     },
 
-    MinionSing()
-    {
-        this.MusicAudioSource.volume = 0.4;
-        this.MinonSingleAudioSource.stop();
-        this.MinonSingleAudioSource.play();
-    },
-    MinionStop()
-    {
-        this.MusicAudioSource.volume = 1;
-        this.MinonSingleAudioSource.stop();
+    applyVolumes() {
+        this.MusicAudioSource.volume = this._originalMusicVolume * this._masterVolume;
+        this.SoundEffectAudioSource.volume = this._originalSfxVolume * this._masterVolume;
+
+        for (let i = 0; i < this.MinionAudioSource.length; i++) {
+            this.MinionAudioSource[i].volume = this._originalSfxVolume * this._masterVolume;
+        }
     },
 
+    setMusicVolume(value) {
+        value = Math.max(0, Math.min(1, value));
+        this._originalMusicVolume = value;
+        this.applyVolumes();
+        cc.sys.localStorage.setItem("MusicVolume", value);
+    },
+
+    setSfxVolume(value) {
+        value = Math.max(0, Math.min(1, value));
+        this._originalSfxVolume = value;
+        this.applyVolumes();
+        cc.sys.localStorage.setItem("SfxVolume", value);
+    },
+
+    setMasterVolume(value) {
+        value = Math.max(0, Math.min(1, value));
+        this._masterVolume = value;
+        this.applyVolumes();
+        cc.sys.localStorage.setItem("MasterVolume", value);
+    },
+
+       
 
 
 });

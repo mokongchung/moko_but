@@ -33,7 +33,9 @@ cc.Class({
     },
     EndAnimation () {
 
+
         this.dealSKillEff();
+
 
 
         cc.tween(this.Sprite&& this.node)

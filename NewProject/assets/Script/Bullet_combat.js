@@ -1,9 +1,3 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
     extends: cc.Component,
@@ -13,7 +7,7 @@ cc.Class({
         speed: 50,
         atk: 10,
         aoe : true,
-        
+        TargetEnemy: cc.Node,
 
     },
 
@@ -37,11 +31,11 @@ cc.Class({
         
         
     },
-    initBullet(atk = 10, speed = 50 , aoe = false){
-        this.atk = atk;
-        this.speed = speed;
-        this.aoe = aoe;
-    },
+    // initBullet(atk = 10, speed = 50 , aoe = false){
+    //     this.atk = atk;
+    //     this.speed = speed;
+    //     this.aoe = aoe;
+    // },
 
     seeEnemy (event) {
         //console.log("bullet enemy");

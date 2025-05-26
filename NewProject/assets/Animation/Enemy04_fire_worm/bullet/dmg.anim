@@ -59,7 +59,7 @@
   },
   "events": [
     {
-      "frame": 0.11666666666666667,
+      "frame": 0.1,
       "func": "detroyBullet",
       "params": []
     }

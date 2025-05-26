@@ -3,7 +3,7 @@
   "_name": "dmg",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.3333333333333333,
+  "_duration": 0.016666666666666666,
   "sample": 60,
   "speed": 0.1,
   "wrapMode": 1,
@@ -12,7 +12,7 @@
       "cc.Sprite": {
         "spriteFrame": [
           {
-            "frame": 0.016666666666666666,
+            "frame": 0,
             "value": {
               "__uuid__": "0a67b4bf-a43b-49cd-9a68-88393c83e6f9"
             }
@@ -23,7 +23,7 @@
   },
   "events": [
     {
-      "frame": 0.3333333333333333,
+      "frame": 0.016666666666666666,
       "func": "detroyBullet",
       "params": []
     }

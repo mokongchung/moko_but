@@ -18,11 +18,6 @@ cc.Class({
     },
 
     onLoad() {
-        _originalMusicVolume: 1.0;
-        _originalSfxVolume: 1.0;
-        _originalMasterVolume: 1.0;
-        // Nếu đã có instance rồi, tự hủy node này để tránh duplicate
-        
 
     },
     start () {
@@ -62,19 +57,28 @@ cc.Class({
                 // Khi tối xong thì chuyển scene
 
     Setvolume() {
-        if (cc.sys.localStorage.getItem("MusicVolume") !== null) {
-            this._originalMusicVolume = cc.sys.localStorage.getItem("MusicVolume");
+        // Lấy giá trị string từ localStorage => cần convert sang số bằng parseFloat
+        let musicVol = cc.sys.localStorage.getItem("MusicVolume");
+        if (musicVol !== null) {
+            this._originalMusicVolume = parseFloat(musicVol);
             this.MusicSlider.progress = this._originalMusicVolume;
         }
-        if (cc.sys.localStorage.getItem("SfxVolume") !== null) {
-            this._originalSfxVolume = cc.sys.localStorage.getItem("SfxVolume");
+
+        let sfxVol = cc.sys.localStorage.getItem("SfxVolume");
+        if (sfxVol !== null) {
+            this._originalSfxVolume = parseFloat(sfxVol);
             this.SfxSlider.progress = this._originalSfxVolume;
         }
-        if (cc.sys.localStorage.getItem("MasterVolume") !== null) {
-            this._originalMasterVolume = cc.sys.localStorage.getItem("MasterVolume");
+
+        let masterVol = cc.sys.localStorage.getItem("MasterVolume");
+        if (masterVol !== null) {
+            this._originalMasterVolume = parseFloat(masterVol);
             this.MasterSlider.progress = this._originalMasterVolume;
         }
+
+        AudioController.getInstance().applyVolumes();
     },
+
 
     // ===== COMMON FUNCTION =====
     playClickSound() {
@@ -117,39 +121,18 @@ cc.Class({
 },
 
 
-    MusicSliderCtr(sliderVol) {
-    const audio = AudioController.getInstance();
-    audio._originalMusicVolume = sliderVol.progress;
-    audio.MusicAudioSource.volume = sliderVol.progress;
 
-    cc.sys.localStorage.setItem("MusicVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
+
+    MusicSliderCtr(slider) {
+    AudioController.getInstance().setMusicVolume(slider.progress);
     },
 
-    SfxSliderCtr(sliderVol) {
-        const audio = AudioController.getInstance();
-        audio._originalSfxVolume = sliderVol.progress;
-        audio.SoundEffectAudioSource.volume = sliderVol.progress;
-        for (let i = 0; i < audio.MinionAudioSource.length; i++) {
-            audio.MinionAudioSource[i].volume = sliderVol.progress;
-        }
-        cc.sys.localStorage.setItem("SfxVolume", sliderVol.progress);// Lưu giá trị âm lượng vào localStorage
+    SfxSliderCtr(slider) {
+        AudioController.getInstance().setSfxVolume(slider.progress);
     },
 
-    MasterSliderCtr(sliderVol) {
-    const audio = AudioController.getInstance();
-    const masterVolume = sliderVol.progress;
-
-    audio.MusicAudioSource.volume = audio._originalMusicVolume * masterVolume;
-    audio.SoundEffectAudioSource.volume = audio._originalSfxVolume * masterVolume;
-    cc.sys.localStorage.setItem("MasterVolume", masterVolume);// Lưu giá trị âm lượng vào localStorage
-    },
-
-
-    ClearDataBtn() {
-        GameController.getInstance().resetAll();
-        cc.sys.localStorage.clear();
-
-
-    },
+    MasterSliderCtr(slider) {
+        AudioController.getInstance().setMasterVolume(slider.progress);
+    }
 
 });
