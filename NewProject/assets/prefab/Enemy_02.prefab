@@ -497,12 +497,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 50,
-    "moveSpeed": 50,
-    "atk": 10,
-    "dmgRateCombo": [],
+    "CharName": "Dark Wizard",
     "level": 1,
-    "atkSpeed": 1000,
     "lvUpStatus": [
       1,
       1.2,

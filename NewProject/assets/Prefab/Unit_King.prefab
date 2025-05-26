@@ -497,12 +497,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 500,
-    "moveSpeed": 50,
-    "atk": 15,
-    "dmgRateCombo": [],
+    "CharName": "King",
     "level": 1,
-    "atkSpeed": 1000,
     "lvUpStatus": [
       1,
       1,

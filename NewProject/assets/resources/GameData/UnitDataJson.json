@@ -1,0 +1,104 @@
+﻿{
+  "UnitData": [
+    {
+      "id": 1,
+      "type": "enemy",
+      "name": "FourFeets",
+      "hp": 100,
+      "atk": 10,
+      "speed": 20,
+      "attackSpeed": 0.75
+    },
+    {
+      "id": 2,
+      "type": "enemy",
+      "name": "Dark Wizard",
+      "hp": 200,
+      "atk": 20,
+      "speed": 15,
+      "attackSpeed": 0.6
+    },
+    {
+      "id": 3,
+      "type": "enemy",
+      "name": "Wolf",
+      "hp": 120,
+      "atk": 15,
+      "speed": 25,
+      "attackSpeed": 0.85
+    },
+    {
+      "id": 4,
+      "type": "enemy",
+      "name": "Dark King",
+      "hp": 150,
+      "atk": 25,
+      "speed": 18,
+      "comboRate": [1, 2, 3],
+      "attackSpeed": 0.9
+    },
+    {
+      "id": 5,
+      "type": "enemy",
+      "name": "Fire Worm",
+      "hp": 300,
+      "atk": 30,
+      "speed": 12,
+      "attackSpeed": 0.4
+    },
+    {
+      "id": 7,
+      "type": "player",
+      "name": "Knight",
+      "hp": 180,
+      "atk": 20,
+      "speed": 17,
+      "attackSpeed": 0.7
+    },
+    {
+      "id": 8,
+      "type": "player",
+      "name": "Archer",
+      "hp": 120,
+      "atk": 15,
+      "speed": 28,
+      "attackSpeed": 0.9
+    },
+    {
+      "id": 9,
+      "type": "player",
+      "name": "Mage",
+      "hp": 100,
+      "atk": 25,
+      "speed": 20,
+      "attackSpeed": 0.85
+    },
+    {
+      "id": 10,
+      "type": "player",
+      "name": "Paladin",
+      "hp": 220,
+      "atk": 18,
+      "speed": 15,
+      "attackSpeed": 0.6
+    },
+    {
+      "id": 11,
+      "type": "player",
+      "name": "Rogue",
+      "hp": 130,
+      "atk": 22,
+      "speed": 30,
+      "attackSpeed": 0.95
+    },
+    {
+      "id": 12,
+      "type": "player",
+      "name": "King",
+      "hp": 200,
+      "atk": 30,
+      "speed": 14,
+      "attackSpeed": 0.65
+    }
+  ]
+}

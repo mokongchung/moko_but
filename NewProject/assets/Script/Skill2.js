@@ -8,6 +8,7 @@ cc.Class({
         secondAnimation: cc.Animation,
         dmg : 50,
         level : 1,
+        
         dmgRateLevel : {
             default: [],
             type: [cc.Integer],  

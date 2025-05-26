@@ -497,12 +497,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 90,
-    "moveSpeed": 50,
-    "atk": 10,
-    "dmgRateCombo": [],
+    "CharName": "FourFeets",
     "level": 1,
-    "atkSpeed": 1000,
     "lvUpStatus": [
       1,
       1.2,

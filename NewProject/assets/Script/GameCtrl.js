@@ -10,21 +10,28 @@ let GameController = cc.Class({
         }
     },
 
-    onLoad() {
+    cachedDataList: null,
+
+    async onLoad() {
         if (GameController._instance) {
-            // Nếu đã có instance rồi, tự hủy node này để tránh duplicate
             this.node.destroy();
             return;
         }
         GameController._instance = this;
 
-        // Giữ node này tồn tại xuyên scene
         cc.game.addPersistRootNode(this.node);
         this._init(); 
+        try {
+            await this.unitInit();
+        } catch (err) {
+            console.error("❌ Lỗi khi load JSON:", err);
+        }
+                //console.log( this.GetCharInfo("Dark King").comboRate[0]);
 
-        this.Level = 0; // Mặc định là level 0
+        this.Level = 0; 
 
     },
+
 
     properties: {
 
@@ -82,11 +89,46 @@ let GameController = cc.Class({
         this.data = { levels: {} };
          this.data.levels[1] = { Unlocked: true, stars: 0 };
         this._saveData();
+    },
+    ///////UNIT DATA////////
+    // unitInit() {
+    //     return new Promise((resolve, reject) => {
+    //         cc.resources.load("GameData/UnitDataJson", cc.JsonAsset, (err, jsonAsset) => {
+    //             if (err) {
+    //                 reject(err);
+    //                 return;
+    //             }
+    //             this.cachedDataList = jsonAsset.json;
+    //             console.log("Load Json OK LA");
+    //             resolve();
+    //         });
+    //     });
+    // },
+unitInit() {
+        return new Promise((resolve, reject) => {
+            cc.resources.load("GameData/UnitDataJson", cc.JsonAsset, (err, jsonAsset) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                const rawData = jsonAsset.json;
+
+                this.cachedDataList = rawData.UnitData;
+                console.log("JSon OK Load XOng:", this.cachedDataList);
+                resolve();
+            });
+        });
+    },
+
+GetCharInfo(name) {
+    if (!this.cachedDataList) {
+        console.warn("cachedDataList Null");
+        return null;
     }
 
-
-
-    
+    return this.cachedDataList.find(item => item.name === name) || null;
+},
 
 });
 module.exports = GameController;

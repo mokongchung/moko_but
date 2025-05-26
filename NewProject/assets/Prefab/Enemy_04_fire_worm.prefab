@@ -497,12 +497,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "hpMax": 200,
-    "moveSpeed": 50,
-    "atk": 20,
-    "dmgRateCombo": [],
+    "CharName": "Fire Worm",
     "level": 1,
-    "atkSpeed": 1000,
     "lvUpStatus": [
       1,
       1.2,

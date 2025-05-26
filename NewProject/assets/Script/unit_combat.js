@@ -1,23 +1,12 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
+let GameController = require('GameCtrl');
 let PoolManager = require('PoolingManager');
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        hpMax : 100,
-        moveSpeed: 50,
-        atk: 10,
-        dmgRateCombo : {
-            default: [],
-            type: [cc.Float],  
-        },
+        CharName: "Dark King",
         level : 1,
-        atkSpeed: 1000,
+        
         lvUpStatus : {
             default: [],
             type: [cc.Float],  
@@ -31,7 +20,17 @@ cc.Class({
         hpBar : cc.ProgressBar,
     },
 
+    initData()
+    {
+        let CharData = GameController.getInstance().GetCharInfo(this.CharName);
+        this.hpMax = CharData.hp;
+        this.moveSpeed= CharData.speed;
+        this.atk=  CharData.atk;
+        this.atkSpeed= CharData.attackSpeed;
 
+        this.dmgRateCombo = CharData.comboRate;
+
+    },
 
     onEnable () {
 
@@ -40,12 +39,16 @@ cc.Class({
         this.node.on('enemy_exit', this.exitEnemy, this);
 
         this.animation = this.node.getComponent(cc.Animation);
+        this.initData();
         this.init();
      },
 
     start () {
         
     },
+
+
+
     init( ){
         console.log("init");
         this.stopMove()
@@ -61,6 +64,8 @@ cc.Class({
         }
         this.scheduleOnce(function() {
             if ( this.enemy.length == 0) {
+//console.log("init data unit combat " + this.CharName + " hpMax: " + this.hpMax + " atk: " + this.atk + " atkSpeed: " + this.atkSpeed + " moveSpeed: " + this.moveSpeed);
+
                 this.move();
             }else{
                 this.loopAtk();
