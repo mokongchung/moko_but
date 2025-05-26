@@ -7,7 +7,7 @@ cc.Class({
         speed: 50,
         atk: 10,
         aoe : true,
-        
+        TargetEnemy: cc.Node,
 
     },
 
@@ -31,11 +31,11 @@ cc.Class({
         
         
     },
-    initBullet(atk = 10, speed = 50 , aoe = false){
-        this.atk = atk;
-        this.speed = speed;
-        this.aoe = aoe;
-    },
+    // initBullet(atk = 10, speed = 50 , aoe = false){
+    //     this.atk = atk;
+    //     this.speed = speed;
+    //     this.aoe = aoe;
+    // },
 
     seeEnemy (event) {
         //console.log("bullet enemy");

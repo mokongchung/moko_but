@@ -205,5 +205,4 @@ cc.Class({
         AudioController.getInstance().setMasterVolume(slider.progress);
     }
 
-    // update (dt) {},
 });

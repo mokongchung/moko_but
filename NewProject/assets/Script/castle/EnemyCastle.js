@@ -30,7 +30,7 @@ cc.Class({
     },
 
     AIWhoWillPlaythisGame() {
-    let spawnRates = [50, 25, 15, 7, 3]; // tỷ lệ spawn cho các Index 0-4
+    let spawnRates = [1, 49+25, 15, 7, 3]; // tỷ lệ spawn cho các Index 0-4
     let totalRate = spawnRates.reduce((a, b) => a + b, 0);
 
     // Hàm chọn index theo tỉ lệ
