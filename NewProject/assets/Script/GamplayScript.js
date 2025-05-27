@@ -1,4 +1,5 @@
 let AudioController = require("AudioCtrl");
+let GameController = require('GameCtrl');
 cc.Class({
     extends: cc.Component,
 
@@ -9,39 +10,42 @@ cc.Class({
 
 
         backgroundNode: cc.Node, // Node nền để kéo camera
-        cameraNode: cc.Node, // Node camera để di chuyển
+        cameraNode: cc.Node, 
 
-        GameOverUI: cc.Node, // Node GameOver UI
-        GameWinUI: cc.Node, // Node GameWin UI
-        GamePauseUI: cc.Node, // Node GamePause UI
+        GameOverUI: cc.Node, 
+        GameWinUI: cc.Node, 
+        GamePauseUI: cc.Node, 
 
         SfxSlider: cc.Slider,
         MusicSlider: cc.Slider,
         MasterSlider: cc.Slider,
         
-        BlackPanel: cc.Node,
+        TutorialPanel: cc.Node,
+        TutorialPanelBtn: cc.Node  ,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-    this._isDragging = false;
-    this._lastTouchPos = null;
-    this._mousePos = null; // 👈 thêm dòng này
+        this._isDragging = false;
+        this._lastTouchPos = null;
+        this._mousePos = null; // 👈 thêm dòng này
 
 
-    this._originalMusicVolume = 1.0;
-    this._originalSfxVolume = 1.0;
-    this._originalMasterVolume = 1.0;
+        this._originalMusicVolume = 1.0;
+        this._originalSfxVolume = 1.0;
+        this._originalMasterVolume = 1.0;
 
-    this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-    this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
-    this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
-    this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
 
-    this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
+        this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
 
-},
+    },
+
+    
 
 
 
@@ -50,13 +54,31 @@ cc.Class({
         audio.PlayBgMusic(audio.bgMusicGamePlay);
          //this.requestHPFromPlayer();
          this.Setvolume();
-             console.log('BlackPanel node:', this.BlackPanel);
-
+             console.log('BlackPanel node:', this.TutorialPanel);
+        this.GameTutorial();
        //  this.BlackPanelTween();
     },
 
+    GameTutorial() {
+         console.log("true or false + "+GameController.getInstance().GameTurial());
+         if(GameController.getInstance().GameTurial()) {
+            console.log('GameTutorial true' , this.TutorialPanel);
+            this.TutorialPanel.active = true;
+            this.scheduleOnce(() => {
+                cc.director.pause();
+            }, 0.05);
+         }
+        
+    },
+    GameTutorialClose() {
+        this.TutorialPanel.active = false;
+            cc.director.resume();
+        this.TutorialPanelBtn.active = false;
 
- update(dt) {
+        
+    },
+
+    update(dt) {
         if (!this.cameraNode || !this.backgroundNode || !this._mousePos) return;
 
         const mousePos = this._mousePos;
@@ -106,7 +128,7 @@ cc.Class({
             GameWinScript.StarCall();
         }
 
-       // cc.director.pause();
+       cc.director.pause();
     });
     },
 
@@ -171,27 +193,37 @@ cc.Class({
     },
 
     Setvolume() {
-        // Lấy giá trị string từ localStorage => cần convert sang số bằng parseFloat
         let musicVol = cc.sys.localStorage.getItem("MusicVolume");
         if (musicVol !== null) {
             this._originalMusicVolume = parseFloat(musicVol);
-            this.MusicSlider.progress = this._originalMusicVolume;
+            if (this.MusicSlider) {
+                this.MusicSlider.progress = this._originalMusicVolume;
+            } else {
+                cc.error("MusicSlider is null");
+            }
         }
 
         let sfxVol = cc.sys.localStorage.getItem("SfxVolume");
         if (sfxVol !== null) {
             this._originalSfxVolume = parseFloat(sfxVol);
-            this.SfxSlider.progress = this._originalSfxVolume;
+            if (this.SfxSlider) {
+                this.SfxSlider.progress = this._originalSfxVolume;
+            } else {
+                cc.error("SfxSlider is null");
+            }
         }
 
         let masterVol = cc.sys.localStorage.getItem("MasterVolume");
         if (masterVol !== null) {
             this._originalMasterVolume = parseFloat(masterVol);
-            this.MasterSlider.progress = this._originalMasterVolume;
+            if (this.MasterSlider) {
+                this.MasterSlider.progress = this._originalMasterVolume;
+            } else {
+                cc.error("MasterSlider is null");
+            }
         }
-
-        AudioController.getInstance().applyVolumes();
     },
+
 
     MusicSliderCtr(slider) {
     AudioController.getInstance().setMusicVolume(slider.progress);

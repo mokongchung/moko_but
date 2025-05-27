@@ -67,7 +67,6 @@ cc.Class({
 
 
 
-    // Hàm spawn liên tục với delay ngẫu nhiên
     let spawnEnemyLoop = () => {
         let index = getRandomIndex();
         this.SpawnerScript.SpawnEnemy(index, this.Spawner, this.LV);
@@ -80,7 +79,6 @@ cc.Class({
         }, delay / 1000);
     }
 
-    // Bắt đầu spawn
     spawnEnemyLoop();
     },
 

@@ -25,6 +25,7 @@ let GameController = cc.Class({
         this.unitInit();
 
         this.Level = 0; 
+        this.TurialPanel = true;
 
     },
 
@@ -84,6 +85,7 @@ let GameController = cc.Class({
     resetAll() {
         this.data = { levels: {} };
          this.data.levels[1] = { Unlocked: true, stars: 0 };
+         this.TurialPanel = true;
         this._saveData();
     },
 
@@ -105,6 +107,22 @@ GetCharInfo(name) {
 
     return this.cachedDataList.find(item => item.name === name) || null;
 },
+
+
+
+
+
+GameTurial() {
+    if (this.TurialPanel) {
+       // this.TurialPanel = false;
+        return true;
+      }
+      else {
+        //this.TurialPanel = true;
+        return false;
+      }
+        
+    }
 
 });
 module.exports = GameController;
