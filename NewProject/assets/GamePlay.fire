@@ -6035,7 +6035,7 @@
         "__id__": 125
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -8707,7 +8707,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "bb82320d-9f0b-48c7-9ef3-6eefc79e7d73"
+      "__uuid__": "5d2be9e8-c5c1-4439-8573-ca1a849a36c3"
     },
     "_type": 0,
     "_sizeMode": 0,
