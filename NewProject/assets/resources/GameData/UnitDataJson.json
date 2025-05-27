@@ -52,7 +52,7 @@
       "name": "Knight",
       "hp": 180,
       "atk": 20,
-      "speed": 17,
+      "speed": 100,
       "attackSpeed": 0.7
     },
     {
@@ -61,7 +61,7 @@
       "name": "Archer",
       "hp": 120,
       "atk": 15,
-      "speed": 58,
+      "speed": 100,
       "attackSpeed": 0.9
     },
     {

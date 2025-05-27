@@ -18121,6 +18121,7 @@
     "Enemy4Prefab": {
       "__uuid__": "d7530e13-65c2-42c0-995c-73cc91d4e8ed"
     },
+    "BulletPrefab": [],
     "_id": "65+ZktMwBG06jK3xebGj+Q"
   }
 ]

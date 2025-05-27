@@ -5150,6 +5150,9 @@
       "__id__": 108
     },
     "_enabled": true,
+    "UnitDataJson": {
+      "__uuid__": "8860cd4b-a7bf-4399-8a44-081bd0d768c5"
+    },
     "_id": "ccJy0CAUlCt6soPBWpY3/F"
   }
 ]

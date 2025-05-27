@@ -62,18 +62,24 @@ cc.Class({
         if (musicVol !== null) {
             this._originalMusicVolume = parseFloat(musicVol);
             this.MusicSlider.progress = this._originalMusicVolume;
+            AudioController.getInstance().setMusicVolume(this._originalMusicVolume);
+
         }
 
         let sfxVol = cc.sys.localStorage.getItem("SfxVolume");
         if (sfxVol !== null) {
             this._originalSfxVolume = parseFloat(sfxVol);
             this.SfxSlider.progress = this._originalSfxVolume;
+            AudioController.getInstance().setSfxVolume(this._originalSfxVolume);
+
         }
 
         let masterVol = cc.sys.localStorage.getItem("MasterVolume");
         if (masterVol !== null) {
             this._originalMasterVolume = parseFloat(masterVol);
             this.MasterSlider.progress = this._originalMasterVolume;
+            AudioController.getInstance().setMasterVolume(this._originalMasterVolume);
+
         }
 
         AudioController.getInstance().applyVolumes();

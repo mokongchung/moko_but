@@ -21,12 +21,8 @@ let GameController = cc.Class({
 
         cc.game.addPersistRootNode(this.node);
         this._init(); 
-        try {
-            await this.unitInit();
-        } catch (err) {
-            console.error("❌ Lỗi khi load JSON:", err);
-        }
-                //console.log( this.GetCharInfo("Dark King").comboRate[0]);
+
+        this.unitInit();
 
         this.Level = 0; 
 
@@ -34,7 +30,7 @@ let GameController = cc.Class({
 
 
     properties: {
-
+        UnitDataJson: cc.JsonAsset,
     },
 
     _init() {
@@ -105,20 +101,13 @@ let GameController = cc.Class({
     //     });
     // },
 unitInit() {
-        return new Promise((resolve, reject) => {
-            cc.resources.load("GameData/UnitDataJson", cc.JsonAsset, (err, jsonAsset) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
 
-                const rawData = jsonAsset.json;
+                const rawData = this.UnitDataJson.json;
 
                 this.cachedDataList = rawData.UnitData;
                 console.log("JSon OK Load XOng:", this.cachedDataList);
-                resolve();
-            });
-        });
+         
+
     },
 
 GetCharInfo(name) {
