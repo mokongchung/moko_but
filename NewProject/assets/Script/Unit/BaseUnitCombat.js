@@ -5,95 +5,93 @@ cc.Class({
 
     properties: {
         CharName: "Dark King",
-        level : 1,
-        
-        lvUpStatus : {
+        level: 1,
+
+        lvUpStatus: {
             default: [],
-            type: [cc.Float],  
+            type: [cc.Float],
         },
         bulletSpeed: 100,
-        bulletAOE: false,
-        Index : 0 ,
-        isPlayer : true,
+        Index: 0,
+        isPlayer: true,
 
-        bulletPrefab : cc.Prefab,
-        hpBar : cc.ProgressBar,
+        bulletPrefab: cc.Prefab,
+        hpBar: cc.ProgressBar,
     },
 
-    initData()
-    {
+    initData() {
         let CharData = GameController.getInstance().GetCharInfo(this.CharName);
         this.hpMax = CharData.hp;
-        this.moveSpeed= CharData.speed;
-        this.atk=  CharData.atk;
-        this.atkSpeed= CharData.attackSpeed;
+        this.moveSpeed = CharData.speed;
+        this.atk = CharData.atk;
+        this.atkSpeed = CharData.attackSpeed;
 
         this.dmgRateCombo = CharData.comboRate;
 
     },
 
-    onEnable () {
+    onEnable() {
 
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('takeDmg', this.takeDmg, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
-        this.node.on('slowUnit', this.slowUnit , this);
+        this.node.on('slowUnit', this.slowUnit, this);
 
 
         this.animation = this.node.getComponent(cc.Animation);
         this.initData();
         this.init();
-     },
+    },
 
-    start () {
-        
+    start() {
+
     },
 
 
 
-    init( ){
+    init() {
         console.log("init");
         this.stopMove()
         this.enemy = [];
         this.atking = false;
-        
+
         this.hpBar.progress = 1;
         this.animation.play('run');
 
-        if(this.level < this.lvUpStatus.length ){
+        if (this.level < this.lvUpStatus.length) {
             this.hpMax *= this.lvUpStatus[this.level];
-           // console.log("hp " + this.hp + " lvUpStatus " + this.lvUpStatus[this.level]);
+            // console.log("hp " + this.hp + " lvUpStatus " + this.lvUpStatus[this.level]);
             this.atk *= this.lvUpStatus[this.level];
         }
         this.hp = this.hpMax;
-        this.scheduleOnce(function() {
-            if ( this.enemy.length == 0) {
-//console.log("init data unit combat " + this.CharName + " hpMax: " + this.hpMax + " atk: " + this.atk + " atkSpeed: " + this.atkSpeed + " moveSpeed: " + this.moveSpeed);
+        this.scheduleOnce(function () {
+            if (this.enemy.length == 0) {
+                //console.log("init data unit combat " + this.CharName + " hpMax: " + this.hpMax + " atk: " + this.atk + " atkSpeed: " + this.atkSpeed + " moveSpeed: " + this.moveSpeed);
 
                 this.move();
-            }else{
+            } else {
                 this.loopAtk();
             }
-            
+
         }, 0.01);
-        
+
     },
 
-    seeEnemy (event) {
+    seeEnemy(event) {
         console.log("seee enemy");
         let enemyNode = event.detail.node;
         this.stopMove();
         cc.log('see enemy node:', enemyNode.node.group);
         // Thử thay đổi màu node
-        this.enemy.push( enemyNode.node) ;
+        this.enemy.push(enemyNode.node);
 
         this.loopAtk();
-        
+
 
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
     },
-    exitEnemy(event){
+    exitEnemy(event) {
         let enemyNode = event.detail.node;
         let index = this.enemy.indexOf(enemyNode);
         if (index !== -1) {
@@ -102,37 +100,37 @@ cc.Class({
         this.checkEnemy();
     },
 
-    enemyDead(){
+    enemyDead() {
         console.log("enemy dead");
         this.enemy.shift();
         this.checkEnemyListEmpty();
         //console.log("hp deddddd "+ this.hp + " % " + (this.hp  / this.hpMax) );
     },
-    checkEnemyListEmpty(){
-        if(this.enemy.length == 0){
+    checkEnemyListEmpty() {
+        if (this.enemy.length == 0) {
             this.move();
-            
+
         }
     },
-    move(){
-        if(this.moveTween) return;
+    move() {
+        if (this.moveTween) return;
         this.moveTween = cc.tween(this.node)
             .by(1, { position: cc.v2(this.moveSpeed, 0) })
             .repeatForever()
             .start();
-            this.animation.play('run');
+        this.animation.play('run');
         this.atking = false;
     },
-    stopMove(){
-        if(this.moveTween){
+    stopMove() {
+        if (this.moveTween) {
             this.moveTween.stop();
-            this.moveTween=null;
+            this.moveTween = null;
         }
 
     },
 
-    loopAtk(){
-        if ( this.enemy.length == 0) {
+    loopAtk() {
+        if (this.enemy.length == 0) {
             console.log("his.enemy.lengt = = 0");
             return;
         }
@@ -168,143 +166,118 @@ cc.Class({
         this.animation.play('attack');
         this.atking = true;
 
-        
+
     },
-    takeDmg(event){
+    takeDmg(event) {
         if (!event || !event.detail) {
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
-        if(this.hp <= 0 ) {
+        if (this.hp <= 0) {
             this.dead();
             return;
         }
         //console.log(" nhận take dmg "+ event.detail.dmg);
-        
+
         let dmgTake = event.detail.dmg;
         console.log("take dmg " + dmgTake + " hp " + this.hp);
-        (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
+        (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp;
         //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
-        console.log("hp " + this.hp + " / " + this.hpMax + " % " + (this.hp  / this.hpMax) );
-        this.hpBar.progress = (this.hp  / this.hpMax);
+        console.log("hp " + this.hp + " / " + this.hpMax + " % " + (this.hp / this.hpMax));
+        this.hpBar.progress = (this.hp / this.hpMax);
 
-        if(this.hp <= 0 ){
+        if (this.hp <= 0) {
             console.log("unit dead");
             this.animation.play('death');
-           
-            
-            
-            
+
+
+
+
         }
     },
-    dealDmg( comboHit = 0 , aoe = false){
+    dealDmg(comboHit = 0, aoe = false) {
         let dmgDeal = this.atk;
-        if( (comboHit > 0) && ((this.dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined) )){
+        if ((comboHit > 0) && ((this.dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined))) {
             dmgDeal *= this.dmgRateCombo[comboHit - 1];
         }
 
 
-            let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
-            event.detail = { 
-                dmg: dmgDeal,
-                
-            };
+        let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
+        event.detail = {
+            dmg: dmgDeal,
 
-            if(aoe){
-                this.enemy.forEach((nodeIndex, index) => {
-                    if(nodeIndex && nodeIndex.active){
-                        nodeIndex.emit( 'takeDmg' , event);
-                    }
-                });
-            }else{
-                if( (this.enemy.length >= 0 ) && (this.enemy[0]) &&  this.enemy[0].active)
-                this.enemy[0].emit( 'takeDmg' , event);
-            }
-            
-        
-         
-    },
-    createBullet(){
-        //console.log("create bullet");
-        if(! this.bulletPrefab) return;
+        };
 
-        if(  this.checkEnemy()){
-            console.log("ko có enemy nào");
-        }else{
-            //console.log("tạo mới");
-            let newBullet = cc.instantiate(this.bulletPrefab);
-            newBullet.setPosition(this.node.getPosition());
-            let Bullet_combat = newBullet.getComponent("Bullet_combat"); // tên script gắn trên prefab
-                if (Bullet_combat) {
-                    //Bullet_combat.initBullet(this.atk, this.bulletSpeed , this.bulletAOE);
-                    //Test
-
+        if (aoe) {
+            this.enemy.forEach((nodeIndex, index) => {
+                if (nodeIndex && nodeIndex.active) {
+                    nodeIndex.emit('takeDmg', event);
                 }
-                //console.log("add child");
-            this.node.parent.addChild(newBullet);
-            //console.log("add child done");
+            });
+        } else {
+            if ((this.enemy.length >= 0) && (this.enemy[0]) && this.enemy[0].active)
+                this.enemy[0].emit('takeDmg', event);
         }
-
-
     },
-    dead(){
+
+    dead() {
         this.node.active = false;
         this.stopMove();
         this.node.off('see_enemy', this.seeEnemy, this);
         this.node.off('takeDmg', this.takeDmg, this);
         this.node.off('enemy_exit', this.exitEnemy, this);
-        this.node.off('slowUnit', this.slowUnit , this);
+        this.node.off('slowUnit', this.slowUnit, this);
         this.resetSlow();
-        if( this.isPlayer){
-             PoolManager.getInstance().putPlayer(this.Index, this.node);
+        if (this.isPlayer) {
+            PoolManager.getInstance().putPlayer(this.Index, this.node);
         }
-        else{
+        else {
             PoolManager.getInstance().putEnemy(this.Index, this.node);
         }
-       
-        
+
+
     },
-    checkEnemy(){
+    checkEnemy() {
         this.enemy = this.enemy.filter(node => node && node.active);
 
-        if(this.enemy.length == 0 ){
+        if (this.enemy.length == 0) {
             this.move();
             return true;
         }
-        
+
     },
-    slowUnit( event ){
+    slowUnit(event) {
         if (!event || !event.detail) {
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
         }
-        console.log("start slowUnit "+ event.detail.slowRate)
-        if(this.moveTween){
+        console.log("start slowUnit " + event.detail.slowRate)
+        if (this.moveTween) {
             this.moveTween.stop();
             this.moveTween = cc.tween(this.node)
-            .by( (1/ event.detail.slowRate), { position: cc.v2(this.moveSpeed, 0) })
-            .repeatForever()
-            .start();
+                .by((1 / event.detail.slowRate), { position: cc.v2(this.moveSpeed, 0) })
+                .repeatForever()
+                .start();
         }
         this.animation.getAnimationState("attack").speed = event.detail.slowRate;
 
-        this.scheduleOnce(function() {
+        this.scheduleOnce(function () {
             this.resetSlow();
         }, event.detail.slowTime);
 
     },
-    resetSlow(){
-        if(this.moveTween){
+    resetSlow() {
+        if (this.moveTween) {
             this.moveTween.stop();
             this.moveTween = cc.tween(this.node)
-            .by(1, { position: cc.v2(this.moveSpeed, 0) })
-            .repeatForever()
-            .start();
-            
+                .by(1, { position: cc.v2(this.moveSpeed, 0) })
+                .repeatForever()
+                .start();
+
         }
         this.animation.getAnimationState("attack").speed = 1;
 
-    }
+    },
 
 
     // update (dt) {},

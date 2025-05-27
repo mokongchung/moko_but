@@ -490,35 +490,6 @@
     "_id": ""
   },
   {
-    "__type__": "49d69IvZtRF0KEZdOCfs9ZH",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "CharName": "Mage",
-    "level": 1,
-    "lvUpStatus": [
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
-    "bulletSpeed": 100,
-    "bulletAOE": true,
-    "Index": 0,
-    "isPlayer": true,
-    "bulletPrefab": {
-      "__uuid__": "c615af6e-10c5-456f-ad30-ab02c968d9a9"
-    },
-    "hpBar": {
-      "__id__": 7
-    },
-    "_id": ""
-  },
-  {
     "__type__": "cc.Animation",
     "_name": "",
     "_objFlags": 0,
@@ -541,6 +512,34 @@
       }
     ],
     "playOnLoad": true,
+    "_id": ""
+  },
+  {
+    "__type__": "d2bfagst6hKZqOoL/ssBrCu",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "CharName": "Dark King",
+    "level": 1,
+    "lvUpStatus": [
+      1,
+      1.2,
+      1.4,
+      1.8,
+      2
+    ],
+    "bulletSpeed": 100,
+    "Index": 0,
+    "isPlayer": false,
+    "bulletPrefab": {
+      "__uuid__": "c615af6e-10c5-456f-ad30-ab02c968d9a9"
+    },
+    "hpBar": {
+      "__id__": 7
+    },
     "_id": ""
   },
   {
