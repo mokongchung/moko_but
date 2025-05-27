@@ -86,20 +86,7 @@ let GameController = cc.Class({
          this.data.levels[1] = { Unlocked: true, stars: 0 };
         this._saveData();
     },
-    ///////UNIT DATA////////
-    // unitInit() {
-    //     return new Promise((resolve, reject) => {
-    //         cc.resources.load("GameData/UnitDataJson", cc.JsonAsset, (err, jsonAsset) => {
-    //             if (err) {
-    //                 reject(err);
-    //                 return;
-    //             }
-    //             this.cachedDataList = jsonAsset.json;
-    //             console.log("Load Json OK LA");
-    //             resolve();
-    //         });
-    //     });
-    // },
+
 unitInit() {
 
                 const rawData = this.UnitDataJson.json;

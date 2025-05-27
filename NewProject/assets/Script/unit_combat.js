@@ -56,14 +56,16 @@ cc.Class({
         this.stopMove()
         this.enemy = [];
         this.atking = false;
-        this.hp = this.hpMax;
+        
         this.hpBar.progress = 1;
         this.animation.play('run');
 
         if(this.level < this.lvUpStatus.length ){
-            this.hp *= this.lvUpStatus[this.level];
+            this.hpMax *= this.lvUpStatus[this.level];
+           // console.log("hp " + this.hp + " lvUpStatus " + this.lvUpStatus[this.level]);
             this.atk *= this.lvUpStatus[this.level];
         }
+        this.hp = this.hpMax;
         this.scheduleOnce(function() {
             if ( this.enemy.length == 0) {
 //console.log("init data unit combat " + this.CharName + " hpMax: " + this.hpMax + " atk: " + this.atk + " atkSpeed: " + this.atkSpeed + " moveSpeed: " + this.moveSpeed);
@@ -180,6 +182,7 @@ cc.Class({
         //console.log(" nhận take dmg "+ event.detail.dmg);
         
         let dmgTake = event.detail.dmg;
+        console.log("take dmg " + dmgTake + " hp " + this.hp);
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
         //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
         console.log("hp " + this.hp + " / " + this.hpMax + " % " + (this.hp  / this.hpMax) );
