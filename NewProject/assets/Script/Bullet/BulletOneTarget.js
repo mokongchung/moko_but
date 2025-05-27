@@ -23,7 +23,7 @@ cc.Class({
     onCollisionEnter (other, self) {
         this._super();
 
-        this.dealDmgToTarget();
+        this.dealDmgToTarget(other);
 
         
     },
