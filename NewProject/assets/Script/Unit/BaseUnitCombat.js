@@ -106,7 +106,7 @@ cc.Class({
         console.log("enemy dead");
         this.enemy.shift();
         this.checkEnemyListEmpty();
-        console.log("hp deddddd "+ this.hp + " % " + (this.hp  / this.hpMax) );
+        //console.log("hp deddddd "+ this.hp + " % " + (this.hp  / this.hpMax) );
     },
     checkEnemyListEmpty(){
         if(this.enemy.length == 0){
