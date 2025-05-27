@@ -6,7 +6,7 @@ cc.Class({
         
         speed: 50,
         atk: 10,
-        aoe : true,
+        //aoe : true,
         TargetEnemy: cc.Node,
 
     },
@@ -25,9 +25,10 @@ cc.Class({
 
     start () {
         //console.log("bullet start");
-        if ( this.enemy.length == 0) {
+        
             this.move();
-        }
+        
+
         
         
     },
@@ -82,6 +83,7 @@ cc.Class({
 
         
     },
+
 
     // update (dt) {},
 });
