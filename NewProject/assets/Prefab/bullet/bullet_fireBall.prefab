@@ -271,7 +271,7 @@
     "_id": ""
   },
   {
-    "__type__": "1da5dH8I4VN/acmlrBG4zQ6",
+    "__type__": "7cc87iusSFMlJU0UChRQSYx",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -280,6 +280,8 @@
     "_enabled": true,
     "speed": 50,
     "atk": 10,
+    "aoe": true,
+    "TargetEnemy": null,
     "_id": ""
   },
   {

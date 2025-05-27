@@ -11,7 +11,6 @@ cc.Class({
         slowRate : 0.5,
         slowTime : 10,
 
-        level : 1,
         slowTimeByLevel : {
             default: [],
             type: [cc.Integer],  

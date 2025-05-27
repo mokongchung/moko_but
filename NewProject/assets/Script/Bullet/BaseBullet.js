@@ -53,34 +53,8 @@ cc.Class({
         }
         
     },
-    dealDmgAOE( ){
-        console.log("bullet dmg aoe");
-        this.stopMove();
-        this.animation.play('dmg');
-        this.enemy.forEach((nodeIndex, index) => {
-           
-            let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
-            event.detail = { 
-                dmg: this.atk ,
-                
-            };
-            try{
-                nodeIndex.emit( 'takeDmg' , event);
-            }catch (err){
-                console.log("error when call emit take Dmg"+ err);
-            }
-        });
-    },
-    dealDmgToTarget(other){
-        console.log("bullet dmg target");
-        this.stopMove();
-        this.animation.play('dmg');
-        let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
-        event.detail = { 
-            dmg: this.atk ,    
-        };
-        other.node.emit('takeDmg' , event);
-    },
+
+
 
     move(){
         //console.log("bullet move");
@@ -105,11 +79,7 @@ cc.Class({
         if(!this.dealDmg)  return;
         //this.node.getComponent(cc.BoxCollider).enabled = false;
         this.dealDmg = false;
-        if(this.aoe){
-            this.dealDmgAOE();
-        }else{
-            this.dealDmgToTarget(other);
-        }
+
         
     },
 

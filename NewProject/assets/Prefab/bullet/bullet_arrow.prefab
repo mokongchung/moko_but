@@ -250,20 +250,6 @@
     "_id": ""
   },
   {
-    "__type__": "1da5dH8I4VN/acmlrBG4zQ6",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "speed": 50,
-    "atk": 10,
-    "aoe": false,
-    "TargetEnemy": null,
-    "_id": ""
-  },
-  {
     "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
@@ -282,6 +268,20 @@
       "width": 25.6,
       "height": 12.5
     },
+    "_id": ""
+  },
+  {
+    "__type__": "e4c88BEtf9FKKb0aOSFpmPd",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "speed": 50,
+    "atk": 10,
+    "aoe": false,
+    "TargetEnemy": null,
     "_id": ""
   },
   {
