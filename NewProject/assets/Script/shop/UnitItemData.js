@@ -17,7 +17,7 @@ cc.Class({
         if (!newItem) return;
 
         let newItemScript = newItem.getComponent("itemScript");
-        newItemScript.init(this.getSpriteByIdthis.dataJson.id, this.dataJson.name, this.dataJson.level, this.dataJson.costUpdate);
+        newItemScript.init(this.dataJson.id, this.getSpriteByIdthis.dataJson.id, this.dataJson.name, this.lvListSaveLocal[index], this.dataJson.costUpdate);
         return newItem;
     },
     start() {

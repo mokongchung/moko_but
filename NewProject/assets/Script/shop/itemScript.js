@@ -12,6 +12,7 @@ cc.Class({
         spriteItem: cc.Sprite,
         spriteLevel: cc.Sprite,
         nameItem : "name Item",
+        id : 0,
         level : 0, // 0 -> 4
         currentCostUpdate: 0,
         costUpdate: {
@@ -32,8 +33,10 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-    init(SpriteItem, name, level, costUpdate){
+     onLoad () {
+        this.node.on('updateLevel', this.upLevel, this);
+     },
+    init( id, SpriteItem, name, level, costUpdate){
        
         this.nameItem = name;
         this.level = level;
@@ -41,7 +44,7 @@ cc.Class({
 
         this.spriteItem.spriteFrame = SpriteItem;
         this.lblname.string = this.nameItem;
-
+        this.id = id;
         if(this.level >=0){
             if(this.level >= this.spriteLv.length){
                 this.spriteLevel.spriteFrame = this.spriteLvList[this.spriteLv.length -1];
@@ -50,9 +53,8 @@ cc.Class({
                 this.spriteLevel.spriteFrame = this.spriteLvList[this.level];
             }
 
-            if(this.level < this.costUpdate.length){
-                this.currentCostUpdate = this.costUpdate[this.level];
-            }
+            this.checkCurrentCostUpdate();
+
         }
 
 
@@ -60,11 +62,28 @@ cc.Class({
         
     },
     buttonUpdateOnClick(){
-            
+        let event = new cc.Event.EventCustom('updateLevel', true); // bubbling = true
+        event.detail = { node: this.node  };
+        this.node.dispatchEvent(event);
+        
+    },
+    upLevel(){
+        this.level += 1;
+        this.checkCurrentCostUpdate();
+    },
+    checkCurrentCostUpdate(){
+        if(this.level >=0){
+            if(this.level < this.costUpdate.length){
+                this.currentCostUpdate = this.costUpdate[this.level];
+            }
+        }
+
     },
     start () {
 
     },
-
+    onDestroy() {
+        this.node.of('updateLevel', this.upLevel, this);
+    }
     // update (dt) {},
 });

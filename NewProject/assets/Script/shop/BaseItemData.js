@@ -12,8 +12,8 @@ cc.Class({
         // foo: {
         SpriteList: [cc.SpriteFrame],
         IdList: [cc.Integer],
+        lvListSaveLocal : [cc.Integer],
         dataItem: cc.JsonAsset,
-
         itemPrefab : cc.Prefab,
 
 
