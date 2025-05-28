@@ -205,7 +205,7 @@ cc.Class({
         let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
         event.detail = {
             dmg: dmgDeal,
-
+            attacker: this.node,
         };
 
         if (aoe) {

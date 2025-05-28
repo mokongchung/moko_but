@@ -15,7 +15,7 @@
       "name": "Dark Wizard",
       "hp": 200,
       "atk": 20,
-      "speed": 15,
+      "speed": 205,
       "attackSpeed": 0.6
     },
     {

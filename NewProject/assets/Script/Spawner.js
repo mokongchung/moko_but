@@ -60,14 +60,22 @@ cc.Class({
     },
     SpawnEnemy(Index, holder, level){
 
-
         // - monny enemy
         const enemy = PoolManager.getInstance().getEnemy(Index,holder);
 
-        enemy.getComponent("unit_combat").Index = Index;
-        enemy.getComponent("unit_combat").isPlayer = false;
-        enemy.getComponent("unit_combat").level = level;
-        enemy.setPosition(this.RandomPosition());
+        let comp = enemy.getComponent("unit_combat") || enemy.getComponent("UnitRangeCombat");
+
+        if (comp) {
+            comp.Index = Index; 
+            comp.isPlayer = false; 
+            comp.level = level;// gán Index nếu component tồn tại
+            enemy.setPosition(this.RandomPosition());
+        } 
+
+        // enemy.getComponent("unit_combat").Index = Index;
+        // enemy.getComponent("unit_combat").isPlayer = false;
+        // enemy.getComponent("unit_combat").level = level;
+        // enemy.setPosition(this.RandomPosition());
         //enemy.node.active = true;
         
     },

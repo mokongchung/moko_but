@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ArcherW3Idle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.06666666666666667,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2f0f62d2-9ef8-4526-b321-2fc9f169e9a8"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "665d23c3-a676-4fda-b5f3-7d86c19a7411"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "578ae308-63ed-487c-bfbd-01c9b79a3d0d"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "8f518e75-4b94-4beb-a370-2c1ea6f59748"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
