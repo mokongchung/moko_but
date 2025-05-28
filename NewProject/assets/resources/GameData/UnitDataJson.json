@@ -7,7 +7,10 @@
       "hp": 100,
       "atk": 10,
       "speed": 20,
-      "attackSpeed": 0.75
+      "attackSpeed": 0.75,
+      "costPawn" : 10,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 2,
@@ -16,7 +19,10 @@
       "hp": 200,
       "atk": 20,
       "speed": 15,
-      "attackSpeed": 0.6
+      "attackSpeed": 0.6,
+      "costPawn" : 20,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 3,
@@ -24,8 +30,11 @@
       "name": "Wolf",
       "hp": 120,
       "atk": 15,
-      "speed": 25,
-      "attackSpeed": 0.85
+      "speed": 35,
+      "attackSpeed": 0.85,
+      "costPawn" : 20,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 4,
@@ -35,7 +44,10 @@
       "atk": 25,
       "speed": 18,
       "comboRate": [1, 2, 3],
-      "attackSpeed": 0.9
+      "attackSpeed": 0.9,
+      "costPawn" : 40,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 5,
@@ -44,7 +56,10 @@
       "hp": 300,
       "atk": 30,
       "speed": 12,
-      "attackSpeed": 0.4
+      "attackSpeed": 0.4,
+      "costPawn" : 30,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 7,
@@ -53,7 +68,10 @@
       "hp": 180,
       "atk": 20,
       "speed": 100,
-      "attackSpeed": 0.7
+      "attackSpeed": 0.7,
+      "costPawn" : 10,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 8,
@@ -62,7 +80,10 @@
       "hp": 120,
       "atk": 15,
       "speed": 100,
-      "attackSpeed": 0.9
+      "attackSpeed": 0.9,
+      "costPawn" : 20,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 9,
@@ -71,7 +92,10 @@
       "hp": 100,
       "atk": 25,
       "speed": 20,
-      "attackSpeed": 0.85
+      "attackSpeed": 0.85,
+      "costPawn" : 30,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     },
     {
       "id": 10,
@@ -80,7 +104,10 @@
       "hp": 220,
       "atk": 18,
       "speed": 15,
-      "attackSpeed": 0.6
+      "attackSpeed": 0.6,
+      "costPawn" : 40,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 0
     },
     {
       "id": 11,
@@ -89,7 +116,10 @@
       "hp": 130,
       "atk": 22,
       "speed": 30,
-      "attackSpeed": 0.95
+      "attackSpeed": 0.95,
+      "costPawn" : 40,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 0
     },
     {
       "id": 12,
@@ -98,7 +128,10 @@
       "hp": 200,
       "atk": 30,
       "speed": 14,
-      "attackSpeed": 0.65
+      "attackSpeed": 0.65,
+      "costPawn" : 40,
+      "costUpdate" : [100,200,300,400,500],
+      "level" : 1
     }
   ]
 }
