@@ -23,6 +23,8 @@ let PoolManager = cc.Class({
 
     BulletPrefab: [cc.Prefab],
 
+    WallPrefab: [cc.Prefab],
+
 },
 
     onLoad() {
@@ -38,6 +40,7 @@ let PoolManager = cc.Class({
     this.playerPools = {};
     this.enemyPools = {};
     this.bulletPools = {};
+    this.wallPools = {};
 
 
     for (let i = 0; i < 4; i++) {
@@ -49,9 +52,21 @@ let PoolManager = cc.Class({
     for (let i = 0; i < this.BulletPrefab.length; i++) {
         this.bulletPools[i] = new cc.NodePool();
     }
+    for (let i = 0; i < this.WallPrefab.length; i++) {
+        this.wallPools[i] = new cc.NodePool();
+    }
 
     },
 
+    getWall(index, holder) {
+        const prefab = this.WallPrefab[index];
+        const pool = this.wallPools[index];
+        return this._getNode(prefab, pool, holder);
+    },
+    putWall(index, node) {
+        const pool = this.wallPools[index];
+        this._putNode(node, pool);
+    },
 
     getBullet(index, holder) {
         const prefab = this.BulletPrefab[index];
