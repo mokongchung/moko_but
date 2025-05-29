@@ -30,6 +30,7 @@ cc.Class({
     },
     onCollisionExit (other, self) {
         //exit
+        
         let event = new cc.Event.EventCustom('enemy_exit', true); // bubbling = true
         event.detail = { node: other  };
         this.node.dispatchEvent(event);

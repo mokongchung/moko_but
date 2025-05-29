@@ -92,14 +92,16 @@ cc.Class({
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
     },
-    exitEnemy(event) {
+   exitEnemy(event) {
         let enemyNode = event.detail.node;
-        let index = this.enemy.indexOf(enemyNode);
+        let index = this.enemy.indexOf(enemyNode.node); // Sửa dòng này
         if (index !== -1) {
+            console.log("ENEMY EXIT: " + enemyNode.node.name);
             this.enemy.splice(index, 1);
         }
         this.checkEnemy();
     },
+
 
     enemyDead() {
         console.log("enemy dead");

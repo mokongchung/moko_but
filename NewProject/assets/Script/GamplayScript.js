@@ -22,6 +22,8 @@ cc.Class({
         
         TutorialPanel: cc.Node,
         TutorialPanelBtn: cc.Node  ,
+        TurialMoveLeft: cc.Node,
+        TurialMoveRight:cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -79,7 +81,7 @@ cc.Class({
         this.TutorialPanel.active = false;
             cc.director.resume();
         this.TutorialPanelBtn.active = false;
-
+        this.TurialMoveRight.active=true;
         
     },
 
@@ -106,6 +108,8 @@ cc.Class({
             if (event.keyCode === cc.macro.KEY.a || event.keyCode === cc.macro.KEY.left) {
                
                 this.MoveLeftPressed=false;
+
+               
             }
             else if(event.keyCode === cc.macro.KEY.d || event.keyCode === cc.macro.KEY.right)
             {
@@ -132,8 +136,15 @@ cc.Class({
 
         if (mousePos.x <= this.edgeScrollThreshold || this.MoveLeftPressed) {
             newX -= this.edgeScrollSpeed * dt;
+                if(this.TurialMoveLeft)
+                    this.TurialMoveLeft.destroy();
         } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold || this.MoveRightPressed) {
             newX += this.edgeScrollSpeed * dt;
+             if(this.TurialMoveRight)
+                 {
+                      this.TurialMoveRight.destroy();
+                      this.TurialMoveLeft.active=true;
+                 }
             
         }
 
@@ -164,10 +175,24 @@ cc.Class({
             let GameWinScript = this.GameWinUI.getComponent("GameWinScript");
             GameWinScript.PlayerHP = HP;
             GameWinScript.StarCall();
+            this.SaveMoney(HP);
         }
 
        cc.director.pause();
     });
+    },
+
+    SaveMoney(value)
+    {
+        ////////khi cần lấy ra thì gọi lại dòng dưới
+        let currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
+
+        currentMoney += value;
+
+        cc.sys.localStorage.setItem("Money", currentMoney);
+        console.log("THÊM TIỀN: "+ parseInt(cc.sys.localStorage.getItem("Money") || "0"));
+
+       
     },
 
     // onTouchStart(event) {

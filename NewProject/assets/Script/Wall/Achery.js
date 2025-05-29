@@ -7,14 +7,16 @@ cc.Class({
     },
 
     onEnable () {
+         this.animation = this.node.getComponent(cc.Animation);
+        this.animation.play("ArcherW3Idle");
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
         this.ListEnemy = [];
     },
 
-    start () {
-        this.animation = this.node.getComponent(cc.Animation);
-    },
+    // start () {
+       
+    // },
 
     createBullet() {
         if (!this.BulletPrefab) {
@@ -39,6 +41,9 @@ cc.Class({
                 console.warn("Lỗi không truyền được enemy:", firstEnemy);
                 bulletCombat.enemy = firstEnemy;
                 this.ListEnemy.shift(); // xóa phần tử lỗi ra khỏi danh sách
+                if (this.ListEnemy.length === 0) {
+                this.animation.play("ArcherW3Idle");
+            }
             }
         }
 
@@ -53,6 +58,7 @@ cc.Class({
             if (this.ListEnemy.length === 1) {
                 this.animation.play("ArcherW3Atack");
             }
+            
         }
     },
 

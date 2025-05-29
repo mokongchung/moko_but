@@ -3931,7 +3931,7 @@
     "_dstBlendFactor": 771,
     "_string": "Close",
     "_N$string": "Close",
-    "_fontSize": 20,
+    "_fontSize": 10,
     "_lineHeight": 40,
     "_enableWrapText": false,
     "_N$file": {
