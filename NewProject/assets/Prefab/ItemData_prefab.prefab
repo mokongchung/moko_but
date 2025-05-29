@@ -117,26 +117,15 @@
       }
     ],
     "IdList": [
+      6,
       7,
       8,
       9,
-      12,
       1,
       2,
       3,
       5,
       4
-    ],
-    "lvListSaveLocal": [
-      1,
-      2,
-      2,
-      3,
-      4,
-      3,
-      2,
-      5,
-      25
     ],
     "dataItem": {
       "__uuid__": "8860cd4b-a7bf-4399-8a44-081bd0d768c5"
@@ -154,11 +143,24 @@
       "__id__": 1
     },
     "_enabled": true,
-    "SpriteList": [],
-    "IdList": [],
-    "lvListSaveLocal": [],
-    "dataItem": null,
-    "itemPrefab": null,
+    "SpriteList": [
+      {
+        "__uuid__": "7ec65204-0360-4adb-ac4d-64975cfa20c4"
+      },
+      {
+        "__uuid__": "487eaca2-136d-4fb9-9fe9-9b1b09acf250"
+      }
+    ],
+    "IdList": [
+      1,
+      2
+    ],
+    "dataItem": {
+      "__uuid__": "8860cd4b-a7bf-4399-8a44-081bd0d768c5"
+    },
+    "itemPrefab": {
+      "__uuid__": "b6767b1a-2f85-48c7-b26b-78b3a16ef45b"
+    },
     "_id": ""
   },
   {
@@ -171,7 +173,6 @@
     "_enabled": true,
     "SpriteList": [],
     "IdList": [],
-    "lvListSaveLocal": [],
     "dataItem": null,
     "itemPrefab": null,
     "_id": ""

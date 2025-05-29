@@ -3,7 +3,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        
+
         speed: 50,
         atk: 10,
         //aoe : true,
@@ -13,7 +13,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-     onLoad () {
+    onLoad() {
         this.enemy = [];
         this.dealDmg = true;
         this.moveTween;
@@ -21,16 +21,16 @@ cc.Class({
         this.animation = this.node.getComponent(cc.Animation);
 
         cc.director.getCollisionManager().enabled = true;
-     },
+    },
 
-    start () {
+    start() {
         //console.log("bullet start");
-        
-            this.move();
-        
 
-        
-        
+        this.move();
+
+
+
+
     },
     // initBullet(atk = 10, speed = 50 , aoe = false){
     //     this.atk = atk;
@@ -38,50 +38,61 @@ cc.Class({
     //     this.aoe = aoe;
     // },
 
-    seeEnemy (event) {
+    seeEnemy(event) {
         //console.log("bullet enemy");
         let enemyNode = event.detail.node;
-        
-        this.enemy.push( enemyNode.node) ;
+
+        this.enemy.push(enemyNode.node);
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
     },
-    exitEnemy(event){
+    exitEnemy(event) {
         let enemyNode = event.detail.node;
         let index = this.enemy.indexOf(enemyNode);
         if (index !== -1) {
             this.enemy.splice(index, 1);
         }
-        
+
     },
 
 
 
-    move(){
+    move() {
         //console.log("bullet move");
+        if(!this.TargetEnemy) {
+            this.detroyBullet();
+            return;
+        }
+
+        let enemyWorldPos = this.TargetEnemy.convertToWorldSpaceAR(cc.v2(0, 0));
+        let targetPosLocal = this.node.parent.convertToNodeSpaceAR(enemyWorldPos);
+
         this.moveTween = cc.tween(this.node)
-            .by(1, { position: cc.v2(this.speed, 0) })
-            .repeatForever()
+            .then(cc.jumpTo(1, targetPosLocal, 100, 1)) // Nhảy đến vị trí mới
+            .call(() => {
+                this.detroyBullet();
+                console.log("Jump complete!");
+            })
             .start();
         this.animation.play('run');
     },
-    stopMove(){
-        if(this.moveTween){
+    stopMove() {
+        if (this.moveTween) {
             this.moveTween.stop();
-            this.moveTween=null;
+            this.moveTween = null;
         }
     },
-    detroyBullet(){
+    detroyBullet() {
         //console.log("bullet detroy");
         this.node.active = false;
         this.node.off('see_enemy', this.seeEnemy, this);
     },
-    onCollisionEnter (other, self) {
-        if(!this.dealDmg)  return;
+    onCollisionEnter(other, self) {
+        if (!this.dealDmg) return;
         //this.node.getComponent(cc.BoxCollider).enabled = false;
         this.dealDmg = false;
 
-        
+
     },
 
 

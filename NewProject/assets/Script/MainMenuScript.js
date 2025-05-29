@@ -6,9 +6,10 @@ cc.Class({
     properties: {
         SettingUI: cc.Node,
         FadePanel: cc.Node,
+        ShopUI: cc.Node,
 
         MusicSlider: cc.Slider,
-        SfxSlider: cc.Slider,   
+        SfxSlider: cc.Slider,
         MasterSlider: cc.Slider,
 
 
@@ -20,7 +21,7 @@ cc.Class({
     onLoad() {
 
     },
-    start () {
+    start() {
         this.Setvolume();
     },
     onEnable() {
@@ -41,7 +42,7 @@ cc.Class({
                 .to(1.0, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
                 .start();
         }
-        
+
 
     },
     FadePanelTween() {
@@ -50,11 +51,11 @@ cc.Class({
         cc.tween(this.FadePanel)
             .to(0.5, { opacity: 0 })
             .call(() => {
-                 this.FadePanel.active = false;
+                this.FadePanel.active = false;
             })
             .start();
-        },
-                // Khi tối xong thì chuyển scene
+    },
+    // Khi tối xong thì chuyển scene
 
     Setvolume() {
         // Lấy giá trị string từ localStorage => cần convert sang số bằng parseFloat
@@ -103,11 +104,11 @@ cc.Class({
         this.SettingUI.active = true;
         this.SettingUI.scale = 0.1;
         cc.tween(this.SettingUI)
-                
-                .to(0.5, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
-                .start();
-        
-        
+
+            .to(0.5, { scale: 1 }, { easing: 'backOut' }) // easing 'backOut' giúp hiệu ứng phóng to có độ "nẩy"
+            .start();
+
+
     },
 
     PlayBtnExit() {
@@ -116,21 +117,24 @@ cc.Class({
     },
     // ===== SETTING UI =====
     PlayBtnCloseSetting() {
-    this.playClickSound();
+        this.playClickSound();
 
-    cc.tween(this.SettingUI)
-        .to(0.5, { scale: 0.1 }, { easing: 'backIn' }) // dùng backIn thì đẹp hơn khi đóng
-        .call(() => {
-            this.SettingUI.active = false;
-        })
-        .start();
-},
+        cc.tween(this.SettingUI)
+            .to(0.5, { scale: 0.1 }, { easing: 'backIn' }) // dùng backIn thì đẹp hơn khi đóng
+            .call(() => {
+                this.SettingUI.active = false;
+            })
+            .start();
+    },
+    buttonShopOnClick() {
+        if (this.ShopUI) this.ShopUI.active = !this.ShopUI.active;
+    },
 
 
 
 
     MusicSliderCtr(slider) {
-    AudioController.getInstance().setMusicVolume(slider.progress);
+        AudioController.getInstance().setMusicVolume(slider.progress);
     },
 
     SfxSliderCtr(slider) {

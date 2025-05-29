@@ -13,27 +13,27 @@ cc.Class({
         SpriteList: [cc.SpriteFrame],
         IdList: [cc.Integer],
         dataItem: cc.JsonAsset,
-        itemPrefab : cc.Prefab,
-
-        jsonData : null,
-        DataArray : null,
+        itemPrefab: cc.Prefab,
 
 
     },
-    init(){
+
+    init() {
         this.node.on('saveData', this.saveListData, this);
+        this.DataArray = []; // tạo mới mỗi lần
+        this.jsonData = null;
     },
     getSpriteById(id) {
         let index = this.IdList.indexOf(id);
 
-        if (index >= 0 && (index < this.SpriteList.length) ) {
+        if (index >= 0 && (index < this.SpriteList.length)) {
             return this.SpriteList[index];
         } else {
-            console.log("không tìm thấy unit theo ID "+ id);
+            console.log("không tìm thấy unit theo ID " + id);
             return null;
         }
     },
-    getLengthList(){
+    getLengthList() {
         this.getListFormData();
 
         if (this.DataArray && Array.isArray(this.DataArray)) {
@@ -43,16 +43,22 @@ cc.Class({
         }
     },
 
-    getItembyIndex(index){
-        if(index == null) return;
+    getItembyIndex(index) {
+        if (index == null) return;
         this.newItem = cc.instantiate(this.itemPrefab);
-        
+
         return this.newItem;
     },
     getListFormData() {
         try {
             let jsonInventory = cc.sys.localStorage.getItem("InventoryData");
-            this.jsonData = jsonInventory ? JSON.parse(jsonInventory) : this.dataItem.json;
+            if (jsonInventory) {
+                this.jsonData = JSON.parse(jsonInventory);
+            } else {
+                this.jsonData = this.dataItem.json;
+            }
+
+
             return this.checkDataArray();
 
         } catch (err) {
@@ -60,22 +66,26 @@ cc.Class({
             return null;
         }
     },
-    checkDataArray(){
+    checkDataArray() {
 
     },
-    saveListData(){
+    saveListData(newData) {
         if (this.jsonData) {
+            cc.log("Lưu data");
+            this.DataArray[this.findIndexById(this.DataArray , newData.id)] = newData;
+
+
             cc.sys.localStorage.setItem("InventoryData", JSON.stringify(this.jsonData));
         } else {
             cc.log("Không có dữ liệu để lưu");
         }
     },
-    updateItemArrayById(Id , data ){
-        if(!this.DataArray) return;
-        this.DataArray[Id] = data;
-
+    findIndexById(array, id) {
+        if (!Array.isArray(array)) return -1;
+        return array.findIndex(item => item.id === id);
     },
-    onDestroy(){
+
+    onDestroy() {
         this.node.on('saveData', this.saveListData, this);
     }
 

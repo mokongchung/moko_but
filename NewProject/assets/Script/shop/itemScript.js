@@ -53,7 +53,7 @@ cc.Class({
     },
     buttonUpdateOnClick() {
         let event = new cc.Event.EventCustom('updateLevel', true); // bubbling = true
-        event.detail = { node: this.node , data: this.Data};
+        event.detail = { node: this.node , data: this.Data , costUpdate: this.currentCostUpdate};
         this.node.dispatchEvent(event);
 
     },

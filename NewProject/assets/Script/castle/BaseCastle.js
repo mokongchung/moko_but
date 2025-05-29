@@ -8,7 +8,7 @@ cc.Class({
         SkillBar: cc.ProgressBar,
         MoneyDisplay: cc.Label,
         Spawner: cc.Node,
-        EnemySpawner : cc.Node,
+        EnemySpawner: cc.Node,
         Skill1Btn: cc.Button,
         Skill2Btn: cc.Button,
         Skill1Prefab: cc.Prefab,
@@ -24,8 +24,8 @@ cc.Class({
         MoneySpeed: 0,
         ManaRegenSpeed: 0,
 
-        Skill1Level : 1,
-        Skill2Level : 1,
+        Skill1Level: 1,
+        Skill2Level: 1,
 
         GamePlay: cc.Node,
         ManaBoostLabel: cc.Label,
@@ -35,22 +35,22 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-    
-    this.Money = 0;
-    this.Hp = this.hpMax;
-    this.Spell = 0;
-    this.CastleLv=0;
+
+        this.Money = 0;
+        this.Hp = this.hpMax;
+        this.Spell = 0;
+        this.CastleLv = 0;
 
 
-    this.mousePosition = null;
-    this.node.on('takeDmg', this.takeDmg, this);
-    this.callback();
-    
-       
+        this.mousePosition = null;
+        this.node.on('takeDmg', this.takeDmg, this);
+        this.callback();
+
+
     },
 
     callback() {
-    // Định nghĩa hàm callback để dễ off sau này
+        // Định nghĩa hàm callback để dễ off sau này
         this._onRequestHP = (callback) => {
             if (typeof callback === "function") {
                 callback(this.Hp); // gửi HP
@@ -60,40 +60,47 @@ cc.Class({
         };
 
         cc.director.on("RequestHP", this._onRequestHP, this);
-   
+
     },
 
 
-    start () {
+    start() {
         this.animation = this.node.getComponent(cc.Animation);
         for (let i = 0; i < this.SummonBtn.length; i++) {
-        let btn = this.SummonBtn[i];
+            let btn = this.SummonBtn[i];
 
-        let labelNode = btn.node.getChildByName('PriceTxt');
-        if (labelNode) {
-            let label = labelNode.getComponent(cc.Label);
-            if (label) {
-                label.string = this.SummonPrice[i];
+            let labelNode = btn.node.getChildByName('PriceTxt');
+            if (labelNode) {
+                let label = labelNode.getComponent(cc.Label);
+                if (label) {
+                    label.string = this.SummonPrice[i];
+                }
             }
+
+            let jsonInventory = cc.sys.localStorage.getItem("InventoryData");
+            if (jsonInventory) {
+                let jsonData = JSON.parse(jsonInventory).SkillData;
+                this.Skill1Level = jsonData[0].level;
+                this.Skill2Level = jsonData[0].level;
+            }
+
         }
-    }
-    
+
     },
-    CastleIdle(Number) 
-    {
-        if(Number == 0)
-        this.animation.play('CastlesIdle');
+    CastleIdle(Number) {
+        if (Number == 0)
+            this.animation.play('CastlesIdle');
         else
-        this.animation.play('Idle'+Number);
+            this.animation.play('Idle' + Number);
     },
 
 
     update(dt) {
-    this.MoneynManaGain(dt);
+        this.MoneynManaGain(dt);
 
-    
+
     },
-    takeDmg(event){
+    takeDmg(event) {
         if (!event || !event.detail) {
             console.warn('Lỗi: không có event hoặc event.detail');
             return;
@@ -101,21 +108,21 @@ cc.Class({
         //console.log(" nhận take dmg "+ event.detail.dmg);
         this.ShakeHpBar();
         let dmgTake = event.detail.dmg;
-        (this.Hp -= dmgTake) < 0 ? this.Hp = 0 : this.Hp; 
+        (this.Hp -= dmgTake) < 0 ? this.Hp = 0 : this.Hp;
         //console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
 
-        this.HpBar.progress = (this.Hp  / this.hpMax);
+        this.HpBar.progress = (this.Hp / this.hpMax);
 
-        if(this.Hp <= 0 ){
+        if (this.Hp <= 0) {
             console.log("castle enemy dead");
             let GamePlayScript = this.GamePlay.getComponent('GamplayScript');
             GamePlayScript.onGameOver();
-            
-            
+
+
             this.node.active = false;
         }
     },
-     ShakeHpBar() {
+    ShakeHpBar() {
         const originalPos = this.HpBar.node.getPosition();
 
         cc.tween(this.HpBar.node)
@@ -128,40 +135,40 @@ cc.Class({
             .start();
     },
 
-   
-   MoneynManaGain(dt) {
-    this.Money += dt * this.MoneySpeed;
-    const moneyInt = Math.floor(this.Money);
-    if (moneyInt !== this.lastMoneyInt) {
-        //console.log("Money "+ this.Money + " " + this.MoneySpeed * dt );
-        this.MoneyDisplay.string = moneyInt; 
 
-        this.lastMoneyInt = moneyInt;
-    }
+    MoneynManaGain(dt) {
+        this.Money += dt * this.MoneySpeed;
+        const moneyInt = Math.floor(this.Money);
+        if (moneyInt !== this.lastMoneyInt) {
+            //console.log("Money "+ this.Money + " " + this.MoneySpeed * dt );
+            this.MoneyDisplay.string = moneyInt;
 
-    this.Spell += dt * this.ManaRegenSpeed;
-    if (this.Spell > 100) {
-        this.Spell = 100;
-    }
-    const spellInt = Math.floor(this.Spell);
-    if (spellInt !== this.lastSpellInt) {
-        this.SkillBar.progress = this.Spell / 100;
-        // Update the spell value in GameController
-       // GameController.getInstance().SpellGain(spellInt);
-        this.lastSpellInt = spellInt;
-    }
+            this.lastMoneyInt = moneyInt;
+        }
 
-    this.Skill1Btn.interactable = this.Spell >= this.Skill1Charge;
-    this.Skill2Btn.interactable = this.Spell >= this.Skill2Charge;
+        this.Spell += dt * this.ManaRegenSpeed;
+        if (this.Spell > 100) {
+            this.Spell = 100;
+        }
+        const spellInt = Math.floor(this.Spell);
+        if (spellInt !== this.lastSpellInt) {
+            this.SkillBar.progress = this.Spell / 100;
+            // Update the spell value in GameController
+            // GameController.getInstance().SpellGain(spellInt);
+            this.lastSpellInt = spellInt;
+        }
 
-    for (let i = 0; i < this.SummonBtn.length; i++) {
-        this.SummonBtn[i].interactable = this.Money >= this.SummonPrice[i] && this.CastleLv >= i;
-    }
-},
+        this.Skill1Btn.interactable = this.Spell >= this.Skill1Charge;
+        this.Skill2Btn.interactable = this.Spell >= this.Skill2Charge;
+
+        for (let i = 0; i < this.SummonBtn.length; i++) {
+            this.SummonBtn[i].interactable = this.Money >= this.SummonPrice[i] && this.CastleLv >= i;
+        }
+    },
 
 
     onMouseMove(event) {
-    this.mousePosition = event.getLocation();
+        this.mousePosition = event.getLocation();
 
         let canvas = cc.find("Canvas");
         let localPos = canvas.convertToNodeSpaceAR(this.mousePosition);
@@ -177,59 +184,55 @@ cc.Class({
     },
 
     onGlobalClick(event) {
-    
+
         // Nếu đang di chuyển và click bất cứ đâu → tắt di chuyển
         cc.Canvas.instance.node.off(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
-         this.Skill2Holder.off(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
+        this.Skill2Holder.off(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
 
-            this.CastSpellsprite.active = false;
-                console.log("Skill 2 Called");
-                this.Skill2();
-            
-        
+        this.CastSpellsprite.active = false;
+        console.log("Skill 2 Called");
+        this.Skill2();
+
+
     },
 
-     Skill1Activate()
-     {
+    Skill1Activate() {
         this.Spell -= this.Skill1Charge;
         this.Skill1();
-        
-     },
-     Skill2Activate()
-     {
-         this.Spell -= this.Skill2Charge;
-         this.CastSpellsprite.active = true;
 
-                // Lắng nghe sự kiện chuột di chuyển
+    },
+    Skill2Activate() {
+        this.Spell -= this.Skill2Charge;
+        this.CastSpellsprite.active = true;
+
+        // Lắng nghe sự kiện chuột di chuyển
         cc.Canvas.instance.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
 
         // Bắt click toàn màn hình
-         this.Skill2Holder.on(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
-     },
+        this.Skill2Holder.on(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
+    },
 
-     Skill1()
-     {
+    Skill1() {
         this.spawnAtCenter(this.Skill1Prefab);
         console.log("this.Skill1Prefab");
-     },
-     Skill2()
-     {
-         const newNode = cc.instantiate(this.Skill2Prefab);
-         let newNodeScript = newNode.getComponentInChildren("Skill2");
-         newNodeScript.init(this.Skill2Level);
-         const worldPos = this.CastSpellsprite.convertToWorldSpaceAR(cc.v3(0, 0, 0));
-            const localPos = this.Skill2Holder.convertToNodeSpaceAR(worldPos);
-            newNode.setPosition(localPos);
-            this.Skill2Holder.addChild(newNode);
-          console.log("this.Skill2Prefab");
-          
+    },
+    Skill2() {
+        const newNode = cc.instantiate(this.Skill2Prefab);
+        let newNodeScript = newNode.getComponentInChildren("Skill2");
+        newNodeScript.init(this.Skill2Level);
+        const worldPos = this.CastSpellsprite.convertToWorldSpaceAR(cc.v3(0, 0, 0));
+        const localPos = this.Skill2Holder.convertToNodeSpaceAR(worldPos);
+        newNode.setPosition(localPos);
+        this.Skill2Holder.addChild(newNode);
+        console.log("this.Skill2Prefab");
 
-     },
-     spawnAtCenter(prefab) {
+
+    },
+    spawnAtCenter(prefab) {
         // Tạo instance từ prefab truyền vào
         const newNode = cc.instantiate(prefab);
         let newNodeScript = newNode.getComponentInChildren("Skill1");
-        newNodeScript.init(this.EnemySpawner , this.Skill1Level);
+        newNodeScript.init(this.EnemySpawner, this.Skill1Level);
         // Lấy node SkillHolder
         // hoặc cc.find('Canvas/SkillHolder') nếu cần tìm thủ công
 
@@ -245,36 +248,34 @@ cc.Class({
 
 
     //========Shop=========
-     MoneySpeedGainLV(level) {
-        if(level>0)
-        {
+    MoneySpeedGainLV(level) {
+        if (level > 0) {
             this.MoneyBoostLabel.node.active = true;
             this.MoneyBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
         }
-    let SpeedUp= 1 + 0.375 * level;
-    this.MoneySpeed = SpeedUp;
+        let SpeedUp = 1 + 0.375 * level;
+        this.MoneySpeed = SpeedUp;
     },
     ManaRegenSpeedGainLV(level) {
-        if(level>0)
-        {
+        if (level > 0) {
             this.ManaBoostLabel.node.active = true;
             this.ManaBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
         }
-        let SpeedUp= 1 + 0.375 * level;// Max là 2.5 Min là 1 => (2.5-1)/4 = 0.375
+        let SpeedUp = 1 + 0.375 * level;// Max là 2.5 Min là 1 => (2.5-1)/4 = 0.375
         this.ManaRegenSpeed = SpeedUp;
     },
     CastleLevel(level) {
         this.CastleLv = level;
-        this.Hp+= 50 * this.CastleLv;
-        this.hpMax+= 50 * this.CastleLv;
+        this.Hp += 50 * this.CastleLv;
+        this.hpMax += 50 * this.CastleLv;
         this.UpgadeCastleAnimation(level);
     },
     UpgadeCastleAnimation(level) {
-        this.animation.play('Update'+level);
+        this.animation.play('Update' + level);
     }
 
 
-    
+
 
 
 });

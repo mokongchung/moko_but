@@ -15,7 +15,12 @@ cc.Class({
             //console.log("tạo mới");
             let newBullet = cc.instantiate(this.bulletPrefab);
             newBullet.setPosition(this.node.getPosition());
-            //let Bullet_combat = newBullet.getComponent("Bullet_combat"); // tên script gắn trên prefab
+            let Bullet_combat = newBullet.getComponent("BaseBullet");
+            if (this.enemy && this.enemy.length > 0) {
+                Bullet_combat.TargetEnemy  = this.enemy[0];
+                
+            }
+            
             //console.log("add child");
             this.node.parent.addChild(newBullet);
             //console.log("add child done");

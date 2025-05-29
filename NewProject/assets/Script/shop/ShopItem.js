@@ -30,14 +30,17 @@ cc.Class({
         this.skillItemData;
         this.subDefItemData;
         this.initShop();
+        this.currentMoney;
     },
 
     initShop() {
         //read Json form Json
+        this.currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
 
         this.unitItemData = this.itemNode.getComponent("UnitItemData");
         this.unitItemData.init();
         this.skillItemData = this.itemNode.getComponent("SkillItemData");
+        this.skillItemData.init();
         //this.subDefItemData = this.itemNode.getComponent("SubDefItemData");
 
        
@@ -49,8 +52,9 @@ cc.Class({
                 }
             }
         }
-        /*
-        if (skillItemData) {
+
+        
+        if (this.skillItemData) {
             for(let i = 0 ; i < this.skillItemData.getLengthList(); i++){
                 let newItem = this.skillItemData.getItembyIndex(i);
                 if(newItem){
@@ -58,7 +62,7 @@ cc.Class({
                 }
             }
         }
-
+/*
         if (subDefItemData) {
             for(let i = 0 ; i < this.skillItemData.getLengthList(); i++){
                 let newItem = this.skillItemData.getItembyIndex(i);
@@ -73,18 +77,23 @@ cc.Class({
         let ItemUpLevelNode = event.detail.node;
         let parentNode = ItemUpLevelNode.parent;
 
-        //check có đủ tiền mua không WIP
+        //check có đủ tiền mua không 
+        if(this.currentMoney < event.detail.currentCostUpdate) return;
+        this.currentMoney -= event.detail.currentCostUpdate;
+        cc.sys.localStorage.setItem("Money", this.currentMoney);
 
+        ItemUpLevelNode.emit( 'updateItemLevel' , event);
         if (parentNode === this.ItemUnitShopContent) {
-            cc.log("Nằm trong ItemUnitShopContent"); // save local
+                    this.unitItemData.saveListData(event.detail.data);
         } else if (parentNode === this.ItemSkillShopContent) {
-            cc.log("Nằm trong ItemSkillShopContent");
+                   this.skillItemData.saveListData(event.detail.data);
         }  else {
-            cc.log("Không thuộc 3 node trên");
+            cc.log("Không thuộc 2 node trên");
         }
         
 
-        ItemUpLevelNode.emit( 'updateItemLevel' , event);
+        
+
 
 
 
