@@ -16,6 +16,7 @@ cc.Class({
         itemPrefab: cc.Prefab,
         itemDataPrefab: cc.Prefab,
 
+        lblMoney: cc.Label,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -36,6 +37,7 @@ cc.Class({
     initShop() {
         //read Json form Json
         this.currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
+        this.showMoney();
 
         this.unitItemData = this.itemNode.getComponent("UnitItemData");
         this.unitItemData.init();
@@ -81,6 +83,7 @@ cc.Class({
         if(this.currentMoney < event.detail.currentCostUpdate) return;
         this.currentMoney -= event.detail.currentCostUpdate;
         cc.sys.localStorage.setItem("Money", this.currentMoney);
+        this.showMoney();
 
         ItemUpLevelNode.emit( 'updateItemLevel' , event);
         if (parentNode === this.ItemUnitShopContent) {
@@ -99,6 +102,9 @@ cc.Class({
 
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
+    },
+    showMoney (){
+        this.lblMoney.string = this.currentMoney;
     },
     onDestroy() {
         this.node.of('updateLevel', this.upLevel, this);
