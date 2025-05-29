@@ -12,11 +12,16 @@ cc.Class({
         // foo: {
         SpriteList: [cc.SpriteFrame],
         IdList: [cc.Integer],
-        lvListSaveLocal : [cc.Integer],
         dataItem: cc.JsonAsset,
         itemPrefab : cc.Prefab,
 
+        jsonData : null,
+        DataArray : null,
 
+
+    },
+    init(){
+        this.node.on('saveData', this.saveListData, this);
     },
     getSpriteById(id) {
         let index = this.IdList.indexOf(id);
@@ -29,32 +34,51 @@ cc.Class({
         }
     },
     getLengthList(){
-        let ListData = getListFormData();
-        if (ListData && Array.isArray(ListData)) {
-            return ListData.length;
+        this.getListFormData();
+
+        if (this.DataArray && Array.isArray(this.DataArray)) {
+            return this.DataArray.length;
         } else {
             return -1;
         }
     },
-    getListFormData(){
-         //overwrite this func
-    },
+
     getItembyIndex(index){
         if(index == null) return;
-        let newItem = cc.instantiate(this.itemPrefab);
-
-        return newItem;
-    },
-    onLoad(){
-        this.dataJson;
-    },
-    start() {
-        //overwrite  this  =>   this.dataJson = this.unitDataJson.json.UnitData;
-
+        this.newItem = cc.instantiate(this.itemPrefab);
         
-    
-        
+        return this.newItem;
     },
+    getListFormData() {
+        try {
+            let jsonInventory = cc.sys.localStorage.getItem("InventoryData");
+            this.jsonData = jsonInventory ? JSON.parse(jsonInventory) : this.dataItem.json;
+            return this.checkDataArray();
+
+        } catch (err) {
+            console.log("Error when get Unit data json  " + err);
+            return null;
+        }
+    },
+    checkDataArray(){
+
+    },
+    saveListData(){
+        if (this.jsonData) {
+            cc.sys.localStorage.setItem("InventoryData", JSON.stringify(this.jsonData));
+        } else {
+            cc.log("Không có dữ liệu để lưu");
+        }
+    },
+    updateItemArrayById(Id , data ){
+        if(!this.DataArray) return;
+        this.DataArray[Id] = data;
+
+    },
+    onDestroy(){
+        this.node.on('saveData', this.saveListData, this);
+    }
+
 
 
 });

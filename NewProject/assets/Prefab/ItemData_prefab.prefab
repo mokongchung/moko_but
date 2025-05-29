@@ -89,31 +89,31 @@
     "_enabled": true,
     "SpriteList": [
       {
-        "__uuid__": "0a443b5a-af9c-4843-915f-b41349853bae"
+        "__uuid__": "9640b694-2c65-4a33-8e73-f1e7334f472e"
       },
       {
-        "__uuid__": "7b22d40a-5cad-4cf4-82e1-dd552734e155"
+        "__uuid__": "b357f783-9fd5-46c8-bc2c-5170daa6eea0"
       },
       {
-        "__uuid__": "32298820-fd8e-43ea-a232-0dc3d8591ec3"
+        "__uuid__": "a7936f4b-b242-4601-859d-b4014020a9aa"
       },
       {
-        "__uuid__": "02f57852-fead-4bb5-978b-d135ea764f0d"
+        "__uuid__": "cf2a929e-f09a-4361-bcd0-7a5d334951a1"
       },
       {
-        "__uuid__": "14d69723-6793-4365-a579-c12a41638285"
+        "__uuid__": "265eca79-7d68-4b1b-8fd3-048d76f7fa50"
       },
       {
-        "__uuid__": "f3a06627-c5b1-4253-8cb8-a6f0ae3d996a"
+        "__uuid__": "e29abec5-f4b7-4989-9a5d-b0b30525cf23"
       },
       {
-        "__uuid__": "c4f6bd76-ed76-4f6c-bf61-c9c07a084884"
+        "__uuid__": "5ce022c4-f2e2-4246-9fff-99f45104b0d5"
       },
       {
-        "__uuid__": "b5c2953f-7053-4a41-9aa2-da4349cc5333"
+        "__uuid__": "36296fae-11cc-4d6b-a2d3-b39c9b2c7051"
       },
       {
-        "__uuid__": "b6c88f67-9758-460f-80ba-004c1c2bf579"
+        "__uuid__": "bced451d-c950-46b5-90d9-5f827f4d3b80"
       }
     ],
     "IdList": [
@@ -127,8 +127,22 @@
       5,
       4
     ],
+    "lvListSaveLocal": [
+      1,
+      2,
+      2,
+      3,
+      4,
+      3,
+      2,
+      5,
+      25
+    ],
     "dataItem": {
       "__uuid__": "8860cd4b-a7bf-4399-8a44-081bd0d768c5"
+    },
+    "itemPrefab": {
+      "__uuid__": "b6767b1a-2f85-48c7-b26b-78b3a16ef45b"
     },
     "_id": ""
   },
@@ -142,7 +156,9 @@
     "_enabled": true,
     "SpriteList": [],
     "IdList": [],
+    "lvListSaveLocal": [],
     "dataItem": null,
+    "itemPrefab": null,
     "_id": ""
   },
   {
@@ -155,7 +171,9 @@
     "_enabled": true,
     "SpriteList": [],
     "IdList": [],
+    "lvListSaveLocal": [],
     "dataItem": null,
+    "itemPrefab": null,
     "_id": ""
   },
   {

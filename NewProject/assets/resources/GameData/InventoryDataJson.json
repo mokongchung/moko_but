@@ -3,7 +3,7 @@
     {
       "id": 1,
       "type": "enemy",
-      "name": "FourFeets",
+      "name": "Four eets",
       "hp": 100,
       "atk": 10,
       "speed": 20,

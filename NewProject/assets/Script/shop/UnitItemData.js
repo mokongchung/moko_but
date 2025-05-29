@@ -4,26 +4,27 @@ cc.Class({
     extends: BaseItemData,
 
 
-    getListFormData(){
-        try{
-         return this.dataItem.json.UnitData;
-        }catch(err){
-            console.log("Error when get Unit data json  "+ err);
-            return null;
-        }
-    },
-    getItembyIndex(index){
-        let newItem = super.getItemByIndex(index);
-        if (!newItem) return;
-
-        let newItemScript = newItem.getComponent("itemScript");
-        newItemScript.init(this.dataJson.id, this.getSpriteByIdthis.dataJson.id, this.dataJson.name, this.lvListSaveLocal[index], this.dataJson.costUpdate);
-        return newItem;
-    },
-    start() {
-
-        this.dataJson = this.unitDataJson.json.UnitData;
+    checkDataArray(){
+        if (!this.jsonData) return;
+        return this.DataArray = this.jsonData.UnitData;
     },
 
-    
+    getItembyIndex(index) {
+        this._super(index);
+        //let newItem = BaseItemData.prototype.getItemByIndex.call(this, index);
+        if (!this.newItem) return;
+
+        let newItemScript = this.newItem.getComponent("itemScript");
+
+        let id = this.DataArray[index].id;
+
+        let indexId = this.IdList.indexOf(id);
+        if (indexId < 0) return null;
+
+        newItemScript.init(id, this.getSpriteById(id), this.DataArray[index]);
+        return this.newItem;
+    },
+
+
+
 });

@@ -20,11 +20,11 @@ let GameController = cc.Class({
         GameController._instance = this;
 
         cc.game.addPersistRootNode(this.node);
-        this._init(); 
+        this._init();
 
         this.unitInit();
 
-        this.Level = 0; 
+        this.Level = 0;
         this.TurialPanel = true;
 
     },
@@ -38,9 +38,9 @@ let GameController = cc.Class({
         this.data = this._loadData();
         if (!this.data.levels[1]) {
             console.log("Khởi tạo dữ liệu level 1");
-        this.data.levels[1] = { Unlocked: true, stars: 0 };
-        this._saveData();
-    }
+            this.data.levels[1] = { Unlocked: true, stars: 0 };
+            this._saveData();
+        }
     },
 
     _loadData() {
@@ -51,6 +51,7 @@ let GameController = cc.Class({
     _saveData() {
         cc.sys.localStorage.setItem("levelData", JSON.stringify(this.data));
     },
+
 
     saveLevel(level, stars) {
         const current = this.data.levels[level] || { Unlocked: false, stars: 0 };
@@ -84,44 +85,44 @@ let GameController = cc.Class({
 
     resetAll() {
         this.data = { levels: {} };
-         this.data.levels[1] = { Unlocked: true, stars: 0 };
-         this.TurialPanel = true;
+        this.data.levels[1] = { Unlocked: true, stars: 0 };
+        this.TurialPanel = true;
         this._saveData();
     },
 
-unitInit() {
+    unitInit() {
 
-                const rawData = this.UnitDataJson.json;
+        const rawData = this.UnitDataJson.json;
 
-                this.cachedDataList = rawData.UnitData;
-                console.log("JSon OK Load XOng:", this.cachedDataList);
-         
+        this.cachedDataList = rawData.UnitData;
+        console.log("JSon OK Load XOng:", this.cachedDataList);
+
 
     },
 
-GetCharInfo(name) {
-    if (!this.cachedDataList) {
-        console.warn("cachedDataList Null");
-        return null;
-    }
+    GetCharInfo(name) {
+        if (!this.cachedDataList) {
+            console.warn("cachedDataList Null");
+            return null;
+        }
 
-    return this.cachedDataList.find(item => item.name === name) || null;
-},
-
-
+        return this.cachedDataList.find(item => item.name === name) || null;
+    },
 
 
 
-GameTurial() {
-    if (this.TurialPanel) {
-       // this.TurialPanel = false;
-        return true;
-      }
-      else {
-        //this.TurialPanel = true;
-        return false;
-      }
-        
+
+
+    GameTurial() {
+        if (this.TurialPanel) {
+            // this.TurialPanel = false;
+            return true;
+        }
+        else {
+            //this.TurialPanel = true;
+            return false;
+        }
+
     }
 
 });

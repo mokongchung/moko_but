@@ -23,7 +23,7 @@ cc.Class({
     // onLoad () {},
 
     start() {
-        let itemNode = cc.instantiate(this.itemDataPrefab);
+        this.itemNode = cc.instantiate(this.itemDataPrefab);
 
         this.node.on('updateLevel', this.updateLevelItem, this);
         this.unitItemData;
@@ -35,12 +35,13 @@ cc.Class({
     initShop() {
         //read Json form Json
 
-        this.unitItemData = itemNode.getComponent("UnitItemData");
-        this.skillItemData = itemNode.getComponent("SkillItemData");
-        this.subDefItemData = itemNode.getComponent("SubDefItemData");
+        this.unitItemData = this.itemNode.getComponent("UnitItemData");
+        this.unitItemData.init();
+        this.skillItemData = this.itemNode.getComponent("SkillItemData");
+        //this.subDefItemData = this.itemNode.getComponent("SubDefItemData");
 
        
-        if (unitItemData) {
+        if (this.unitItemData) {
             for(let i = 0 ; i < this.unitItemData.getLengthList(); i++){
                 let newItem = this.unitItemData.getItembyIndex(i);
                 if(newItem){
@@ -48,7 +49,7 @@ cc.Class({
                 }
             }
         }
-
+        /*
         if (skillItemData) {
             for(let i = 0 ; i < this.skillItemData.getLengthList(); i++){
                 let newItem = this.skillItemData.getItembyIndex(i);
@@ -65,30 +66,33 @@ cc.Class({
                     this.ItemSkillShopContent.addChild(newItem);
                 }
             }
-        }
-        this.node.parent.addChild(newBullet);
+        }*/
 
     },
     updateLevelItem(event){
         let ItemUpLevelNode = event.detail.node;
         let parentNode = ItemUpLevelNode.parent;
 
+        //check có đủ tiền mua không WIP
+
         if (parentNode === this.ItemUnitShopContent) {
             cc.log("Nằm trong ItemUnitShopContent"); // save local
         } else if (parentNode === this.ItemSkillShopContent) {
             cc.log("Nằm trong ItemSkillShopContent");
-        } else if (parentNode === this.ItemSubDefShopContent) {
-            cc.log("Nằm trong ItemSubDefShopContent");
-        } else {
+        }  else {
             cc.log("Không thuộc 3 node trên");
         }
+        
 
-        ItemUpLevelNode.emit( 'updateLevel' , event);
+        ItemUpLevelNode.emit( 'updateItemLevel' , event);
 
 
 
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
+    },
+    onDestroy() {
+        this.node.of('updateLevel', this.upLevel, this);
     }
 
     // update (dt) {},
