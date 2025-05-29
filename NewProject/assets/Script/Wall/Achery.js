@@ -1,25 +1,22 @@
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
         BulletPrefab: cc.Prefab,
-        enemy: cc.Node, // node enemy
+        enemy: cc.Node,
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
-     onLoad () 
-     {
+    onEnable () {
+         this.animation = this.node.getComponent(cc.Animation);
+        this.animation.play("ArcherW3Idle");
         this.node.on('see_enemy', this.seeEnemy, this);
         this.node.on('enemy_exit', this.exitEnemy, this);
-
-        this._firstEnemy = null;
-     },
-
-    start () {
-        this.animation = this.node.getComponent(cc.Animation);
+        this.ListEnemy = [];
     },
+
+    // start () {
+       
+    // },
 
     createBullet() {
         if (!this.BulletPrefab) {
@@ -30,32 +27,52 @@ cc.Class({
         let newBullet = cc.instantiate(this.BulletPrefab);
         newBullet.setPosition(this.node.getPosition());
 
-        let bulletCombat = newBullet.getComponent("TowerBullet"); // tên script gắn trên prefab
+        let bulletCombat = newBullet.getComponent("TowerBullet");
         if (bulletCombat) {
-            bulletCombat.enemy = this._firstEnemy.node || null; // đảm bảo enemy được gán hoặc null
+            let firstEnemy = this.ListEnemy[0].node;
+
+            if (
+              firstEnemy &&
+              firstEnemy.active
+            ) {
+                console.log("Truyền Enemy to Arrow");
+                bulletCombat.enemy = firstEnemy;
+            } else {
+                console.warn("Lỗi không truyền được enemy:", firstEnemy);
+                bulletCombat.enemy = firstEnemy;
+                this.ListEnemy.shift(); // xóa phần tử lỗi ra khỏi danh sách
+                if (this.ListEnemy.length === 0) {
+                this.animation.play("ArcherW3Idle");
+            }
+            }
         }
 
         this.node.parent.addChild(newBullet);
     },
 
-
     seeEnemy(event) {
         let enemyNode = event.detail.node;
 
-        if (!this._firstEnemy) {
-            this._firstEnemy = enemyNode;
-            this.animation.play("ArcherW3Atack");
-
+        if (!this.ListEnemy.includes(enemyNode)) {
+            this.ListEnemy.push(enemyNode);
+            if (this.ListEnemy.length === 1) {
+                this.animation.play("ArcherW3Atack");
+            }
+            
         }
     },
 
     exitEnemy(event) {
         let enemyNode = event.detail.node;
 
-        if (this._firstEnemy === enemyNode) {
+        let index = this.ListEnemy.indexOf(enemyNode);
+        if (index !== -1) {
+            this.ListEnemy.splice(index, 1);
+        }
+
+        if (this.ListEnemy.length === 0) {
             this.animation.play("AcherW3Idle");
-            this._firstEnemy = null;
-        } 
+        }
     },
 
     onDisable() {

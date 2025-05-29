@@ -22,6 +22,8 @@ cc.Class({
         
         TutorialPanel: cc.Node,
         TutorialPanelBtn: cc.Node  ,
+        TurialMoveLeft: cc.Node,
+        TurialMoveRight:cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -31,10 +33,15 @@ cc.Class({
         this._lastTouchPos = null;
         this._mousePos = null; // 👈 thêm dòng này
 
+        this.MoveLeftPressed=false;
+        this.MoveRightPressed=false;
+        this.KeyInput();
 
         this._originalMusicVolume = 1.0;
         this._originalSfxVolume = 1.0;
         this._originalMasterVolume = 1.0;
+
+
 
         // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         // this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -74,8 +81,42 @@ cc.Class({
         this.TutorialPanel.active = false;
             cc.director.resume();
         this.TutorialPanelBtn.active = false;
-
+        this.TurialMoveRight.active=true;
         
+    },
+
+    KeyInput()
+    {
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function(event) {
+            if (event.keyCode === cc.macro.KEY.a || event.keyCode === cc.macro.KEY.left) 
+            {
+                
+                this.MoveRightPressed=false;
+                this.MoveLeftPressed=true;
+                console.log("LEFT INPUT" + this.MoveLeftPressed);
+            }
+            else if(event.keyCode === cc.macro.KEY.d || event.keyCode === cc.macro.KEY.right)
+            {
+                
+                this.MoveRightPressed=true;
+                this.MoveLeftPressed=false;
+                console.log("Right INPUT" + this.MoveRightPressed);
+            }
+        }, this);
+
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function(event) {
+            if (event.keyCode === cc.macro.KEY.a || event.keyCode === cc.macro.KEY.left) {
+               
+                this.MoveLeftPressed=false;
+
+               
+            }
+            else if(event.keyCode === cc.macro.KEY.d || event.keyCode === cc.macro.KEY.right)
+            {
+                this.MoveRightPressed=false;
+
+            }
+        }, this);
     },
 
     update(dt) {
@@ -93,10 +134,18 @@ cc.Class({
 
         let newX = this.cameraNode.x;
 
-        if (mousePos.x <= this.edgeScrollThreshold) {
+        if (mousePos.x <= this.edgeScrollThreshold || this.MoveLeftPressed) {
             newX -= this.edgeScrollSpeed * dt;
-        } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold) {
+                if(this.TurialMoveLeft)
+                    this.TurialMoveLeft.destroy();
+        } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold || this.MoveRightPressed) {
             newX += this.edgeScrollSpeed * dt;
+             if(this.TurialMoveRight)
+                 {
+                      this.TurialMoveRight.destroy();
+                      this.TurialMoveLeft.active=true;
+                 }
+            
         }
 
         newX = Math.max(minX, Math.min(newX, maxX));
@@ -126,10 +175,24 @@ cc.Class({
             let GameWinScript = this.GameWinUI.getComponent("GameWinScript");
             GameWinScript.PlayerHP = HP;
             GameWinScript.StarCall();
+            this.SaveMoney(HP);
         }
 
        cc.director.pause();
     });
+    },
+
+    SaveMoney(value)
+    {
+        ////////khi cần lấy ra thì gọi lại dòng dưới
+        let currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
+
+        currentMoney += value;
+
+        cc.sys.localStorage.setItem("Money", currentMoney);
+        console.log("THÊM TIỀN: "+ parseInt(cc.sys.localStorage.getItem("Money") || "0"));
+
+       
     },
 
     // onTouchStart(event) {

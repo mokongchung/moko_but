@@ -1,9 +1,4 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
+
 let GameController = require('GameCtrl');
 let BaseCastle = require('BaseCastle');
 cc.Class({
@@ -30,7 +25,7 @@ cc.Class({
     },
 
     AIWhoWillPlaythisGame() {
-    let spawnRates = [1, 49+25, 15, 7, 3]; // tỷ lệ spawn cho các Index 0-4
+    let spawnRates = [50, 25, 15, 7, 3]; // tỷ lệ spawn cho các Index 0-4
     let totalRate = spawnRates.reduce((a, b) => a + b, 0);
 
     // Hàm chọn index theo tỉ lệ

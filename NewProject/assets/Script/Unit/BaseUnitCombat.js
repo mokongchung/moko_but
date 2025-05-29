@@ -41,6 +41,7 @@ cc.Class({
         this.animation = this.node.getComponent(cc.Animation);
         this.initData();
         this.init();
+        this.attacker=null;
     },
 
     start() {
@@ -91,14 +92,16 @@ cc.Class({
         // Chặn không cho sự kiện lan tiếp
         event.stopPropagation();
     },
-    exitEnemy(event) {
+   exitEnemy(event) {
         let enemyNode = event.detail.node;
-        let index = this.enemy.indexOf(enemyNode);
+        let index = this.enemy.indexOf(enemyNode.node); // Sửa dòng này
         if (index !== -1) {
+            console.log("ENEMY EXIT: " + enemyNode.node.name);
             this.enemy.splice(index, 1);
         }
         this.checkEnemy();
     },
+
 
     enemyDead() {
         console.log("enemy dead");
@@ -180,6 +183,7 @@ cc.Class({
         //console.log(" nhận take dmg "+ event.detail.dmg);
 
         let dmgTake = event.detail.dmg;
+        this.attacker =event.detail.attacker;
         console.log("take dmg " + dmgTake + " hp " + this.hp);
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp;
         //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
@@ -221,6 +225,7 @@ cc.Class({
     },
 
     dead() {
+ 
         this.node.active = false;
         this.stopMove();
         this.node.off('see_enemy', this.seeEnemy, this);

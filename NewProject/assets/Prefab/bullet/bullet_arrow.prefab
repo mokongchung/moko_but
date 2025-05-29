@@ -279,8 +279,7 @@
     },
     "_enabled": true,
     "speed": 50,
-    "atk": 10,
-    "aoe": false,
+    "atk": 50,
     "TargetEnemy": null,
     "_id": ""
   },

@@ -14,7 +14,7 @@ cc.Class({
 
     AcherReady() {
         this.AcherNode.active = true;
-        this.AcherNode.getComponent(cc.Animation).play("ArcherW3Idle");
+     
     },
 
      takeDmg(event) 

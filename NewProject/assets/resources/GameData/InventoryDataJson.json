@@ -18,7 +18,7 @@
       "name": "Dark Wizard",
       "hp": 200,
       "atk": 20,
-      "speed": 15,
+      "speed": 200,
       "attackSpeed": 0.6,
       "costPawn" : 20,
       "costUpdate" : [100,200,300,400,500],
