@@ -46,7 +46,9 @@ cc.Class({
 
             this.Money.Money -= this.Money.SummonPrice[Index];
              const player = PoolManager.getInstance().getPlayer(Index,this.Spawner);
-            player.getComponent("unit_combat").Index = Index;
+            //player.getComponent("unit_combat").Index = Index;
+            let comp = player.getComponent("BaseUnitCombat") || enemy.getComponent("UnitRangeCombat");
+            comp.Index=Index;
             player.setPosition(this.RandomPosition());
             //player.node.active = true;
             if(this.Money.Money < this.Money.SummonPrice[Index])
@@ -63,7 +65,7 @@ cc.Class({
         // - monny enemy
         const enemy = PoolManager.getInstance().getEnemy(Index,holder);
 
-        let comp = enemy.getComponent("unit_combat") || enemy.getComponent("UnitRangeCombat");
+        let comp = enemy.getComponent("BaseUnitCombat") || enemy.getComponent("UnitRangeCombat");
 
         if (comp) {
             comp.Index = Index; 

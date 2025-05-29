@@ -3455,7 +3455,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Label",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 69
     },
@@ -4802,7 +4802,7 @@
         "__id__": 101
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 538
@@ -25860,15 +25860,9 @@
       "__id__": 100
     },
     "_enabled": true,
-    "ItemUnitShop": {
-      "__id__": 113
-    },
-    "ItemSkillShop": {
-      "__id__": 218
-    },
-    "ItemSubDefShop": {
-      "__id__": 423
-    },
+    "ItemUnitShopContent": null,
+    "ItemSkillShopContent": null,
+    "ItemSubDefShopContent": null,
     "itemPrefab": {
       "__uuid__": "b6767b1a-2f85-48c7-b26b-78b3a16ef45b"
     },

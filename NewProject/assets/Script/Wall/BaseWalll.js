@@ -15,17 +15,23 @@ cc.Class({
     onEnable () 
     {
         // cc.director.getCollisionManager().enabled = true;
-        this.hpMax = 100;
+        this.animation = this.getComponent(cc.Animation);
+        this.animation.play("BuildW");    
+        this.hpMax = 1000;
         this.hp = this.hpMax;
 
         this.node.on('takeDmg', this.takeDmg, this);
         this.hpBar.progress = (this.hp  / this.hpMax);
-
+        this.SendBuildInfo(true);
     },
 
-    start () {
-        this.animation = this.getComponent(cc.Animation);
-
+    SendBuildInfo(bool)
+    {
+            const event = new cc.Event.EventCustom('BuildingInfo', true); 
+            event.detail = {
+                HaveBuilding: bool
+            };
+            this.node.dispatchEvent(event);
     },
     takeDmg(event){
         if (!event || !event.detail) {
@@ -53,6 +59,7 @@ cc.Class({
         }
     },
     dead(index) {
+        this.SendBuildInfo(false);
         console.log("dead wall" + index);
         this.node.off('takeDmg', this.takeDmg, this);
         pool.getInstance().putWall(index, this.node);

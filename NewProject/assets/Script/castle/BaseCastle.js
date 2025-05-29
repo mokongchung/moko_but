@@ -177,12 +177,13 @@ cc.Class({
     },
 
     onGlobalClick(event) {
+
         // Nếu đang di chuyển và click bất cứ đâu → tắt di chuyển
         cc.Canvas.instance.node.off(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this);
         cc.Canvas.instance.node.off(cc.Node.EventType.TOUCH_START, this.onGlobalClick, this);
 
             this.CastSpellsprite.active = false;
-           
+                console.log("Skill 2 Called");
                 this.Skill2();
             
         

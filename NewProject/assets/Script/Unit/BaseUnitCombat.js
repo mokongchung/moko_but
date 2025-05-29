@@ -41,6 +41,7 @@ cc.Class({
         this.animation = this.node.getComponent(cc.Animation);
         this.initData();
         this.init();
+        this.attacker=null;
     },
 
     start() {
@@ -180,6 +181,7 @@ cc.Class({
         //console.log(" nhận take dmg "+ event.detail.dmg);
 
         let dmgTake = event.detail.dmg;
+        this.attacker =event.detail.attacker;
         console.log("take dmg " + dmgTake + " hp " + this.hp);
         (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp;
         //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
@@ -221,6 +223,7 @@ cc.Class({
     },
 
     dead() {
+ 
         this.node.active = false;
         this.stopMove();
         this.node.off('see_enemy', this.seeEnemy, this);

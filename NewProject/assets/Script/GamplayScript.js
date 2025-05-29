@@ -31,10 +31,15 @@ cc.Class({
         this._lastTouchPos = null;
         this._mousePos = null; // 👈 thêm dòng này
 
+        this.MoveLeftPressed=false;
+        this.MoveRightPressed=false;
+        this.KeyInput();
 
         this._originalMusicVolume = 1.0;
         this._originalSfxVolume = 1.0;
         this._originalMasterVolume = 1.0;
+
+
 
         // this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
         // this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -78,6 +83,38 @@ cc.Class({
         
     },
 
+    KeyInput()
+    {
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function(event) {
+            if (event.keyCode === cc.macro.KEY.a || event.keyCode === cc.macro.KEY.left) 
+            {
+                
+                this.MoveRightPressed=false;
+                this.MoveLeftPressed=true;
+                console.log("LEFT INPUT" + this.MoveLeftPressed);
+            }
+            else if(event.keyCode === cc.macro.KEY.d || event.keyCode === cc.macro.KEY.right)
+            {
+                
+                this.MoveRightPressed=true;
+                this.MoveLeftPressed=false;
+                console.log("Right INPUT" + this.MoveRightPressed);
+            }
+        }, this);
+
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function(event) {
+            if (event.keyCode === cc.macro.KEY.a || event.keyCode === cc.macro.KEY.left) {
+               
+                this.MoveLeftPressed=false;
+            }
+            else if(event.keyCode === cc.macro.KEY.d || event.keyCode === cc.macro.KEY.right)
+            {
+                this.MoveRightPressed=false;
+
+            }
+        }, this);
+    },
+
     update(dt) {
         if (!this.cameraNode || !this.backgroundNode || !this._mousePos) return;
 
@@ -93,10 +130,11 @@ cc.Class({
 
         let newX = this.cameraNode.x;
 
-        if (mousePos.x <= this.edgeScrollThreshold) {
+        if (mousePos.x <= this.edgeScrollThreshold || this.MoveLeftPressed) {
             newX -= this.edgeScrollSpeed * dt;
-        } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold) {
+        } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold || this.MoveRightPressed) {
             newX += this.edgeScrollSpeed * dt;
+            
         }
 
         newX = Math.max(minX, Math.min(newX, maxX));
