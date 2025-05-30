@@ -508,7 +508,7 @@
     ],
     "bulletSpeed": 100,
     "Index": 0,
-    "isPlayer": true,
+    "isPlayer": false,
     "bulletPrefab": null,
     "hpBar": {
       "__id__": 7

@@ -4,6 +4,9 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+
+        PlayerCastle:cc.Node,
+
         edgeScrollThreshold: 20, // Khoảng cách đến rìa màn hình để bắt đầu cuộn
         edgeScrollSpeed: 200,    // Tốc độ cuộn rìa tính theo px/s
         dragSpeed: 0.1, // Tốc độ kéo camera
@@ -157,15 +160,15 @@ cc.Class({
 
 
 
-    requestHPFromPlayer(callback) {
-    cc.director.emit("RequestHP", (hp) => {
-        callback(hp); // Gửi HP về callback
-    });
-    },
+    // requestHPFromPlayer(callback) {
+    // cc.director.emit("RequestHP", (hp) => {
+    //     callback(hp); // Gửi HP về callback
+    // });
+    // },
 
 
    onGameOver() {
-    this.requestHPFromPlayer((HP) => {
+    let HP= this.requestHPFromPlayer();
         cc.log("GameWinScript HP:", HP);
 
         if (HP <= 0) {
@@ -178,8 +181,14 @@ cc.Class({
             this.SaveMoney(HP);
         }
 
-       cc.director.pause();
-    });
+      // cc.director.pause();
+   
+    },
+
+    requestHPFromPlayer()
+    {
+        let HP=this.PlayerCastle.getComponent("CastleScript").Hp;
+        return Number(HP); 
     },
 
     SaveMoney(value)

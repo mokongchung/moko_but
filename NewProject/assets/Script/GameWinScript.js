@@ -19,10 +19,17 @@ cc.Class({
         
         
     },
+    onEnable() {
+        // Gọi mỗi khi GameWinUI active
+        console.log("GameWinScript enabled, calling StarCall");
+        this.StarCall();
+    },
+    
+
     StarCall() {
       
         console.log("StarCall" + this.PlayerHP);
-        this.ShowStars(this.PlayerHP);
+        this.ShowStars();
        
     },
 

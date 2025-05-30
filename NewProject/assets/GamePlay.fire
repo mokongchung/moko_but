@@ -813,7 +813,7 @@
     "Skill1Charge": 40,
     "Skill2Charge": 80,
     "hpMax": 100,
-    "MoneySpeed": 8,
+    "MoneySpeed": 20,
     "ManaRegenSpeed": 5,
     "Skill1Level": 1,
     "Skill2Level": 1,
@@ -9847,6 +9847,9 @@
       "__id__": 83
     },
     "_enabled": true,
+    "PlayerCastle": {
+      "__id__": 12
+    },
     "edgeScrollThreshold": 50,
     "edgeScrollSpeed": 400,
     "dragSpeed": 0.5,
