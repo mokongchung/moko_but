@@ -3118,7 +3118,7 @@
     "Skill2Charge": 80,
     "hpMax": 10000,
     "MoneySpeed": 20,
-    "ManaRegenSpeed": 5,
+    "ManaRegenSpeed": 2,
     "Skill1Level": 1,
     "Skill2Level": 1,
     "GamePlay": {
@@ -18977,7 +18977,7 @@
       "__id__": 11
     },
     "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
+      "__uuid__": "31ea9de8-7fff-41ed-8240-5f2e88680aeb"
     },
     "fileId": "",
     "sync": false
