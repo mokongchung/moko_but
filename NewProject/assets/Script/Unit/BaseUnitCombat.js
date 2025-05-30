@@ -201,8 +201,10 @@ cc.Class({
     },
     dealDmg(comboHit = 0, aoe = false) {
         let dmgDeal = this.atk;
-        if ((comboHit > 0) && ((this.dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined))) {
-            dmgDeal *= this.dmgRateCombo[comboHit - 1];
+        if( this.dmgRateCombo != null){
+            if ((comboHit > 0) && ((this.dmgRateCombo.length > 0) || (this.dmgRateCombo[comboHit - 1] !== undefined))) {
+                dmgDeal *= this.dmgRateCombo[comboHit - 1];
+            }
         }
 
 
