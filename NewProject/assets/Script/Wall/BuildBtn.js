@@ -5,7 +5,10 @@ cc.Class({
 
     properties: {
         BtnBuild: [cc.Button],
+        Pricelabel: [cc.Label],
         BtnOpen: cc.Button,
+        BasePrice: 75,
+        MoneySprite: cc.Node,
     },
 
     onLoad() {
@@ -20,11 +23,42 @@ cc.Class({
         }
     },
 
+    start()
+    {
+        this.MoneyCall=this.MoneySprite.getComponent("CastleScript");
+        this.SetMoney();
+    },
     Buildbtn(event, customEventData) {
         let index = parseInt(customEventData);
         console.log("INDEX WALL" + index)  // convert từ string sang số nếu cần
-        const Wall = PoolManager.getInstance().getWall(index, this.node.parent);
-        this.node.active = false;
+        if(this.MoneyCall.Money>= BasePrice*(index+1))
+        {
+            this.MoneyCall.Money-=BasePrice*(index+1);
+            const Wall = PoolManager.getInstance().getWall(index, this.node.parent);
+            this.node.active = false;
+        }
+        else
+        {
+            this.NotEnoughMoney(Pricelabel[index]);
+        }
+    },
+
+    SetMoney()
+    {
+        for (let i = 0; i < this.Pricelabel.length; i++) {
+             this.PriceLabel[i].string = this.BasePrice*(i+1);
+        }
+    },
+
+     NotEnoughMoney(Label) {
+        // Nếu tiền không đủ, label CastlePrice chớp đỏ rồi trở lại trắng
+        let label = Label.node.getComponent(cc.Label);
+        cc.tween(Label.node)
+            .to(0.1, { color: cc.Color.RED })
+            .to(0.1, { color: cc.Color.WHITE })
+            .to(0.1, { color: cc.Color.RED })
+            .to(0.1, { color: cc.Color.WHITE })
+            .start();
     },
 
 
