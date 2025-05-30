@@ -20,7 +20,7 @@ cc.Class({
         SummonPrice: [cc.Integer],
         Skill1Charge: 40,
         Skill2Charge: 80,
-        hpMax: 10000,
+        hpMax: 100,
         MoneySpeed: 0,
         ManaRegenSpeed: 0,
 

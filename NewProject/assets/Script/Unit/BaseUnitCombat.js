@@ -14,7 +14,7 @@ cc.Class({
         bulletSpeed: 100,
         Index: 0,
         isPlayer: true,
-        isDead : false,
+
         bulletPrefab: cc.Prefab,
         hpBar: cc.ProgressBar,
     },
@@ -110,7 +110,7 @@ cc.Class({
         //console.log("hp deddddd "+ this.hp + " % " + (this.hp  / this.hpMax) );
     },
     checkEnemyListEmpty() {
-        if (this.enemy.length == 0 && !this.dead) {
+        if (this.enemy.length == 0) {
             this.move();
 
         }
@@ -177,7 +177,6 @@ cc.Class({
             return;
         }
         if (this.hp <= 0) {
-            this.isDead = true;
             this.dead();
             return;
         }
