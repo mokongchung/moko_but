@@ -21,9 +21,10 @@ cc.Class({
     },
     onEnable() {
         // Gọi mỗi khi GameWinUI active
-        cc.director.pause();
         console.log("GameWinScript enabled, calling StarCall");
         this.StarCall();
+                cc.director.pause();
+
     },
     
 
@@ -77,18 +78,18 @@ cc.Class({
 
     showStarWithTween(starNode, delay, isLastStar) {
     starNode.active = true;
-    starNode.scale = 0.1;
+    // starNode.scale = 0.1;
 
-    cc.tween(starNode)
-        .delay(delay)
-        .to(0.3, { scale: 1 }, { easing: 'backOut' })
-        .call(() => {
-            if (isLastStar) {
-                cc.director.pause(); // ✅ chỉ pause sau khi tween cuối cùng xong
+    // cc.tween(starNode)
+    //     .delay(delay)
+    //     .to(0.3, { scale: 1 }, { easing: 'backOut' })
+    //     .call(() => {
+    //         if (isLastStar) {
+    //             cc.director.pause(); // ✅ chỉ pause sau khi tween cuối cùng xong
                 
-            }
-        })
-        .start();
-    },
+    //         }
+    //     })
+    //     .start();
+     },
 
 });
