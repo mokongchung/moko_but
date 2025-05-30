@@ -26,7 +26,7 @@ cc.Class({
 
         let otherName = other.node.group;
 
-        if (otherName === 'a_hitbox' && !this.HaveBuilding) {
+        if (otherName === 'a_hitbox' && !this.HaveBuilding && !this.BuildBtn.active ) {
             console.log("Quân ta Qua đồn");
 
             this.TweenProgress();
