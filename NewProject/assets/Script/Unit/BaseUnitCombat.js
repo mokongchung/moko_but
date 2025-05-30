@@ -21,6 +21,7 @@ cc.Class({
 
     initData() {
         let CharData = GameController.getInstance().GetCharInfo(this.CharName);
+        
         this.hpMax = CharData.hp * Math.pow(1.1, CharData.level - 1);
         this.moveSpeed = CharData.speed;
         this.atk = CharData.atk * Math.pow(1.1, CharData.level - 1);
