@@ -260,7 +260,7 @@ cc.Class({
             this.MoneyBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
         }
         let SpeedUp = 1 + 0.375 * level;
-        this.MoneySpeed = SpeedUp;
+        this.MoneySpeed += SpeedUp;
     },
     ManaRegenSpeedGainLV(level) {
         if (level > 0) {
@@ -268,7 +268,7 @@ cc.Class({
             this.ManaBoostLabel.string = "X" + (1 + 0.375 * level).toFixed(2);
         }
         let SpeedUp = 1 + 0.375 * level;// Max là 2.5 Min là 1 => (2.5-1)/4 = 0.375
-        this.ManaRegenSpeed = SpeedUp;
+        this.ManaRegenSpeed += SpeedUp;
     },
     CastleLevel(level) {
         this.CastleLv = level;
