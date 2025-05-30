@@ -65,8 +65,8 @@ cc.Class({
         // - monny enemy
         const enemy = PoolManager.getInstance().getEnemy(Index,holder);
 
-        let comp = enemy.getComponent("BaseUnitCombat") || enemy.getComponent("UnitRangeCombat");
-
+        let comp = enemy.getComponent("BaseUnitCombat") ;
+        return;
         if (comp) {
             comp.Index = Index; 
             comp.isPlayer = false; 

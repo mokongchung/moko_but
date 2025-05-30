@@ -507,7 +507,6 @@
       2
     ],
     "bulletSpeed": 100,
-    "bulletAOE": false,
     "Index": 0,
     "isPlayer": true,
     "bulletPrefab": null,
