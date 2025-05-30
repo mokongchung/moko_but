@@ -92,7 +92,15 @@ let GameController = cc.Class({
 
     unitInit() {
 
-        const rawData = this.UnitDataJson.json;
+        let jsonInventory = cc.sys.localStorage.getItem("InventoryData");
+        let rawData;
+        if (jsonInventory) {
+            rawData = JSON.parse(jsonInventory);
+        } else {
+            rawData = this.UnitDataJson.json;
+        }
+
+   
 
         this.cachedDataList = rawData.UnitData;
         console.log("JSon OK Load XOng:", this.cachedDataList);

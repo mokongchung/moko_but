@@ -1,7 +1,7 @@
 {
   "title": "NewProject",
   "packageName": "org.cocos2d.demo",
-  "startScene": "d97c7638-a838-4c62-887d-c30e7199707d",
+  "startScene": "c82f6073-dbff-43db-ba4e-d4a071b3c87d",
   "excludeScenes": [],
   "orientation": {
     "landscapeRight": true,
