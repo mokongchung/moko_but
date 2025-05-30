@@ -86,6 +86,8 @@ cc.Class({
 
         }
 
+        console.log("Max HP:" + this.hpMax);
+
     },
     CastleIdle(Number) {
         if (Number == 0)
@@ -109,7 +111,7 @@ cc.Class({
         this.ShakeHpBar();
         let dmgTake = event.detail.dmg;
         (this.Hp -= dmgTake) < 0 ? this.Hp = 0 : this.Hp;
-        //console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
+        console.log("hp castle"+ this.Hp + " % " + (this.Hp  / this.hpMax) );
 
         this.HpBar.progress = (this.Hp / this.hpMax);
 
