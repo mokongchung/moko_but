@@ -5,6 +5,7 @@ cc.Class({
     properties: {
         hpBar: cc.ProgressBar,
         atk : 10,
+        lv : 1,
     },
 
     onLoad () 
@@ -19,8 +20,8 @@ cc.Class({
         cc.director.getCollisionManager().enabled = true;
         this.animation = this.getComponent(cc.Animation);
         this.animation.play("BuildW");    
-        this.hpMax = 1000;
-        this.hp = this.hpMax;
+        this.hpMax = 1000 * this.lv;
+        this.hp = this.hpMax ;
 
         this.node.on('takeDmg', this.takeDmg, this);
         this.hpBar.progress = (this.hp  / this.hpMax);
