@@ -177,6 +177,13 @@ cc.Class({
         cc.log("GameWinScript HP:", HP);
 
         if (HP <= 0) {
+
+            let skillHolder = this.PlayerCastle.getComponent("CastleScript");
+
+            if (skillHolder && skillHolder.cancelSkill) {
+                skillHolder.cancelSkill();  // Gọi hàm hủy trong script
+            }
+
             this.GameOverUI.active = true;
             cc.director.pause();
         } else {

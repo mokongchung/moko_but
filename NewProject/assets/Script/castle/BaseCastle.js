@@ -244,6 +244,10 @@ cc.Class({
         // Đặt vị trí node mới tại trung tâm của SkillHolder
         newNode.setPosition(0, 0);
     },
+    cancelSkill(){
+        this.SkillHolder.removeAllChildren();
+        this.Skill2Holder.removeAllChildren();
+    },
     onDestroy() {
         cc.director.off("RequestHP", this._onRequestHP, this);
     },
