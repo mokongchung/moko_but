@@ -21504,9 +21504,7 @@
     "root": {
       "__id__": 442
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
@@ -24032,9 +24030,7 @@
     "root": {
       "__id__": 509
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
@@ -26560,9 +26556,7 @@
     "root": {
       "__id__": 576
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
@@ -29088,9 +29082,7 @@
     "root": {
       "__id__": 643
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
@@ -31616,9 +31608,7 @@
     "root": {
       "__id__": 710
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
@@ -34144,9 +34134,7 @@
     "root": {
       "__id__": 777
     },
-    "asset": {
-      "__uuid__": "1d3f1e23-ec20-4765-b679-3e15acac622b"
-    },
+    "asset": null,
     "fileId": "",
     "sync": false
   },
