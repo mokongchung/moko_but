@@ -81,8 +81,6 @@ cc.Class({
     start() {
 
     },
-    onDestroy() {
-        this.node.of('updateItemLevel', this.upLevel, this);
-    }
+
     // update (dt) {},
 });

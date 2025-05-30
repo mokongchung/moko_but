@@ -37,6 +37,11 @@ cc.Class({
     initShop() {
         //read Json form Json
         this.currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
+        if (isNaN(this.currentMoney)) {
+            cc.log("Giá trị không phải là số hợp lệ");
+            this.currentMoney = 0;
+        }
+   
         this.showMoney();
 
         this.unitItemData = this.itemNode.getComponent("UnitItemData");
@@ -80,8 +85,8 @@ cc.Class({
         let parentNode = ItemUpLevelNode.parent;
 
         //check có đủ tiền mua không 
-        if(this.currentMoney < event.detail.currentCostUpdate) return;
-        this.currentMoney -= event.detail.currentCostUpdate;
+        if(this.currentMoney < event.detail.costUpdate) return;
+        this.currentMoney -= event.detail.costUpdate;
         cc.sys.localStorage.setItem("Money", this.currentMoney);
         this.showMoney();
 
@@ -106,9 +111,6 @@ cc.Class({
     showMoney (){
         this.lblMoney.string = this.currentMoney;
     },
-    onDestroy() {
-        this.node.of('updateLevel', this.upLevel, this);
-    }
 
     // update (dt) {},
 });
