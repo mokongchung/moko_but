@@ -21,7 +21,7 @@ cc.Class({
        this.animation = this.node.getComponent(cc.Animation);
         this.SpawnerScript = this.node.getComponent('Spawner');
         this.node.on('takeDmg', this.takeDmg, this);
-        this.AIWhoWillPlaythisGame();
+       // this.AIWhoWillPlaythisGame();
     },
 
     AIWhoWillPlaythisGame() {

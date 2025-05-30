@@ -31,24 +31,24 @@ cc.Class({
     Buildbtn(event, customEventData) {
         let index = parseInt(customEventData);
         console.log("INDEX WALL" + index)  // convert từ string sang số nếu cần
-        if(this.MoneyCall.Money>= BasePrice*(index+1))
+        if(this.MoneyCall.Money>= this.BasePrice*(index+1))
         {
-            this.MoneyCall.Money-=BasePrice*(index+1);
+            this.MoneyCall.Money-= this.BasePrice*(index+1);
             const Wall = PoolManager.getInstance().getWall(index, this.node.parent);
             this.node.active = false;
         }
         else
         {
-            this.NotEnoughMoney(Pricelabel[index]);
+            this.NotEnoughMoney(this.Pricelabel[index]);
         }
     },
 
-    SetMoney()
-    {
+    SetMoney() {
         for (let i = 0; i < this.Pricelabel.length; i++) {
-             this.PriceLabel[i].string = this.BasePrice*(i+1);
+            this.Pricelabel[i].string = this.BasePrice * (i + 1);
         }
     },
+
 
      NotEnoughMoney(Label) {
         // Nếu tiền không đủ, label CastlePrice chớp đỏ rồi trở lại trắng
