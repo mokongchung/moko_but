@@ -3,6 +3,8 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        ProgressBar: cc.ProgressBar,
+
         BuildBtn: cc.Node,
 
         childNode: [cc.Node],
@@ -26,8 +28,8 @@ cc.Class({
 
         if (otherName === 'a_hitbox' && !this.HaveBuilding) {
             console.log("Quân ta Qua đồn");
-            this.BuildBtn.active=true;
             
+            this.TweenProgress();
         }
         else {
             
@@ -43,6 +45,20 @@ cc.Class({
         }
     },
 
+
+    TweenProgress()
+    {
+         this.ProgressBar.node.active=true;
+        this.ProgressBar.progress = 0;
+
+        cc.tween(this.ProgressBar)
+            .to(5, { progress: 1 })
+            .call(() => {
+                this.BuildBtn.active=true;
+                this.ProgressBar.node.active=false;
+            })
+            .start();
+    },
 
     onDestroy () {
         console.log("disable Runed");
