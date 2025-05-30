@@ -21,6 +21,7 @@ cc.Class({
     },
     onEnable() {
         // Gọi mỗi khi GameWinUI active
+        cc.director.pause();
         console.log("GameWinScript enabled, calling StarCall");
         this.StarCall();
     },

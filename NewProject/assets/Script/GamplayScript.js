@@ -173,6 +173,7 @@ cc.Class({
 
         if (HP <= 0) {
             this.GameOverUI.active = true;
+            cc.director.pause();
         } else {
             this.GameWinUI.active = true;
             let GameWinScript = this.GameWinUI.getComponent("GameWinScript");
