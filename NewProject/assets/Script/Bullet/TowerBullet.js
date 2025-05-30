@@ -3,7 +3,7 @@ cc.Class({
 
     properties: {
         enemy: cc.Node,
-        atk: 20, // Sát thương của viên đạn
+        atk: 20, 
     },
 
     onEnable () {
@@ -42,7 +42,7 @@ cc.Class({
 
     dealDmgToTarget(other){
         console.log("bullet dmg target");
-        let event = new cc.Event.EventCustom('takeDmg', true); // bubbling = true
+        let event = new cc.Event.EventCustom('takeDmg', true); 
         event.detail = { 
             dmg: this.atk ,    
         };

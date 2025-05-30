@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "enemy01_run",
+  "_name": "run",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.11666666666666667,
@@ -11,6 +11,12 @@
     "comps": {
       "cc.Sprite": {
         "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "539da164-6ec4-4aa9-8c2d-fbf63011af18"
+            }
+          },
           {
             "frame": 0.016666666666666666,
             "value": {

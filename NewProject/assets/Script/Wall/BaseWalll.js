@@ -48,10 +48,10 @@ cc.Class({
         if(!this.isdead)
         { 
             let dmgTake = event.detail.dmg;
-            console.log("take dmg " + dmgTake + " hp " + this.hp);
+          //  console.log("take dmg " + dmgTake + " hp " + this.hp);
             (this.hp -= dmgTake) < 0 ? this.hp = 0 : this.hp; 
             //console.log("hp "+ this.hp + " % " + (this.hp  / this.hpMax) );
-            console.log("hp " + this.hp + " / " + this.hpMax + " % " + (this.hp  / this.hpMax) );
+         //   console.log("hp " + this.hp + " / " + this.hpMax + " % " + (this.hp  / this.hpMax) );
             this.hpBar.progress = (this.hp  / this.hpMax);
 
             if(this.hp <= 0 ){

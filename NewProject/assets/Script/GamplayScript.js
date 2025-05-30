@@ -7,12 +7,12 @@ cc.Class({
 
         PlayerCastle:cc.Node,
 
-        edgeScrollThreshold: 20, // Khoảng cách đến rìa màn hình để bắt đầu cuộn
-        edgeScrollSpeed: 200,    // Tốc độ cuộn rìa tính theo px/s
-        dragSpeed: 0.1, // Tốc độ kéo camera
+        edgeScrollThreshold: 20, 
+        edgeScrollSpeed: 200,   
+        dragSpeed: 0.1, 
 
 
-        backgroundNode: cc.Node, // Node nền để kéo camera
+        backgroundNode: cc.Node, 
         cameraNode: cc.Node, 
 
         GameOverUI: cc.Node, 
@@ -34,7 +34,7 @@ cc.Class({
     onLoad() {
         this._isDragging = false;
         this._lastTouchPos = null;
-        this._mousePos = null; // 👈 thêm dòng này
+        this._mousePos = null; 
 
         this.MoveLeftPressed=false;
         this.MoveRightPressed=false;
@@ -65,18 +65,23 @@ cc.Class({
          //this.requestHPFromPlayer();
          this.Setvolume();
              console.log('BlackPanel node:', this.TutorialPanel);
+
         this.GameTutorial();
        //  this.BlackPanelTween();
     },
 
     GameTutorial() {
-         console.log("true or false + "+GameController.getInstance().GameTurial());
-         if(GameController.getInstance().GameTurial()) {
+         //console.log("true or false + "+GameController.getInstance().GameTurial());
+         if(GameController.getInstance().Level<2) {
             console.log('GameTutorial true' , this.TutorialPanel);
             this.TutorialPanel.active = true;
             this.scheduleOnce(() => {
                 cc.director.pause();
             }, 0.05);
+         }
+         else
+         {
+             this.TutorialPanelBtn.active = false;
          }
         
     },
@@ -143,7 +148,7 @@ cc.Class({
                     this.TurialMoveLeft.destroy();
         } else if (mousePos.x >= screenWidth - this.edgeScrollThreshold || this.MoveRightPressed) {
             newX += this.edgeScrollSpeed * dt;
-             if(this.TurialMoveRight)
+             if(this.TurialMoveRight.active)
                  {
                       this.TurialMoveRight.destroy();
                       this.TurialMoveLeft.active=true;
@@ -194,7 +199,6 @@ cc.Class({
 
     SaveMoney(value)
     {
-        ////////khi cần lấy ra thì gọi lại dòng dưới
         let currentMoney = parseInt(cc.sys.localStorage.getItem("Money") || "0");
 
         currentMoney += value;

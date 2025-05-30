@@ -31,16 +31,13 @@ cc.Class({
         if (bulletCombat) {
             let firstEnemy = this.ListEnemy[0].node;
 
-            if (
-              firstEnemy &&
-              firstEnemy.active
-            ) {
-                console.log("Truyền Enemy to Arrow");
+            if ( firstEnemy && firstEnemy.active) {
+               
                 bulletCombat.enemy = firstEnemy;
             } else {
-                console.warn("Lỗi không truyền được enemy:", firstEnemy);
+                
                 bulletCombat.enemy = firstEnemy;
-                this.ListEnemy.shift(); // xóa phần tử lỗi ra khỏi danh sách
+                this.ListEnemy.shift(); 
                 if (this.ListEnemy.length === 0) {
                 this.animation.play("ArcherW3Idle");
             }
